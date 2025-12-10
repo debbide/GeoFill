@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeoFill</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>🌍 GeoFill</h1>
+      <div class="ip-info" id="ipInfo">
+        <span class="loading">获取位置中...</span>
+      </div>
+    </header>
+
+    <section class="form-section">
+      <div class="field-group">
+        <label for="firstName">名</label>
+        <div class="input-wrapper">
+          <input type="text" id="firstName" placeholder="First Name">
+          <button class="refresh-btn" data-field="firstName" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="lastName">姓</label>
+        <div class="input-wrapper">
+          <input type="text" id="lastName" placeholder="Last Name">
+          <button class="refresh-btn" data-field="lastName" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="username">用户名</label>
+        <div class="input-wrapper">
+          <input type="text" id="username" placeholder="Username">
+          <button class="refresh-btn" data-field="username" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="email">邮箱</label>
+        <div class="input-wrapper">
+          <input type="text" id="email" placeholder="Email">
+          <button class="refresh-btn" data-field="email" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="emailDomainType">后缀</label>
+        <div class="input-wrapper email-domain-wrapper">
+          <select id="emailDomainType">
+            <option value="gmail.com">gmail.com</option>
+            <option value="outlook.com">outlook.com</option>
+            <option value="yahoo.com">yahoo.com</option>
+            <option value="hotmail.com">hotmail.com</option>
+            <option value="icloud.com">icloud.com</option>
+            <option value="protonmail.com">protonmail.com</option>
+            <option value="custom">✏️ 自定义</option>
+          </select>
+          <input type="text" id="customDomain" placeholder="example.com" style="display: none;">
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="password">密码</label>
+        <div class="input-wrapper">
+          <input type="text" id="password" placeholder="Password">
+          <button class="refresh-btn" data-field="password" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="phone">电话</label>
+        <div class="input-wrapper">
+          <input type="text" id="phone" placeholder="Phone">
+          <button class="refresh-btn" data-field="phone" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="address">地址</label>
+        <div class="input-wrapper">
+          <input type="text" id="address" placeholder="Address">
+          <button class="refresh-btn" data-field="address" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="city">城市</label>
+        <div class="input-wrapper">
+          <input type="text" id="city" placeholder="City">
+          <button class="refresh-btn" data-field="city" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="zipCode">邮编</label>
+        <div class="input-wrapper">
+          <input type="text" id="zipCode" placeholder="Zip Code">
+          <button class="refresh-btn" data-field="zipCode" title="重新生成">🔄</button>
+        </div>
+      </div>
+
+      <div class="field-group">
+        <label for="country">国家</label>
+        <div class="input-wrapper">
+          <select id="country">
+            <option value="United States">🇺🇸 United States</option>
+            <option value="United Kingdom">🇬🇧 United Kingdom</option>
+            <option value="Canada">🇨🇦 Canada</option>
+            <option value="Australia">🇦🇺 Australia</option>
+            <option value="China">🇨🇳 China</option>
+            <option value="Japan">🇯🇵 Japan</option>
+            <option value="South Korea">🇰🇷 South Korea</option>
+            <option value="Germany">🇩🇪 Germany</option>
+            <option value="France">🇫🇷 France</option>
+            <option value="Russia">🇷🇺 Russia</option>
+            <option value="Spain">🇪🇸 Spain</option>
+            <option value="Italy">🇮🇹 Italy</option>
+            <option value="Brazil">🇧🇷 Brazil</option>
+            <option value="India">🇮🇳 India</option>
+            <option value="Singapore">🇸🇬 Singapore</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <footer class="actions">
+      <button class="btn btn-secondary" id="regenerateAll">🔄 重新生成</button>
+      <button class="btn btn-primary" id="fillForm">✍️ 填写表单</button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>
