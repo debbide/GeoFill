@@ -19,6 +19,40 @@ const elements = {
 // 字段列表
 const FIELD_NAMES = ['firstName', 'lastName', 'username', 'email', 'password', 'phone', 'address', 'city', 'state', 'zipCode', 'country'];
 
+// 存储键名
+const STORAGE_KEY = 'geoFillCachedData';
+
+/**
+ * 保存数据到 chrome.storage
+ */
+async function saveDataToStorage() {
+    try {
+        await chrome.storage.local.set({
+            [STORAGE_KEY]: {
+                currentData,
+                ipData,
+                emailDomain: elements.emailDomainType?.value,
+                customDomain: elements.customDomain?.value
+            }
+        });
+    } catch (e) {
+        console.log('保存数据失败:', e);
+    }
+}
+
+/**
+ * 从 chrome.storage 加载数据
+ */
+async function loadDataFromStorage() {
+    try {
+        const result = await chrome.storage.local.get(STORAGE_KEY);
+        return result[STORAGE_KEY] || null;
+    } catch (e) {
+        console.log('加载数据失败:', e);
+        return null;
+    }
+}
+
 /**
  * 初始化
  */
@@ -42,11 +76,42 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 绑定事件
     bindEvents();
 
-    // 设置默认邮箱后缀为选中的值
-    window.generators.setCustomEmailDomain(elements.emailDomainType.value);
+    // 尝试从缓存加载数据
+    const cachedData = await loadDataFromStorage();
 
-    // 获取 IP 信息并生成数据
-    await fetchIPInfo();
+    if (cachedData && cachedData.currentData && Object.keys(cachedData.currentData).length > 0) {
+        // 使用缓存的数据
+        currentData = cachedData.currentData;
+        ipData = cachedData.ipData || {};
+
+        // 恢复邮箱后缀设置
+        if (cachedData.emailDomain) {
+            elements.emailDomainType.value = cachedData.emailDomain;
+            if (cachedData.emailDomain === 'custom' && cachedData.customDomain) {
+                elements.customDomain.value = cachedData.customDomain;
+                elements.customDomain.style.display = 'block';
+            }
+        }
+
+        // 设置邮箱后缀
+        window.generators.setCustomEmailDomain(elements.emailDomainType.value);
+
+        // 更新 IP 信息显示
+        if (ipData.city && ipData.country) {
+            elements.ipInfo.innerHTML = `<span class="location">📍 ${ipData.city}, ${ipData.country}</span>`;
+        } else if (ipData.country) {
+            elements.ipInfo.innerHTML = `<span class="location">📍 ${ipData.country}</span>`;
+        } else {
+            elements.ipInfo.innerHTML = `<span class="location">📍 已缓存数据</span>`;
+        }
+
+        // 更新界面
+        updateUI();
+    } else {
+        // 没有缓存，获取新数据
+        window.generators.setCustomEmailDomain(elements.emailDomainType.value);
+        await fetchIPInfo();
+    }
 });
 
 /**
@@ -69,6 +134,7 @@ function bindEvents() {
     elements.regenerateAll.addEventListener('click', () => {
         currentData = window.generators.generateAllInfo(ipData);
         updateUI();
+        saveDataToStorage();
     });
 
     // 填写表单
@@ -86,6 +152,7 @@ function bindEvents() {
             if (elements.fields[fieldName]) {
                 elements.fields[fieldName].value = currentData[fieldName];
             }
+            saveDataToStorage();
         });
     });
 
@@ -94,6 +161,7 @@ function bindEvents() {
         if (elements.fields[name]) {
             elements.fields[name].addEventListener('input', () => {
                 currentData[name] = elements.fields[name].value;
+                saveDataToStorage();
             });
         }
     });
@@ -115,6 +183,7 @@ function bindEvents() {
         currentData.zipCode = window.generators.generateZipCode(newCountry);
 
         updateUI();
+        saveDataToStorage();
     });
 
     // 监听邮箱后缀选择变化
@@ -135,6 +204,7 @@ function bindEvents() {
             window.generators.setCustomEmailDomain(domain);
             regenerateEmail();
         }
+        saveDataToStorage();
     });
 
     // 监听自定义后缀输入
@@ -144,6 +214,7 @@ function bindEvents() {
             window.generators.setCustomEmailDomain(domain);
             regenerateEmail();
         }
+        saveDataToStorage();
     });
 }
 
@@ -233,6 +304,7 @@ async function fetchIPInfo() {
     // 生成信息
     currentData = window.generators.generateAllInfo(ipData);
     updateUI();
+    saveDataToStorage();
 }
 
 /**
