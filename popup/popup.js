@@ -170,9 +170,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         // 设置邮箱后缀
         window.generators.setCustomEmailDomain(elements.emailDomainType.value);
 
-        // 更新 IP 信息显示
+        // 更新 IP 信息显示（避免城市和国家相同时重复显示）
         if (ipData.city && ipData.country) {
-            elements.ipInfo.innerHTML = `<span class="location">📍 ${ipData.city}, ${ipData.country}</span>`;
+            if (ipData.city === ipData.country || ipData.city === 'Singapore' || ipData.city === 'Hong Kong') {
+                elements.ipInfo.innerHTML = `<span class="location">📍 ${ipData.country}</span>`;
+            } else {
+                elements.ipInfo.innerHTML = `<span class="location">📍 ${ipData.city}, ${ipData.country}</span>`;
+            }
         } else if (ipData.country) {
             elements.ipInfo.innerHTML = `<span class="location">📍 ${ipData.country}</span>`;
         } else {
@@ -395,9 +399,14 @@ async function fetchIPInfo() {
         city: city
     };
 
-    // 更新位置显示
+    // 更新位置显示（避免城市和国家相同时重复显示）
     if (success) {
-        elements.ipInfo.innerHTML = `<span class="location">📍 ${city}, ${normalizedCountry}</span>`;
+        if (city === normalizedCountry || city === 'Singapore' || city === 'Hong Kong') {
+            // 城市国家（如新加坡、香港）只显示一次
+            elements.ipInfo.innerHTML = `<span class="location">📍 ${normalizedCountry}</span>`;
+        } else {
+            elements.ipInfo.innerHTML = `<span class="location">📍 ${city}, ${normalizedCountry}</span>`;
+        }
     } else {
         elements.ipInfo.innerHTML = `<span class="location">📍 ${normalizedCountry} (默认)</span>`;
     }
