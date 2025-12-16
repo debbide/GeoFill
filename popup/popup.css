@@ -85,6 +85,13 @@ body {
   transform: scale(1.1);
 }
 
+.ip-info-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
 .ip-info {
   font-size: 12px;
   color: var(--text-secondary);
@@ -92,6 +99,26 @@ body {
   background: var(--bg-secondary);
   border-radius: 6px;
   display: inline-block;
+}
+
+.ip-refresh-btn {
+  width: 24px;
+  height: 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ip-refresh-btn:hover {
+  background: rgba(0, 217, 255, 0.2);
+  border-color: var(--accent-primary);
+  transform: rotate(180deg);
 }
 
 .ip-info .ip {

@@ -9,6 +9,7 @@ let ipData = {};
 // DOM 元素引用
 const elements = {
     ipInfo: null,
+    ipRefresh: null,
     fields: {},
     regenerateAll: null,
     fillForm: null,
@@ -142,6 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 缓存 DOM 元素
     elements.ipInfo = document.getElementById('ipInfo');
+    elements.ipRefresh = document.getElementById('ipRefresh');
     elements.regenerateAll = document.getElementById('regenerateAll');
     elements.fillForm = document.getElementById('fillForm');
     elements.themeToggle = document.getElementById('themeToggle');
@@ -221,6 +223,13 @@ function loadGeneratorsScript() {
 function bindEvents() {
     // 主题切换
     elements.themeToggle.addEventListener('click', toggleTheme);
+
+    // IP 刷新按钮
+    elements.ipRefresh.addEventListener('click', async () => {
+        showToast('正在检测 IP...');
+        await fetchIPInfo();
+        showToast('已更新位置信息');
+    });
 
     // 全部重新生成
     elements.regenerateAll.addEventListener('click', () => {
