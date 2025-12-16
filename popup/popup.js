@@ -22,9 +22,13 @@ const elements = {
 // 字段列表
 const FIELD_NAMES = ['firstName', 'lastName', 'gender', 'birthday', 'username', 'email', 'password', 'phone', 'address', 'city', 'state', 'zipCode', 'country'];
 
+// 锁定的字段集合
+let lockedFields = new Set();
+
 // 存储键名和版本（版本变化时清除缓存）
 const STORAGE_KEY = 'geoFillCachedData';
 const THEME_KEY = 'geoFillTheme';
+const LOCKED_KEY = 'geoFillLockedFields';
 const CACHE_VERSION = 'v2';  // 更新此版本号可清除旧缓存
 
 /**
@@ -37,6 +41,59 @@ function showToast(message) {
     setTimeout(() => {
         toast.classList.remove('show');
     }, 1500);
+}
+
+/**
+ * 切换字段锁定状态
+ */
+function toggleLock(fieldName, btn) {
+    if (lockedFields.has(fieldName)) {
+        lockedFields.delete(fieldName);
+        btn.classList.remove('locked');
+        btn.textContent = '🔓';
+        showToast(`${fieldName} 已解锁`);
+    } else {
+        lockedFields.add(fieldName);
+        btn.classList.add('locked');
+        btn.textContent = '🔒';
+        showToast(`${fieldName} 已锁定`);
+    }
+    saveLockedFields();
+}
+
+/**
+ * 保存锁定状态到 storage
+ */
+async function saveLockedFields() {
+    try {
+        await chrome.storage.local.set({
+            [LOCKED_KEY]: Array.from(lockedFields)
+        });
+    } catch (e) {
+        console.log('保存锁定状态失败:', e);
+    }
+}
+
+/**
+ * 从 storage 加载锁定状态
+ */
+async function loadLockedFields() {
+    try {
+        const result = await chrome.storage.local.get(LOCKED_KEY);
+        if (result[LOCKED_KEY]) {
+            lockedFields = new Set(result[LOCKED_KEY]);
+            // 更新按钮显示
+            lockedFields.forEach(field => {
+                const btn = document.querySelector(`.lock-btn[data-field="${field}"]`);
+                if (btn) {
+                    btn.classList.add('locked');
+                    btn.textContent = '🔒';
+                }
+            });
+        }
+    } catch (e) {
+        console.log('加载锁定状态失败:', e);
+    }
 }
 
 /**
@@ -163,6 +220,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // 绑定事件
     bindEvents();
 
+    // 加载锁定状态
+    await loadLockedFields();
+
     // 尝试从缓存加载数据
     const cachedData = await loadDataFromStorage();
 
@@ -231,16 +291,39 @@ function bindEvents() {
         showToast('已更新位置信息');
     });
 
-    // 全部重新生成
+    // 全部重新生成（跳过锁定的字段）
     elements.regenerateAll.addEventListener('click', () => {
+        // 保存锁定字段的值
+        const lockedValues = {};
+        lockedFields.forEach(field => {
+            lockedValues[field] = currentData[field];
+        });
+
+        // 重新生成
         currentData = window.generators.generateAllInfo(ipData);
+
+        // 恢复锁定字段的值
+        lockedFields.forEach(field => {
+            if (lockedValues[field] !== undefined) {
+                currentData[field] = lockedValues[field];
+            }
+        });
+
         updateUI();
         saveDataToStorage();
-        showToast('已重新生成所有信息');
+        showToast('已重新生成（锁定字段已保留）');
     });
 
     // 填写表单
     elements.fillForm.addEventListener('click', fillFormInPage);
+
+    // 锁定按钮
+    document.querySelectorAll('.lock-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const fieldName = e.currentTarget.dataset.field;
+            toggleLock(fieldName, e.currentTarget);
+        });
+    });
 
     // 复制按钮
     document.querySelectorAll('.copy-btn').forEach(btn => {

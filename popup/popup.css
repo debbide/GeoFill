@@ -33,7 +33,7 @@ body.light-theme {
 body {
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
   background: var(--bg-primary);
-  min-width: 400px;
+  min-width: 420px;
   color: var(--text-primary);
 }
 
@@ -134,7 +134,7 @@ body {
   color: var(--text-muted);
 }
 
-/* Form Section - 无滚动 */
+/* Form Section */
 .form-section {
   display: flex;
   flex-direction: column;
@@ -222,8 +222,10 @@ body.light-theme .input-wrapper select {
   padding: 8px;
 }
 
+/* Buttons */
 .copy-btn,
-.refresh-btn {
+.refresh-btn,
+.lock-btn {
   width: 26px;
   height: 26px;
   background: var(--bg-secondary);
@@ -252,6 +254,16 @@ body.light-theme .input-wrapper select {
   background: rgba(0, 217, 255, 0.2);
   border-color: var(--accent-primary);
   transform: rotate(180deg);
+}
+
+.lock-btn:hover {
+  background: rgba(255, 193, 7, 0.2);
+  border-color: #ffc107;
+}
+
+.lock-btn.locked {
+  background: rgba(255, 193, 7, 0.3);
+  border-color: #ffc107;
 }
 
 /* Actions */
