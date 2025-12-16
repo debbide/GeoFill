@@ -706,6 +706,49 @@ function selectLocation(country) {
 }
 
 /**
+ * 根据城市名称匹配位置（优先使用 IP 检测到的城市）
+ */
+function selectLocationByCity(country, cityName, regionName) {
+  const locations = CITY_STATE_MAP[country] || CITY_STATE_MAP['United States'];
+
+  if (cityName && cityName !== 'Unknown') {
+    // 尝试精确匹配城市名
+    const exactMatch = locations.find(loc =>
+      loc.city.toLowerCase() === cityName.toLowerCase()
+    );
+    if (exactMatch) {
+      currentLocation = exactMatch;
+      return currentLocation;
+    }
+
+    // 尝试模糊匹配城市名
+    const fuzzyMatch = locations.find(loc =>
+      loc.city.toLowerCase().includes(cityName.toLowerCase()) ||
+      cityName.toLowerCase().includes(loc.city.toLowerCase())
+    );
+    if (fuzzyMatch) {
+      currentLocation = fuzzyMatch;
+      return currentLocation;
+    }
+  }
+
+  // 如果有州/地区信息，尝试匹配同州的城市
+  if (regionName) {
+    const regionMatch = locations.find(loc =>
+      loc.state.toLowerCase() === regionName.toLowerCase() ||
+      loc.state.toLowerCase().includes(regionName.toLowerCase())
+    );
+    if (regionMatch) {
+      currentLocation = regionMatch;
+      return currentLocation;
+    }
+  }
+
+  // 没有匹配到，随机选择
+  return selectLocation(country);
+}
+
+/**
  * 获取当前位置信息
  */
 function getCurrentLocation() {
@@ -824,14 +867,16 @@ function generateBirthday(minAge = 18, maxAge = 55) {
  */
 function generateAllInfo(ipData) {
   const country = ipData.country || 'United States';
+  const ipCity = ipData.city || '';
+  const ipRegion = ipData.region || '';
 
   const gender = generateGender();
   const firstName = generateFirstName(country);
   const lastName = generateLastName(country);
   const username = generateUsername(firstName, lastName);
 
-  // 先选择一个城市位置，确保城市、州、邮编关联
-  selectLocation(country);
+  // 优先根据 IP 检测到的城市匹配位置，确保城市、州、邮编关联
+  selectLocationByCity(country, ipCity, ipRegion);
 
   return {
     firstName,
@@ -919,6 +964,7 @@ if (typeof window !== 'undefined') {
     generateZipCode,
     generateCity,
     generateState,
+    selectLocationByCity,
     normalizeCountry,
     setCustomEmailDomain,
     getCustomEmailDomain,

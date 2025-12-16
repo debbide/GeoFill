@@ -371,6 +371,7 @@ async function fetchIPInfo() {
 
     let country = 'United States';
     let city = 'New York';
+    let region = '';  // 州/省/地区
     let success = false;
 
     // 尝试 ipapi.co (HTTPS)
@@ -385,6 +386,7 @@ async function fetchIPInfo() {
         if (result.country_name) {
             country = result.country_name;
             city = result.city || 'Unknown';
+            region = result.region || '';  // 获取州/地区
             success = true;
         }
     } catch (e) {
@@ -404,6 +406,7 @@ async function fetchIPInfo() {
             if (result.status === 'success') {
                 country = result.country;
                 city = result.city || 'Unknown';
+                region = result.regionName || '';  // 获取州/地区
                 success = true;
             }
         } catch (e) {
@@ -416,7 +419,8 @@ async function fetchIPInfo() {
 
     ipData = {
         country: normalizedCountry,
-        city: city
+        city: city,
+        region: region  // 保存州/地区信息
     };
 
     // 更新位置显示（避免城市和国家相同时重复显示）
