@@ -1,7 +1,7 @@
 ﻿{
   "manifest_version": 3,
   "name": "GeoFill - 智能注册助手",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "根据地理位置智能生成注册信息并一键填写表单",
   "icons": {
     "16": "icons/icon16.png",
@@ -44,6 +44,8 @@
         "<all_urls>"
       ],
       "js": [
+        "scripts/selectors/common.js",
+        "scripts/selectors/japan.js",
         "scripts/content.js"
       ],
       "run_at": "document_idle"

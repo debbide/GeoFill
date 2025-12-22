@@ -97,9 +97,21 @@
             <option value="hotmail.com">hotmail.com</option>
             <option value="icloud.com">icloud.com</option>
             <option value="protonmail.com">protonmail.com</option>
+            <option value="temp">📧 临时邮箱 (Mail.tm)</option>
             <option value="custom">✏️ 自定义</option>
           </select>
           <input type="text" id="customDomain" placeholder="example.com" style="display: none;">
+        </div>
+      </div>
+
+      <!-- 临时邮箱收件箱 -->
+      <div class="field-group inbox-group" id="inboxGroup" style="display: none;">
+        <div class="inbox-header">
+          <label>📩 收件箱</label>
+          <button class="btn btn-small" id="refreshInbox" title="刷新邮件">🔄</button>
+        </div>
+        <div class="inbox-list" id="inboxList">
+          <div class="inbox-empty">暂无邮件</div>
         </div>
       </div>
 
@@ -247,6 +259,37 @@
           </div>
         </div>
 
+        <!-- AI 设置 -->
+        <div class="settings-section">
+          <h3>🤖 AI 设置</h3>
+          <div class="setting-row">
+            <label for="enableAI">启用 AI 生成</label>
+            <input type="checkbox" id="enableAI">
+          </div>
+          <div class="setting-row">
+            <label for="openaiBaseUrl" style="width: auto;">API 地址</label>
+            <input type="text" id="openaiBaseUrl" placeholder="https://api.openai.com/v1"
+              style="flex: 1; margin-left: 10px;">
+          </div>
+          <div class="setting-row">
+            <label for="openaiKey" style="width: auto;">API Key</label>
+            <div style="flex: 1; display: flex; gap: 6px; margin-left: 10px;">
+              <input type="password" id="openaiKey" placeholder="sk-..." style="flex: 1;">
+              <button class="btn-small" id="testAI" title="测试连接" style="width: auto; padding: 0 8px;">📡 测试</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <label for="openaiModel" style="width: auto;">模型</label>
+            <input type="text" id="openaiModel" placeholder="gpt-3.5-turbo" value="gpt-3.5-turbo"
+              style="flex: 1; margin-left: 10px;">
+          </div>
+          <div class="setting-row" style="align-items: flex-start;">
+            <label for="aiPersona" style="width: auto; margin-top: 6px;">人设</label>
+            <textarea id="aiPersona" placeholder="例如：一名30岁的日本软件工程师，喜欢摄影，住在东京..."
+              style="flex: 1; margin-left: 10px; height: 60px; resize: vertical;" class="input-full"></textarea>
+          </div>
+        </div>
+
         <!-- 存档管理 -->
         <div class="settings-section">
           <h3>💾 配置存档</h3>
@@ -263,6 +306,8 @@
   </div>
 
   <div class="toast" id="toast"></div>
+
+  <script src="../scripts/generators.js"></script>
 
   <script src="../scripts/japan-generators.js"></script>
   <script src="popup.js"></script>

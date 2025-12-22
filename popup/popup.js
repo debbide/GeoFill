@@ -23,6 +23,11 @@ const elements = {
     closeSettings: null,
     settingsModal: null,
     // 设置元素
+    enableAI: null,
+    openaiBaseUrl: null,
+    openaiKey: null,
+    openaiModel: null,
+    aiPersona: null,
     passwordLength: null,
     pwdUppercase: null,
     pwdLowercase: null,
@@ -34,7 +39,11 @@ const elements = {
     // 存档元素
     archiveName: null,
     saveArchive: null,
-    archiveList: null
+    archiveList: null,
+    // 邮箱元素
+    inboxGroup: null,
+    refreshInbox: null,
+    inboxList: null
 };
 
 // 字段列表
@@ -54,6 +63,11 @@ const CACHE_VERSION = 'v3';
 
 // 默认设置
 let userSettings = {
+    enableAI: false,
+    openaiBaseUrl: 'https://api.openai.com/v1',
+    openaiKey: '',
+    openaiModel: 'gpt-3.5-turbo',
+    aiPersona: '',
     passwordLength: 12,
     pwdUppercase: true,
     pwdLowercase: true,
@@ -228,7 +242,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('[GeoFill] 开始初始化...');
 
     try {
-        await loadGeneratorsScript();
+        // await loadGeneratorsScript();
         console.log('[GeoFill] 生成器脚本加载成功');
     } catch (e) {
         console.error('[GeoFill] 加载生成器脚本失败:', e);
@@ -254,7 +268,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     elements.openSettings = document.getElementById('openSettings');
     elements.closeSettings = document.getElementById('closeSettings');
     elements.settingsModal = document.getElementById('settingsModal');
+    elements.enableAI = document.getElementById('enableAI');
+    elements.openaiBaseUrl = document.getElementById('openaiBaseUrl');
+    elements.openaiKey = document.getElementById('openaiKey');
+    elements.openaiModel = document.getElementById('openaiModel');
+    elements.aiPersona = document.getElementById('aiPersona');
     elements.passwordLength = document.getElementById('passwordLength');
+    elements.testAI = document.getElementById('testAI');
     elements.pwdUppercase = document.getElementById('pwdUppercase');
     elements.pwdLowercase = document.getElementById('pwdLowercase');
     elements.pwdNumbers = document.getElementById('pwdNumbers');
@@ -265,6 +285,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     elements.archiveName = document.getElementById('archiveName');
     elements.saveArchive = document.getElementById('saveArchive');
     elements.archiveList = document.getElementById('archiveList');
+    elements.inboxGroup = document.getElementById('inboxGroup');
+    elements.refreshInbox = document.getElementById('refreshInbox');
+    elements.inboxList = document.getElementById('inboxList');
 
     try { await loadTheme(); } catch (e) { console.log('loadTheme error:', e); }
     try { await loadSettings(); } catch (e) { console.log('loadSettings error:', e); }
@@ -291,6 +314,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (cachedData.emailDomain === 'custom' && cachedData.customDomain && elements.customDomain) {
                 elements.customDomain.value = cachedData.customDomain;
                 elements.customDomain.style.display = 'block';
+            }
+
+            // 如果是临时邮箱，尝试恢复会话
+            if (cachedData.emailDomain === 'temp' && window.mailTM && currentData.email && currentData.password) {
+                if (elements.inboxGroup) elements.inboxGroup.style.display = 'block';
+                window.mailTM.login(currentData.email, currentData.password).then(() => {
+                    refreshInbox();
+                }).catch(e => console.log('Silent login failed:', e));
             }
         }
 
@@ -341,21 +372,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 /**
  * 加载生成器脚本
  */
-function loadGeneratorsScript() {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        script.src = '../scripts/generators.js';
-        script.onload = () => {
-            console.log('[GeoFill] generators.js 已加载');
-            resolve();
-        };
-        script.onerror = (e) => {
-            console.error('[GeoFill] generators.js 加载失败:', e);
-            reject(e);
-        };
-        document.head.appendChild(script);
-    });
-}
+function loadGeneratorsScript() { return Promise.resolve(); } // Deprecated
+
 
 /**
  * 绑定事件处理器
@@ -377,9 +395,19 @@ function bindEvents() {
         });
     }
 
+    if (elements.refreshInbox) {
+        elements.refreshInbox.addEventListener('click', refreshInbox);
+    }
+
     if (elements.regenerateAll) {
-        elements.regenerateAll.addEventListener('click', () => {
+        elements.regenerateAll.addEventListener('click', async () => {
             if (!window.generators) return;
+
+            // 如果启用了 AI 生成
+            if (userSettings.enableAI && userSettings.openaiKey) {
+                await generateWithAI();
+                return;
+            }
 
             const lockedValues = {};
             lockedFields.forEach(field => {
@@ -387,6 +415,12 @@ function bindEvents() {
             });
 
             currentData = window.generators.generateAllInfoWithSettings(ipData, userSettings);
+
+            // 如果选择了临时邮箱，覆盖生成的邮箱
+            const domainType = elements.emailDomainType?.value;
+            if (domainType === 'temp' && !lockedFields.has('email')) {
+                await regenerateEmail(); // 这会更新 currentData.email 并处理 UI
+            }
 
             lockedFields.forEach(field => {
                 if (lockedValues[field] !== undefined) {
@@ -525,13 +559,92 @@ function bindEvents() {
 /**
  * 重新生成邮箱
  */
-function regenerateEmail() {
+/**
+ * 重新生成邮箱
+ */
+async function regenerateEmail() {
     if (!window.generators) return;
     updateCurrentDataFromInputs();
-    currentData.email = window.generators.generateEmail(currentData.username);
+
+    const domainType = elements.emailDomainType?.value;
+
+    if (domainType === 'temp' && window.mailTM) {
+        try {
+            showToast('正在注册临时邮箱...');
+            // 使用当前密码作为邮箱密码
+            const account = await window.mailTM.register(currentData.username, currentData.password);
+            currentData.email = account.address;
+            if (elements.inboxGroup) elements.inboxGroup.style.display = 'block';
+            refreshInbox();
+        } catch (e) {
+            console.error('Temp mail registration failed:', e);
+            showToast('临时邮箱注册失败，使用默认邮箱');
+            currentData.email = window.generators.generateEmail(currentData.username);
+            if (elements.inboxGroup) elements.inboxGroup.style.display = 'none';
+        }
+    } else {
+        currentData.email = window.generators.generateEmail(currentData.username);
+        if (elements.inboxGroup) elements.inboxGroup.style.display = 'none';
+    }
+
     if (elements.fields.email) {
         elements.fields.email.value = currentData.email;
     }
+}
+
+/**
+ * 刷新收件箱
+ */
+async function refreshInbox() {
+    if (!window.mailTM || !window.mailTM.token) return;
+
+    if (elements.refreshInbox) {
+        elements.refreshInbox.classList.add('rotating');
+    }
+
+    try {
+        const messages = await window.mailTM.getMessages();
+        renderInbox(messages);
+        showToast('收件箱已更新');
+    } catch (e) {
+        console.error('Fetch messages failed:', e);
+    } finally {
+        if (elements.refreshInbox) {
+            elements.refreshInbox.classList.remove('rotating');
+        }
+    }
+}
+
+/**
+ * 渲染收件箱
+ */
+function renderInbox(messages) {
+    if (!elements.inboxList) return;
+
+    if (!messages || messages.length === 0) {
+        elements.inboxList.innerHTML = '<div class="inbox-empty">暂无邮件</div>';
+        return;
+    }
+
+    elements.inboxList.innerHTML = messages.map(msg => {
+        const subject = msg.subject || '(无主题)';
+        const from = msg.from.address;
+        const intro = msg.intro || '';
+        // 尝试提取验证码
+        const codeMatch = subject.match(/\b\d{4,6}\b/) || intro.match(/\b\d{4,6}\b/);
+        const codeHtml = codeMatch ? `<span class="verification-code" title="点击复制" onclick="copyToClipboard('${codeMatch[0]}', this)">${codeMatch[0]}</span>` : '';
+
+        return `
+            <div class="email-item">
+                <div class="email-header">
+                    <span class="email-from">${from}</span>
+                    ${codeHtml}
+                </div>
+                <div class="email-subject">${subject}</div>
+                <div class="email-intro">${intro}</div>
+            </div>
+        `;
+    }).join('');
 }
 
 /**
@@ -655,23 +768,426 @@ function updateUI() {
 }
 
 /**
+ * 使用 AI 生成数据
+ */
+async function generateWithAI() {
+    const btn = elements.regenerateAll;
+    const originalText = btn.textContent;
+    btn.textContent = '🤖 生成中...';
+    btn.disabled = true;
+
+    try {
+        const country = ipData.country || 'United States';
+
+        // 1. 收集锁定字段，告知 AI
+        const lockedValues = {};
+        lockedFields.forEach(field => {
+            lockedValues[field] = currentData[field];
+        });
+
+        let prompt = `Generate a realistic user profile for a person in ${country}.`;
+
+        if (Object.keys(lockedValues).length > 0) {
+            prompt += `\n\nLOCKED ATTRIBUTES (You MUST respect these): ${JSON.stringify(lockedValues)}`;
+        }
+
+        if (userSettings.aiPersona) {
+            prompt += `\n\nPersona Description: ${userSettings.aiPersona}\n\nEnsure the generated profile matches this persona perfectly.`;
+        }
+
+        if (country === 'Japan') {
+            prompt += `\n\nIMPORTANT for Japan:
+            - ZipCode: "NNN-NNNN" (e.g. 100-0001)
+            - Phone: Generate a **RANDOM** mobile number "090-XXXX-XXXX" (or 080/070). **DO NOT** use "1234" or "0000".
+            - Name: Kanji for First/Last name, and Katakana for reading if applicable (but return standard keys).`;
+        }
+
+        prompt += ` Return ONLY a valid JSON object with the following keys: firstName, lastName, gender (male/female), birthday (YYYY-MM-DD), username, email, password, phone, address, city, state, zipCode. Ensure the data is culturally appropriate for the country.`;
+
+        // 构建 API URL
+        const apiUrl = normalizeApiUrl(userSettings.openaiBaseUrl);
+        console.log('[GeoFill] AI Request URL:', apiUrl);
+
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${userSettings.openaiKey}`
+            },
+            body: JSON.stringify({
+                model: userSettings.openaiModel,
+                messages: [
+                    { role: 'system', content: 'You are a helpful assistant that generates realistic user data in JSON format.' },
+                    { role: 'user', content: prompt }
+                ],
+                temperature: 0.7
+            })
+        });
+
+        const contentType = response.headers.get('content-type');
+        if (!response.ok) {
+            const text = await response.text();
+            console.error('API Error Response:', text);
+            throw new Error(`API Error (${response.status}): ${text.slice(0, 100)}...`);
+        }
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await response.text();
+            console.error('API Invalid Content-Type:', contentType, text);
+            throw new Error(`API 返回了非 JSON 数据 (可能是 HTML)。请检查 API 地址是否正确。预览: ${text.slice(0, 50)}...`);
+        }
+
+        const data = await response.json();
+        const content = data.choices[0].message.content;
+
+        // 尝试解析 JSON
+        let jsonStr = content.replace(/```json\n?|\n?```/g, '').trim();
+        const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
+        if (jsonMatch) {
+            jsonStr = jsonMatch[0];
+        }
+
+        const profile = JSON.parse(jsonStr);
+
+        // 更新数据
+        currentData = { ...currentData, ...profile };
+
+        // 2. 强制应用本地规则 (如果未锁定)
+
+        // 密码：使用本地生成器以符合长度/复杂度规则
+        if (!lockedFields.has('password') && window.generators && window.generators.generatePasswordWithSettings) {
+            currentData.password = window.generators.generatePasswordWithSettings(userSettings);
+        }
+
+        // 电话：使用本地生成器以保证随机性和格式正确 (AI 容易生成 1234 等假号)
+        if (!lockedFields.has('phone') && window.generators && window.generators.generatePhone) {
+            currentData.phone = window.generators.generatePhone(country);
+        }
+
+        // 邮箱：如果用户指定了后缀，强制应用
+        if (!lockedFields.has('email')) {
+            const domainType = elements.emailDomainType.value;
+            if (domainType !== 'custom' && domainType !== 'temp') {
+                // 使用 AI 生成的用户名 + 指定后缀
+                const username = currentData.username || 'user';
+                currentData.email = `${username}@${domainType}`;
+            }
+        }
+
+        // 3. 再次恢复锁定字段 (双重保险)
+        lockedFields.forEach(field => {
+            if (lockedValues[field] !== undefined) {
+                currentData[field] = lockedValues[field];
+            }
+        });
+
+        updateUI();
+        saveDataToStorage();
+        showToast('AI 生成成功');
+
+    } catch (e) {
+        console.error('AI Generation failed:', e);
+        showToast('AI 生成失败: ' + e.message);
+    } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+    }
+}
+
+/**
+ * 构建标准化的 API URL
+ */
+function normalizeApiUrl(baseUrl) {
+    let url = baseUrl.trim();
+    if (url.endsWith('/')) url = url.slice(0, -1);
+
+    if (url.endsWith('/chat/completions')) {
+        return url;
+    }
+
+    if (url.endsWith('/v1')) {
+        return url + '/chat/completions';
+    }
+
+    // 如果既没有 v1 也没有 chat/completions，尝试添加 /v1/chat/completions
+    // 这是一个猜测，但能覆盖大多数漏写 /v1 的情况
+    return url + '/v1/chat/completions';
+}
+
+/**
+ * 测试 AI 连接
+ */
+async function testAIConnection() {
+    const btn = elements.testAI;
+    const originalText = btn.textContent;
+    btn.textContent = '⏳';
+    btn.disabled = true;
+
+    try {
+        const apiKey = elements.openaiKey.value.trim();
+        const baseUrl = elements.openaiBaseUrl.value.trim();
+        const model = elements.openaiModel.value.trim();
+
+        if (!apiKey) {
+            throw new Error('请输入 API Key');
+        }
+
+        const apiUrl = normalizeApiUrl(baseUrl);
+        console.log('[GeoFill] Test API URL:', apiUrl);
+
+        const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: model,
+                messages: [
+                    { role: 'user', content: 'Hi' }
+                ],
+                max_tokens: 5
+            })
+        });
+
+        const contentType = response.headers.get('content-type');
+        if (!response.ok) {
+            const text = await response.text();
+            throw new Error(`HTTP ${response.status}: ${text.slice(0, 100)}`);
+        }
+
+        if (!contentType || !contentType.includes('application/json')) {
+            const text = await response.text();
+            throw new Error(`返回了非 JSON 数据 (HTML?)。请检查 API 地址。预览: ${text.slice(0, 50)}`);
+        }
+
+        await response.json(); // 尝试解析
+        showToast('✅ 连接成功');
+    } catch (e) {
+        console.error('AI Test Failed:', e);
+        showToast('❌ 连接失败: ' + e.message);
+    } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+    }
+}
+
+/**
  * 在页面中填写表单
  */
 async function fillFormInPage() {
     updateCurrentDataFromInputs();
+    const btn = elements.fillForm;
+    const originalText = btn.textContent;
+
     try {
         const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-        try {
-            await chrome.tabs.sendMessage(tab.id, { action: 'fillForm', data: currentData });
-        } catch (e) {
-            await chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ['scripts/content.js'] });
-            await new Promise(r => setTimeout(r, 100));
-            await chrome.tabs.sendMessage(tab.id, { action: 'fillForm', data: currentData });
+
+        // 检查是否启用 AI 智能填写
+        if (userSettings.enableAI && userSettings.openaiKey) {
+            btn.textContent = '🤖 分析中...';
+            btn.disabled = true;
+
+            // 1. 扫描页面表单
+            let scanResult;
+            try {
+                scanResult = await chrome.tabs.sendMessage(tab.id, { action: 'scanForm' });
+            } catch (e) {
+                // 如果 content script 未加载，尝试注入所有依赖
+                await chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: [
+                        'scripts/selectors/common.js',
+                        'scripts/selectors/japan.js',
+                        'scripts/content.js'
+                    ]
+                });
+                await new Promise(r => setTimeout(r, 200)); // 稍微增加等待时间
+                scanResult = await chrome.tabs.sendMessage(tab.id, { action: 'scanForm' });
+            }
+
+            if (!scanResult || !scanResult.fields || scanResult.fields.length === 0) {
+                throw new Error('未找到可见的表单字段');
+            }
+
+            btn.textContent = '🧠 思考中...';
+
+            // 2. 构建 AI Prompt
+            const prompt = `
+You are an advanced AI Form Assistant. Your goal is to fill a web form intelligently, acting as the Persona defined below.
+
+Current User Profile: ${JSON.stringify(currentData)}
+Persona Description: ${userSettings.aiPersona || 'None'}
+
+Page Context:
+Title: ${scanResult.pageContext.title}
+Description: ${scanResult.pageContext.description}
+URL: ${scanResult.pageContext.url}
+
+Form Fields Found:
+${JSON.stringify(scanResult.fields)}
+
+Instructions:
+1. **Analyze Context**: Determine the purpose of this form (e.g., "Job Application", "E-commerce Checkout", "Casual Survey", "Government Registration").
+2. **Analyze Fields**: For each field, evaluate:
+   - **Necessity**: Is it required? (Check 'required' attribute and context).
+   - **Privacy/Risk**: Is this sensitive info (e.g., Income, ID, Phone)?
+3. **Decide Strategy**:
+   - **Real Format**: For standard required fields, use the Persona's data.
+   - **Obfuscate/Blur**: For sensitive but optional fields (like exact income), provide a general range or a realistic but safe estimate if appropriate for the context.
+   - **Leave Empty**: If a field is optional, sensitive, and not relevant to the form's core purpose, you may choose to leave it empty (return null or empty string).
+   - **Refuse/N/A**: If a field is intrusive and allows text input, you may fill "N/A" or "Prefer not to say".
+4. **Cultural & Language Adaptation** (CRITICAL):
+   - **GLOBAL RULE**: ALWAYS use **Half-width (ASCII)** characters for: **Password**, **Email**, **Phone**, **Postal Code**, **Numbers**. NEVER use Full-width (e.g., １２３, ａｂｃ) for these fields.
+   - **Address Logic**: If the form expects a **Local Address** (e.g., has "Prefecture" dropdown, or specific local Zip format) and the Current User Profile has a foreign address, **IGNORE the Profile address and INVENT a valid local address** for the page's target country.
+   - **Detect Language**: The page language is '${scanResult.pageContext.language}'. Adapt formats accordingly.
+   - **Japan (JP)**: 
+     - **Name**: Use Surname First order. Use Kanji for Name fields, Katakana for "Furigana/Reading" fields.
+     - **Postal Code**: Check placeholder. If unknown, try "NNN-NNNN" (ASCII).
+     - **Phone**: Check placeholder. If unknown, generate a **RANDOM** valid mobile number (starts with 090, 080, or 070). **DO NOT** use "1234" or "0000" sequences. Example: "080-3928-4719".
+   - **Germany (DE)**: Ensure addresses are precise (Street + Number, Zip City). Use formal tone.
+   - **China (CN)**: Generate valid-looking Resident ID numbers (18 digits) if requested. Use +86 phone format.
+   - **Tone**: Match the questionnaire tone (Conservative/Formal for Gov/Bank; Open/Casual for Social/Gaming).
+5. **Invent Missing Data**: If the Persona lacks specific data (e.g., Company Name), invent it consistently with the Persona's background.
+
+Output Format:
+Return ONLY a valid JSON object where keys are the field 'id' and values are the string to fill.
+Example:
+{
+  "field_1": "John",
+  "income_field": "50,000 - 60,000 USD",
+  "optional_intrusive_field": ""
+}
+`;
+
+            // 3. 调用 AI
+            const apiUrl = normalizeApiUrl(userSettings.openaiBaseUrl);
+            console.log('[GeoFill] AI Request URL:', apiUrl);
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${userSettings.openaiKey}`
+                },
+                body: JSON.stringify({
+                    model: userSettings.openaiModel,
+                    messages: [
+                        { role: 'system', content: 'You are a helpful assistant that fills forms based on user profiles.' },
+                        { role: 'user', content: prompt }
+                    ],
+                    temperature: 0.3 // 降低随机性
+                })
+            });
+
+            const contentType = response.headers.get('content-type');
+            if (!response.ok) {
+                const text = await response.text();
+                console.error('API Error Response:', text);
+                throw new Error(`API Error (${response.status}): ${text.slice(0, 100)}...`);
+            }
+            if (!contentType || !contentType.includes('application/json')) {
+                const text = await response.text();
+                console.error('API Invalid Content-Type:', contentType, text);
+                throw new Error(`API 返回了非 JSON 数据(可能是 HTML)。请检查 API 地址是否正确。预览: ${text.slice(0, 50)}...`);
+            }
+
+            const data = await response.json();
+            const content = data.choices[0].message.content;
+
+            let jsonStr = content.replace(/```json\n ?|\n ? ```/g, '').trim();
+            const jsonMatch = jsonStr.match(/\{[\s\S]*\}/);
+            if (jsonMatch) jsonStr = jsonMatch[0];
+
+            const mapping = JSON.parse(jsonStr);
+
+            // ===== 强制清洗数据 & 本地逻辑覆盖 (Hard Sanitization & Logic Override) =====
+            Object.keys(mapping).forEach(key => {
+                let val = mapping[key];
+                if (typeof val === 'string') {
+                    // 1. 全角转半角 (通用处理)
+                    val = val.replace(/[\uFF01-\uFF5E]/g, (ch) => String.fromCharCode(ch.charCodeAt(0) - 0xFEE0))
+                        .replace(/\u3000/g, ' ');
+
+                    // 2. 查找字段元数据
+                    const fieldMeta = scanResult.fields.find(f => f.id === key);
+                    const label = fieldMeta ? (fieldMeta.label || '').toLowerCase() : '';
+                    const type = fieldMeta ? (fieldMeta.type || '').toLowerCase() : '';
+                    const name = fieldMeta ? (fieldMeta.name || '').toLowerCase() : '';
+                    const lowerKey = key.toLowerCase();
+
+                    // 3. 智能判断字段类型并清洗
+                    const isPassword = type === 'password' || lowerKey.includes('password') || name.includes('password') || label.includes('密码') || label.includes('パスワード');
+                    const isEmail = type === 'email' || lowerKey.includes('email') || name.includes('email') || label.includes('邮箱') || label.includes('メール');
+                    const isPhone = type === 'tel' || lowerKey.includes('phone') || lowerKey.includes('mobile') || label.includes('电话') || label.includes('電話') || label.includes('携帯');
+                    const isZip = lowerKey.includes('zip') || lowerKey.includes('postal') || label.includes('邮编') || label.includes('郵便');
+
+                    if (isPassword) {
+                        // 密码：强制使用当前 Profile 的密码 (保证一致性，避免两次生成不一致)
+                        if (currentData.password) {
+                            val = currentData.password;
+                        } else if (window.generators && window.generators.generatePasswordWithSettings) {
+                            val = window.generators.generatePasswordWithSettings(userSettings);
+                        } else {
+                            val = val.replace(/[^\x00-\x7F]/g, ''); // Fallback
+                        }
+                    } else if (isEmail) {
+                        // 邮箱：只保留 ASCII
+                        val = val.replace(/[^\x00-\x7F]/g, '');
+                    } else if (isPhone) {
+                        // 电话：强制使用当前 Profile 的电话 (保证一致性)
+                        if (currentData.phone) {
+                            val = currentData.phone;
+                        } else if (window.generators && window.generators.generatePhone) {
+                            // Fallback if currentData is missing
+                            const country = ipData.country || 'United States';
+                            val = window.generators.generatePhone(country);
+                        } else {
+                            val = val.replace(/[^\d-]/g, ''); // Fallback
+                        }
+                    } else if (isZip) {
+                        // 邮编：只保留数字和横杠
+                        val = val.replace(/[^\d-]/g, '');
+                    }
+
+                    mapping[key] = val;
+                }
+            });
+
+            console.log('[GeoFill] Sanitized & Overridden Mapping:', mapping);
+
+            btn.textContent = '✍️ 填写中...';
+
+            // 4. 发送填表指令
+            await chrome.tabs.sendMessage(tab.id, { action: 'fillFormSmart', data: mapping });
+
+            showToast('AI 智能填写完成');
+            window.close();
+
+        } else {
+            // 传统逻辑
+            try {
+                await chrome.tabs.sendMessage(tab.id, { action: 'fillForm', data: currentData });
+            } catch (e) {
+                await chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: [
+                        'scripts/selectors/common.js',
+                        'scripts/selectors/japan.js',
+                        'scripts/content.js'
+                    ]
+                });
+                await new Promise(r => setTimeout(r, 200));
+                await chrome.tabs.sendMessage(tab.id, { action: 'fillForm', data: currentData });
+            }
+            window.close();
         }
-        window.close();
+
     } catch (error) {
         console.error('填写表单失败:', error);
-        alert('填写失败，请确保页面已完全加载');
+        showToast('填写失败: ' + error.message);
+    } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
     }
 }
 
@@ -684,18 +1200,18 @@ async function copyAllToClipboard() {
     updateCurrentDataFromInputs();
 
     const lines = [
-        `姓名: ${currentData.firstName} ${currentData.lastName}`,
-        `性别: ${currentData.gender === 'male' ? '男' : '女'}`,
-        `生日: ${currentData.birthday}`,
-        `用户名: ${currentData.username}`,
-        `邮箱: ${currentData.email}`,
-        `密码: ${currentData.password}`,
-        `电话: ${currentData.phone}`,
-        `地址: ${currentData.address}`,
-        `城市: ${currentData.city}`,
-        `州/省: ${currentData.state}`,
-        `邮编: ${currentData.zipCode}`,
-        `国家: ${currentData.country}`
+        `姓名: ${currentData.firstName} ${currentData.lastName} `,
+        `性别: ${currentData.gender === 'male' ? '男' : '女'} `,
+        `生日: ${currentData.birthday} `,
+        `用户名: ${currentData.username} `,
+        `邮箱: ${currentData.email} `,
+        `密码: ${currentData.password} `,
+        `电话: ${currentData.phone} `,
+        `地址: ${currentData.address} `,
+        `城市: ${currentData.city} `,
+        `州 / 省: ${currentData.state} `,
+        `邮编: ${currentData.zipCode} `,
+        `国家: ${currentData.country} `
     ];
 
     const text = lines.join('\n');
@@ -733,6 +1249,11 @@ function closeSettingsModal() {
  * 更新设置 UI
  */
 function updateSettingsUI() {
+    if (elements.enableAI) elements.enableAI.checked = userSettings.enableAI;
+    if (elements.openaiBaseUrl) elements.openaiBaseUrl.value = userSettings.openaiBaseUrl;
+    if (elements.openaiKey) elements.openaiKey.value = userSettings.openaiKey;
+    if (elements.openaiModel) elements.openaiModel.value = userSettings.openaiModel;
+    if (elements.aiPersona) elements.aiPersona.value = userSettings.aiPersona;
     if (elements.passwordLength) elements.passwordLength.value = userSettings.passwordLength;
     if (elements.pwdUppercase) elements.pwdUppercase.checked = userSettings.pwdUppercase;
     if (elements.pwdLowercase) elements.pwdLowercase.checked = userSettings.pwdLowercase;
@@ -741,6 +1262,17 @@ function updateSettingsUI() {
     if (elements.minAge) elements.minAge.value = userSettings.minAge;
     if (elements.maxAge) elements.maxAge.value = userSettings.maxAge;
     if (elements.autoClearData) elements.autoClearData.checked = userSettings.autoClearData;
+
+    // 更新按钮文本
+    if (elements.fillForm) {
+        if (userSettings.enableAI) {
+            elements.fillForm.textContent = '🤖 AI 智能填表';
+            elements.fillForm.title = 'AI 正在辅助你分析并填写表单';
+        } else {
+            elements.fillForm.textContent = '✍️ 填写表单';
+            elements.fillForm.title = '自动填写当前页面表单';
+        }
+    }
 }
 
 /**
@@ -748,6 +1280,11 @@ function updateSettingsUI() {
  */
 async function saveSettings() {
     userSettings = {
+        enableAI: elements.enableAI?.checked ?? false,
+        openaiBaseUrl: elements.openaiBaseUrl?.value?.trim() || 'https://api.openai.com/v1',
+        openaiKey: elements.openaiKey?.value?.trim() || '',
+        openaiModel: elements.openaiModel?.value?.trim() || 'gpt-3.5-turbo',
+        aiPersona: elements.aiPersona?.value?.trim() || '',
         passwordLength: parseInt(elements.passwordLength?.value) || 12,
         pwdUppercase: elements.pwdUppercase?.checked ?? true,
         pwdLowercase: elements.pwdLowercase?.checked ?? true,
@@ -846,8 +1383,8 @@ async function loadArchiveList() {
             <div class="archive-item" data-index="${index}">
                 <span class="archive-item-name">${archive.name}</span>
                 <div class="archive-item-actions">
-                    <button class="load-btn" title="加载" onclick="loadArchive(${index})">📂</button>
-                    <button class="delete-btn" title="删除" onclick="deleteArchive(${index})">🗑️</button>
+                    <button class="load-btn" title="加载" data-action="load" data-index="${index}">📂</button>
+                    <button class="delete-btn" title="删除" data-action="delete" data-index="${index}">🗑️</button>
                 </div>
             </div>
         `).join('');
@@ -923,7 +1460,27 @@ function bindSettingsEvents() {
         elements.saveArchive.addEventListener('click', saveArchive);
     }
 
-    const settingInputs = ['passwordLength', 'pwdUppercase', 'pwdLowercase', 'pwdNumbers', 'pwdSymbols', 'minAge', 'maxAge', 'autoClearData'];
+    if (elements.testAI) {
+        elements.testAI.addEventListener('click', testAIConnection);
+    }
+
+    if (elements.archiveList) {
+        elements.archiveList.addEventListener('click', (e) => {
+            const btn = e.target.closest('button');
+            if (!btn) return;
+
+            const action = btn.dataset.action;
+            const index = parseInt(btn.dataset.index);
+
+            if (action === 'load') {
+                loadArchive(index);
+            } else if (action === 'delete') {
+                deleteArchive(index);
+            }
+        });
+    }
+
+    const settingInputs = ['enableAI', 'openaiBaseUrl', 'openaiKey', 'openaiModel', 'aiPersona', 'passwordLength', 'pwdUppercase', 'pwdLowercase', 'pwdNumbers', 'pwdSymbols', 'minAge', 'maxAge', 'autoClearData'];
     settingInputs.forEach(id => {
         const el = document.getElementById(id);
         if (el) {

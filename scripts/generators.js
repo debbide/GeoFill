@@ -104,11 +104,11 @@ const PHONE_FORMATS = {
     format: (num) => `${num.slice(0, 3)} ${num.slice(3, 7)} ${num.slice(7)}`
   },
   'Japan': {
-    code: '+81',
-    length: 10,
-    // 日本手机号以70/80/90开头，格式: xx-xxxx-xxxx
-    mobilePrefixes: ['70', '80', '90'],
-    format: (num) => `${num.slice(0, 2)}-${num.slice(2, 6)}-${num.slice(6)}`
+    code: '', // 使用国内格式，不带 +81
+    length: 11,
+    // 日本手机号以070/080/090开头，格式: 0xx-xxxx-xxxx
+    mobilePrefixes: ['070', '080', '090'],
+    format: (num) => `${num.slice(0, 3)}-${num.slice(3, 7)}-${num.slice(7)}`
   },
   'South Korea': {
     code: '+82',
@@ -654,35 +654,51 @@ function generatePhone(country) {
   }
 
   let phoneNumber = '';
+  let attempts = 0;
 
-  // 处理有区号前缀的情况（如美国、加拿大、巴西、墨西哥）
-  if (config.areaCodePrefixes) {
-    const areaCode = randomChoice(config.areaCodePrefixes);
+  // 循环生成，直到满足质量要求 (避免 1234, 0000 等)
+  do {
+    attempts++;
+    phoneNumber = '';
 
-    // 巴西特殊处理：区号 + 9 + 8位
-    if (config.mobileFirstDigit) {
-      const remaining = randomDigits(config.length - areaCode.length - 1);
-      phoneNumber = areaCode + config.mobileFirstDigit + remaining;
-    } else {
-      const remaining = randomDigits(config.length - areaCode.length);
-      phoneNumber = areaCode + remaining;
+    // 处理有区号前缀的情况（如美国、加拿大、巴西、墨西哥）
+    if (config.areaCodePrefixes) {
+      const areaCode = randomChoice(config.areaCodePrefixes);
+
+      // 巴西特殊处理：区号 + 9 + 8位
+      if (config.mobileFirstDigit) {
+        const remaining = randomDigits(config.length - areaCode.length - 1);
+        phoneNumber = areaCode + config.mobileFirstDigit + remaining;
+      } else {
+        const remaining = randomDigits(config.length - areaCode.length);
+        phoneNumber = areaCode + remaining;
+      }
     }
-  }
-  // 处理有手机前缀的情况（如中国、日本、英国等）
-  else if (config.mobilePrefixes) {
-    const prefix = randomChoice(config.mobilePrefixes);
-    const remaining = randomDigits(config.length - prefix.length);
-    phoneNumber = prefix + remaining;
-  }
-  // 默认情况
-  else {
-    phoneNumber = randomDigits(config.length);
-  }
+    // 处理有手机前缀的情况（如中国、日本、英国等）
+    else if (config.mobilePrefixes) {
+      const prefix = randomChoice(config.mobilePrefixes);
+      const remaining = randomDigits(config.length - prefix.length);
+      phoneNumber = prefix + remaining;
+    }
+    // 默认情况
+    else {
+      phoneNumber = randomDigits(config.length);
+    }
+
+    // 质量检查：如果是日本，确保不包含 1234 或 0000
+    if (country === 'Japan') {
+      if (phoneNumber.includes('1234') || phoneNumber.includes('0000')) {
+        continue; // 重新生成
+      }
+    }
+
+    break; // 成功
+  } while (attempts < 5);
 
   // 应用格式化
   const formattedNumber = config.format(phoneNumber);
 
-  return `${config.code} ${formattedNumber}`;
+  return config.code ? `${config.code} ${formattedNumber}` : formattedNumber;
 }
 
 /**
@@ -964,7 +980,7 @@ if (typeof window !== 'undefined') {
     if (useSymbols) { chars += '!@#$%^&*'; password += '!@#$%^&*'[Math.floor(Math.random() * 8)]; }
     if (!chars) { chars = 'abcdefghijklmnopqrstuvwxyz'; password = 'a'; }
     for (var i = password.length; i < length; i++) { password += chars[Math.floor(Math.random() * chars.length)]; }
-    return password.split('').sort(function() { return Math.random() - 0.5; }).join('');
+    return password.split('').sort(function () { return Math.random() - 0.5; }).join('');
   }
 
   // 扩展信息生成函数（支持自定义设置）
@@ -974,12 +990,12 @@ if (typeof window !== 'undefined') {
     var ipCity = ipData.city || '';
     var ipRegion = ipData.region || '';
     var gender = generateGender();
-    
+
     // 日本专用处理：使用汉字姓名和日本地址
     if (country === 'Japan' && window.japanGenerators) {
       var japanName = window.japanGenerators.generateJapanName(gender);
       var japanAddr = window.japanGenerators.generateJapanAddress();
-      var japanPhone = window.japanGenerators.generateJapanPhone();
+      var japanPhone = generatePhone('Japan'); // 使用统一的生成函数（带质量检测）
       var username = generateUsername(japanName.firstNameRomaji, japanName.lastNameRomaji);
       return {
         firstName: japanName.firstNameKanji,
@@ -998,10 +1014,11 @@ if (typeof window !== 'undefined') {
         city: japanAddr.prefecture + japanAddr.city,
         state: japanAddr.building,
         zipCode: japanAddr.zipCode,
-        country: country
+        country: country,
+        id_usertype: '100' // XServer 个人注册
       };
     }
-    
+
     var firstName = generateFirstName(country);
     var lastName = generateLastName(country);
     var username = generateUsername(firstName, lastName);

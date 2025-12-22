@@ -645,3 +645,20 @@ body.light-theme .btn-small {
 .japan-fields .field-group label {
   width: 70px;
 }
+.input-full {
+  width: 100%;
+  padding: 6px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+
+.input-full:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  background: var(--bg-hover);
+  box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+}

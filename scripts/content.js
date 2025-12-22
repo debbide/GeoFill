@@ -3,345 +3,94 @@
  */
 
 // 常见表单字段选择器映射（扩展版）
+// 常见表单字段选择器映射（扩展版）
 const FIELD_SELECTORS = {
-    firstName: [
-        // XServer VPS 特殊字段
-        'input[name="name2"]',
-        // 标准属性匹配
-        'input[name*="first" i]',
-        'input[name*="fname" i]',
-        'input[name*="given" i]',
-        'input[id*="first" i]',
-        'input[id*="fname" i]',
-        // placeholder 匹配
-        'input[placeholder*="first" i]',
-        'input[placeholder*="given" i]',
-        'input[placeholder*="名" i]:not([placeholder*="姓" i])',
-        'input[placeholder="太郎"]',
-        // autocomplete 标准
-        'input[autocomplete="given-name"]',
-        'input[autocomplete="first-name"]',
-        // aria-label 匹配
-        'input[aria-label*="first" i]',
-        'input[aria-label*="given" i]',
-        // data 属性匹配
-        'input[data-field*="first" i]',
-        'input[data-type*="first" i]'
-    ],
-    lastName: [
-        // XServer VPS 特殊字段
-        'input[name="name1"]',
-        'input[name*="last" i]',
-        'input[name*="lname" i]',
-        'input[name*="surname" i]',
-        'input[name*="family" i]',
-        'input[id*="last" i]',
-        'input[id*="lname" i]',
-        'input[id*="surname" i]',
-        'input[placeholder*="last" i]',
-        'input[placeholder*="surname" i]',
-        'input[placeholder*="family" i]',
-        'input[placeholder*="姓" i]:not([placeholder*="名" i])',
-        'input[placeholder="山田"]',
-        'input[autocomplete="family-name"]',
-        'input[autocomplete="last-name"]',
-        'input[aria-label*="last" i]',
-        'input[aria-label*="surname" i]',
-        'input[data-field*="last" i]'
-    ],
-    gender: [
-        'select[name*="gender" i]',
-        'select[id*="gender" i]',
-        'select[name*="sex" i]',
-        'select[id*="sex" i]',
-        'input[name*="gender" i]',
-        'input[id*="gender" i]',
-        'input[aria-label*="gender" i]',
-        'select[aria-label*="gender" i]'
-    ],
-    birthday: [
-        'input[type="date"]',
-        'input[name*="birth" i]',
-        'input[name*="dob" i]',
-        'input[name*="bday" i]',
-        'input[id*="birth" i]',
-        'input[id*="dob" i]',
-        'input[id*="bday" i]',
-        'input[placeholder*="birth" i]',
-        'input[placeholder*="生日" i]',
-        'input[placeholder*="出生" i]',
-        'input[autocomplete="bday"]',
-        'input[autocomplete="birthday"]',
-        'input[aria-label*="birth" i]',
-        'input[data-field*="birth" i]'
-    ],
-    username: [
-        'input[name*="user" i]:not([type="password"])',
-        'input[name*="login" i]:not([type="password"])',
-        'input[name*="account" i]:not([type="password"])',
-        'input[name*="nickname" i]',
-        'input[name*="nick" i]',
-        'input[id*="user" i]:not([type="password"])',
-        'input[id*="nickname" i]',
-        'input[placeholder*="user" i]',
-        'input[placeholder*="用户" i]',
-        'input[placeholder*="昵称" i]',
-        'input[autocomplete="username"]',
-        'input[aria-label*="user" i]',
-        'input[data-field*="user" i]'
-    ],
-    email: [
-        // XServer 特殊字段
-        'input[name="mailaddress"]',
-        'input[type="email"]',
-        'input[name*="email" i]',
-        'input[name*="mail" i]',
-        'input[name*="e-mail" i]',
-        'input[id*="email" i]',
-        'input[id*="mail" i]',
-        'input[placeholder*="email" i]',
-        'input[placeholder*="邮箱" i]',
-        'input[placeholder*="电子邮件" i]',
-        'input[autocomplete="email"]',
-        'input[aria-label*="email" i]',
-        'input[aria-label*="mail" i]',
-        'input[data-field*="email" i]'
-    ],
-    password: [
-        'input[type="password"]',
-        'input[name*="pass" i]',
-        'input[name*="pwd" i]',
-        'input[name*="secret" i]',
-        'input[id*="pass" i]',
-        'input[id*="pwd" i]',
-        'input[placeholder*="password" i]',
-        'input[placeholder*="密码" i]',
-        'input[autocomplete="new-password"]',
-        'input[autocomplete="current-password"]',
-        'input[aria-label*="password" i]'
-    ],
-    phone: [
-        'input[type="tel"]',
-        'input[name*="phone" i]',
-        'input[name*="mobile" i]',
-        'input[name*="tel" i]',
-        'input[name*="cell" i]',
-        'input[name*="contact" i]',
-        'input[id*="phone" i]',
-        'input[id*="mobile" i]',
-        'input[id*="tel" i]',
-        'input[placeholder*="phone" i]',
-        'input[placeholder*="mobile" i]',
-        'input[placeholder*="电话" i]',
-        'input[placeholder*="手机" i]',
-        'input[autocomplete="tel"]',
-        'input[autocomplete="tel-national"]',
-        'input[aria-label*="phone" i]',
-        'input[aria-label*="mobile" i]',
-        'input[data-field*="phone" i]'
-    ],
-    address: [
-        // XServer 特殊字段 - 町域・番地
-        'input[name="address2"]',
-        // 排除邮箱字段
-        'input[name*="address" i]:not([type="email"]):not([name*="mail" i])',
-        'input[name*="street" i]',
-        'input[name*="addr" i]',
-        'input[id*="address" i]',
-        'input[id*="street" i]',
-        'input[placeholder*="address" i]',
-        'input[placeholder*="street" i]',
-        'input[placeholder*="地址" i]',
-        'input[placeholder*="街道" i]',
-        'input[autocomplete="street-address"]',
-        'input[autocomplete="address-line1"]',
-        'input[autocomplete="address-line2"]',
-        'input[aria-label*="address" i]',
-        'input[aria-label*="street" i]',
-        'textarea[name*="address" i]',
-        'textarea[id*="address" i]',
-        'textarea[placeholder*="address" i]'
-    ],
-    city: [
-        'input[name*="city" i]',
-        'input[name*="town" i]',
-        'input[name*="locality" i]',
-        'input[id*="city" i]',
-        'input[id*="town" i]',
-        'input[placeholder*="city" i]',
-        'input[placeholder*="城市" i]',
-        'input[autocomplete="address-level2"]',
-        'input[aria-label*="city" i]',
-        'select[name*="city" i]',
-        'select[id*="city" i]'
-    ],
-    zipCode: [
-        'input[name*="zip" i]',
-        'input[name*="postal" i]',
-        'input[name*="postcode" i]',
-        'input[name*="post_code" i]',
-        'input[id*="zip" i]',
-        'input[id*="postal" i]',
-        'input[placeholder*="zip" i]',
-        'input[placeholder*="postal" i]',
-        'input[placeholder*="邮编" i]',
-        'input[placeholder*="邮政编码" i]',
-        'input[autocomplete="postal-code"]',
-        'input[aria-label*="zip" i]',
-        'input[aria-label*="postal" i]',
-        'input[data-field*="zip" i]'
-    ],
-    state: [
-        'input[name*="state" i]',
-        'input[name*="province" i]',
-        'input[name*="region" i]',
-        'input[name*="prefecture" i]',
-        'input[id*="state" i]',
-        'input[id*="province" i]',
-        'input[id*="region" i]',
-        'input[placeholder*="state" i]',
-        'input[placeholder*="province" i]',
-        'input[placeholder*="省" i]',
-        'input[placeholder*="州" i]',
-        'select[name*="state" i]',
-        'select[name*="province" i]',
-        'select[name*="region" i]',
-        'select[id*="state" i]',
-        'select[id*="province" i]',
-        'input[autocomplete="address-level1"]',
-        'input[aria-label*="state" i]',
-        'input[aria-label*="province" i]'
-    ],
-    country: [
-        'input[name*="country" i]',
-        'input[name*="nation" i]',
-        'input[id*="country" i]',
-        'input[placeholder*="country" i]',
-        'input[placeholder*="国家" i]',
-        'select[name*="country" i]',
-        'select[id*="country" i]',
-        'input[autocomplete="country-name"]',
-        'input[autocomplete="country"]',
-        'input[aria-label*="country" i]',
-        'select[aria-label*="country" i]'
-    ],
-    // 日本漢字姓（姓）
-    lastNameKanji: [
-        'input[name*="sei" i]:not([name*="seimei" i])',
-        'input[name*="family_name_kanji" i]',
-        'input[name*="last_name_kanji" i]',
-        'input[placeholder*="姓" i]:not([placeholder*="姓名" i])',
-        'input[placeholder*="山田" i]',
-        'input[aria-label*="姓（漢字）" i]',
-        'input[aria-label*="姓 漢字" i]'
-    ],
-    // 日本漢字名（名）
-    firstNameKanji: [
-        'input[name*="mei" i]:not([name*="seimei" i])',
-        'input[name*="given_name_kanji" i]',
-        'input[name*="first_name_kanji" i]',
-        'input[placeholder*="名" i]:not([placeholder*="姓名" i]):not([placeholder*="名前" i])',
-        'input[placeholder*="太郎" i]',
-        'input[aria-label*="名（漢字）" i]',
-        'input[aria-label*="名 漢字" i]'
-    ],
-    // 日本片假名姓（セイ）
-    lastNameKana: [
-        'input[name="name_kana1"]',
-        'input[name*="kana_sei" i]',
-        'input[name*="sei_kana" i]',
-        'input[name*="family_name_kana" i]',
-        'input[name*="last_name_kana" i]',
-        'input[name*="furigana_sei" i]',
-        'input[placeholder*="セイ" i]',
-        'input[placeholder*="ヤマダ" i]',
-        'input[aria-label*="姓（カナ）" i]',
-        'input[aria-label*="姓 カナ" i]',
-        'input[aria-label*="フリガナ" i]:not([aria-label*="名" i])'
-    ],
-    // 日本片假名名（メイ）
-    firstNameKana: [
-        'input[name="name_kana2"]',
-        'input[name*="kana_mei" i]',
-        'input[name*="mei_kana" i]',
-        'input[name*="given_name_kana" i]',
-        'input[name*="first_name_kana" i]',
-        'input[name*="furigana_mei" i]',
-        'input[placeholder*="メイ" i]',
-        'input[placeholder*="タロウ" i]',
-        'input[aria-label*="名（カナ）" i]',
-        'input[aria-label*="名 カナ" i]'
-    ],
-    // 日本都道府県
-    prefectureJp: [
-        'input[name*="prefecture" i]',
-        'input[name*="todofuken" i]',
-        'select[name*="prefecture" i]',
-        'select[name*="todofuken" i]',
-        'input[placeholder*="都道府県" i]',
-        'input[placeholder*="東京都" i]',
-        'select[aria-label*="都道府県" i]'
-    ],
-    // 日本市区町村
-    cityJp: [
-        'input[name*="shikuchoson" i]',
-        'input[name*="city_jp" i]',
-        'input[placeholder*="市区町村" i]',
-        'input[placeholder*="千代田区" i]',
-        'input[aria-label*="市区町村" i]'
-    ],
-    // 日本町域・番地
-    chomeJp: [
-        'input[name*="choiki" i]',
-        'input[name*="banchi" i]',
-        'input[name*="chome" i]',
-        'input[name*="address1_jp" i]',
-        'input[placeholder*="町域" i]',
-        'input[placeholder*="丁目" i]',
-        'input[placeholder*="番地" i]',
-        'input[aria-label*="町域" i]',
-        'input[aria-label*="丁目・番地" i]'
-    ],
-    // 日本建物名
-    buildingJp: [
-        'input[name*="tatemono" i]',
-        'input[name*="building_jp" i]',
-        'input[name*="address2_jp" i]',
-        'input[placeholder*="建物名" i]',
-        'input[placeholder*="マンション" i]',
-        'input[placeholder*="ビル" i]',
-        'input[aria-label*="建物名" i]'
-    ],
-    // 日本電話番号（無国番）
-    phoneJp: [
-        'input[name*="tel_jp" i]',
-        'input[placeholder*="090" i]',
-        'input[placeholder*="080" i]',
-        'input[placeholder*="070" i]',
-        'input[aria-label*="電話番号" i]'
-    ]
+    ...window.GeoFillSelectors.common,
+    ...window.GeoFillSelectors.japan
+};
+
+// 标签关键字映射
+const LABEL_KEYWORDS = {
+    ...window.GeoFillSelectors.commonLabels,
+    ...window.GeoFillSelectors.japanLabels
 };
 
 // 用于检测全名字段（需要拆分）
-const FULLNAME_SELECTORS = [
-    'input[name*="fullname" i]',
-    'input[name*="full_name" i]',
-    'input[name*="name" i]:not([name*="user" i]):not([name*="first" i]):not([name*="last" i])',
-    'input[id*="fullname" i]',
-    'input[placeholder*="full name" i]',
-    'input[placeholder*="your name" i]',
-    'input[placeholder*="姓名" i]',
-    'input[autocomplete="name"]',
-    'input[aria-label*="full name" i]',
-    'input[aria-label*="your name" i]'
-];
+const FULLNAME_SELECTORS = window.GeoFillSelectors.fullNames || [];
+
+/**
+ * 获取元素的标签文本
+ */
+function getLabelText(element) {
+    let labelText = '';
+    const id = element.id;
+
+    // 1. 查找 <label for="id">
+    if (id) {
+        const label = document.querySelector(`label[for="${id}"]`);
+        if (label) labelText += label.innerText;
+    }
+
+    // 2. 查找父级 <label>
+    const parentLabel = element.closest('label');
+    if (parentLabel) labelText += parentLabel.innerText;
+
+    // 3. 查找 aria-label
+    const ariaLabel = element.getAttribute('aria-label');
+    if (ariaLabel) labelText += ariaLabel;
+
+    // 4. 查找 placeholder
+    const placeholder = element.getAttribute('placeholder');
+    if (placeholder) labelText += placeholder;
+
+    // 5. 查找前置文本节点 (简单的启发式)
+    // 很多表格布局中，label 在 input 的前一个 td 或兄弟节点
+    let previous = element.previousElementSibling;
+    while (previous) {
+        if (previous.tagName === 'LABEL' || previous.tagName === 'SPAN' || previous.tagName === 'TD' || previous.tagName === 'TH') {
+            labelText += previous.innerText;
+            break;
+        }
+        previous = previous.previousElementSibling;
+    }
+
+    return labelText.toLowerCase().replace(/\s+/g, '');
+}
+
+/**
+ * 通过标签文本查找字段
+ */
+function findFieldByLabel(fieldName) {
+    const keywords = LABEL_KEYWORDS[fieldName];
+    if (!keywords || keywords.length === 0) return null;
+
+    // 获取所有可见的输入框
+    const inputs = Array.from(document.querySelectorAll('input:not([type="hidden"]):not([type="submit"]):not([type="button"]), select, textarea'));
+
+    for (const input of inputs) {
+        if (input.disabled || input.readOnly || !isVisible(input)) continue;
+
+        // 如果该输入框已经被其他规则匹配过，可能需要跳过（这里简化处理，优先匹配）
+
+        const text = getLabelText(input);
+        if (!text) continue;
+
+        for (const keyword of keywords) {
+            // 简单的包含匹配
+            if (text.includes(keyword.toLowerCase().replace(/\s+/g, ''))) {
+                return input;
+            }
+        }
+    }
+    return null;
+}
 
 /**
  * 查找表单字段（单个）
  */
 function findField(fieldName) {
+    // 1. 优先尝试 CSS 选择器
     const selectors = FIELD_SELECTORS[fieldName] || [];
-
     for (const selector of selectors) {
         try {
             const element = document.querySelector(selector);
@@ -349,13 +98,14 @@ function findField(fieldName) {
                 return element;
             }
         } catch (e) {
-            // 选择器语法错误时跳过
-            console.log('[GeoFill] Selector error:', selector, e);
+            // 忽略无效选择器
         }
     }
 
-    return null;
+    // 2. 尝试智能标签匹配
+    return findFieldByLabel(fieldName);
 }
+
 
 /**
  * 查找全名字段
@@ -635,10 +385,110 @@ function fillForm(data) {
     return { filledCount, results };
 }
 
+/**
+ * 扫描页面表单结构
+ */
+function scanForm() {
+    const inputs = Array.from(document.querySelectorAll('input:not([type="hidden"]):not([type="submit"]):not([type="button"]), select, textarea'));
+    const formStructure = [];
+
+    inputs.forEach((input, index) => {
+        if (!isVisible(input) || input.disabled || input.readOnly) return;
+
+        // 获取标签文本
+        const label = getLabelText(input);
+
+        // 获取上下文（前后的文本）
+        let context = '';
+        const parent = input.parentElement;
+        if (parent) {
+            context = parent.innerText.replace(/\s+/g, ' ').trim().substring(0, 100); // 限制长度
+        }
+
+        // 获取 ID 或 Name 作为唯一标识
+        const id = input.id || input.name || `field_${index}`;
+
+        formStructure.push({
+            id: id,
+            type: input.type || input.tagName.toLowerCase(),
+            label: label,
+            placeholder: input.placeholder || '',
+            context: context,
+            name: input.name || '',
+            required: input.required || input.getAttribute('aria-required') === 'true',
+            min: input.min || '',
+            max: input.max || '',
+            pattern: input.pattern || ''
+        });
+    });
+
+    // 获取页面标题和 meta description 作为整体上下文
+    const pageTitle = document.title;
+    const metaDesc = document.querySelector('meta[name="description"]')?.content || '';
+
+    return {
+        fields: formStructure,
+        pageContext: {
+            title: pageTitle,
+            description: metaDesc,
+            url: window.location.href,
+            language: document.documentElement.lang || 'en'
+        }
+    };
+}
+
+/**
+ * 智能填写表单 (AI)
+ */
+function fillFormSmart(mapping) {
+    let filledCount = 0;
+    const results = {};
+
+    for (const [key, value] of Object.entries(mapping)) {
+        // key 可能是 id 或 name
+        let element = document.getElementById(key);
+        if (!element) {
+            element = document.querySelector(`[name="${key}"]`);
+        }
+
+        // 如果是生成的临时 ID (field_x)，尝试通过索引找回（不太可靠，但作为兜底）
+        if (!element && key.startsWith('field_')) {
+            const index = parseInt(key.split('_')[1]);
+            const inputs = Array.from(document.querySelectorAll('input:not([type="hidden"]):not([type="submit"]):not([type="button"]), select, textarea'));
+            if (inputs[index]) element = inputs[index];
+        }
+
+        if (element && isVisible(element)) {
+            if (element.tagName.toLowerCase() === 'select') {
+                fillSelect(element, value);
+            } else if (element.type === 'radio' || element.type === 'checkbox') {
+                // 对于 radio/checkbox，AI 可能会返回 true/false 或 value
+                if (value === true || value === 'true' || value === element.value) {
+                    element.checked = true;
+                }
+            } else {
+                simulateInput(element, value);
+            }
+            filledCount++;
+            results[key] = 'filled';
+        } else {
+            results[key] = 'not found';
+        }
+    }
+
+    return { filledCount, results };
+}
+
 // 监听来自 popup 的消息
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'fillForm') {
         const result = fillForm(request.data);
+        sendResponse(result);
+    } else if (request.action === 'scanForm') {
+        const result = scanForm();
+        sendResponse(result);
+    } else if (request.action === 'fillFormSmart') {
+        const result = fillFormSmart(request.data);
         sendResponse(result);
     }
     return true;
