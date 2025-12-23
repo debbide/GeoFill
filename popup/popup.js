@@ -22,6 +22,9 @@ const elements = {
     openSettings: null,
     closeSettings: null,
     settingsModal: null,
+    // AI 开关
+    useAIToggle: null,
+    aiToggleWrapper: null,
     // 设置元素
     enableAI: null,
     openaiBaseUrl: null,
@@ -439,6 +442,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     elements.ipRefresh = document.getElementById('ipRefresh');
     elements.regenerateAll = document.getElementById('regenerateAll');
     elements.fillForm = document.getElementById('fillForm');
+    // AI 开关
+    elements.useAIToggle = document.getElementById('useAIToggle');
+    elements.aiToggleWrapper = document.getElementById('aiToggleWrapper');
     elements.themeToggle = document.getElementById('themeToggle');
     elements.toast = document.getElementById('toast');
 
@@ -483,6 +489,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try { await loadTheme(); } catch (e) { console.log('loadTheme error:', e); }
     try { await loadSettings(); } catch (e) { console.log('loadSettings error:', e); }
+
+    // 加载 AI 开关状态
+    try {
+        const result = await chrome.storage.local.get('geoFillUseAI');
+        if (elements.useAIToggle && result.geoFillUseAI !== undefined) {
+            elements.useAIToggle.checked = result.geoFillUseAI;
+        }
+    } catch (e) { console.log('loadAIToggle error:', e); }
 
     bindEvents();
 
@@ -595,8 +609,9 @@ function bindEvents() {
         elements.regenerateAll.addEventListener('click', async () => {
             if (!window.generators) return;
 
-            // 如果启用了 AI 生成
-            if (userSettings.enableAI && userSettings.openaiKey) {
+            // 检查 AI 开关是否开启（主界面开关）
+            const useAI = elements.useAIToggle?.checked && userSettings.openaiKey;
+            if (useAI) {
                 await generateWithAI();
                 return;
             }
@@ -628,6 +643,14 @@ function bindEvents() {
 
     if (elements.fillForm) {
         elements.fillForm.addEventListener('click', fillFormInPage);
+    }
+
+    // AI 开关事件
+    if (elements.useAIToggle) {
+        elements.useAIToggle.addEventListener('change', () => {
+            // 保存开关状态
+            chrome.storage.local.set({ 'geoFillUseAI': elements.useAIToggle.checked });
+        });
     }
 
     document.querySelectorAll('.lock-btn').forEach(btn => {
@@ -1174,8 +1197,9 @@ async function fillFormInPage() {
     try {
         const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-        // 检查是否启用 AI 智能填写
-        if (userSettings.enableAI && userSettings.openaiKey) {
+        // 检查 AI 开关是否开启（主界面开关）
+        const useAI = elements.useAIToggle?.checked && userSettings.openaiKey;
+        if (useAI) {
             btn.textContent = '🤖 分析中...';
             btn.disabled = true;
 
@@ -1385,6 +1409,45 @@ Example:
     }
 }
 
+/**
+ * 普通填表（不使用 AI，传统方式）
+ */
+async function fillFormNormalInPage() {
+    updateCurrentDataFromInputs();
+    const btn = elements.fillFormNormal;
+    const originalText = btn.textContent;
+
+    try {
+        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+        try {
+            await chrome.tabs.sendMessage(tab.id, { action: 'fillForm', data: currentData });
+        } catch (e) {
+            // 如果 content script 未加载，尝试注入
+            await chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                files: [
+                    'scripts/selectors/common.js',
+                    'scripts/selectors/japan.js',
+                    'scripts/content.js'
+                ]
+            });
+            await new Promise(r => setTimeout(r, 200));
+            await chrome.tabs.sendMessage(tab.id, { action: 'fillForm', data: currentData });
+        }
+        saveToHistory();
+        showToast('普通填表完成');
+        window.close();
+
+    } catch (error) {
+        console.error('普通填表失败:', error);
+        showToast('填写失败: ' + error.message);
+    } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+    }
+}
+
 // ===== 新功能函数 =====
 
 /**
@@ -1457,14 +1520,12 @@ function updateSettingsUI() {
     if (elements.maxAge) elements.maxAge.value = userSettings.maxAge;
     if (elements.autoClearData) elements.autoClearData.checked = userSettings.autoClearData;
 
-    // 更新按钮文本
-    if (elements.fillForm) {
-        if (userSettings.enableAI) {
-            elements.fillForm.textContent = '🤖 AI 智能填表';
-            elements.fillForm.title = 'AI 正在辅助你分析并填写表单';
+    // 显示/隐藏 AI 开关
+    if (elements.aiToggleWrapper) {
+        if (userSettings.enableAI && userSettings.openaiKey) {
+            elements.aiToggleWrapper.style.display = 'flex';
         } else {
-            elements.fillForm.textContent = '✍️ 填写表单';
-            elements.fillForm.title = '自动填写当前页面表单';
+            elements.aiToggleWrapper.style.display = 'none';
         }
     }
 }

@@ -204,9 +204,13 @@
       </div>
     </section>
 
-
     <footer class="actions">
       <button class="btn btn-icon" id="copyAll" title="复制全部">📋</button>
+      <!-- AI 模式开关 -->
+      <label class="ai-toggle" id="aiToggleWrapper" style="display: none;" title="切换 AI 模式">
+        <input type="checkbox" id="useAIToggle">
+        <span class="ai-toggle-label">🤖</span>
+      </label>
       <button class="btn btn-secondary" id="regenerateAll">🔄 重新生成</button>
       <button class="btn btn-primary" id="fillForm">✍️ 填写表单</button>
     </footer>
@@ -264,7 +268,7 @@
         <div class="settings-section">
           <h3>🤖 AI 设置</h3>
           <div class="setting-row">
-            <label for="enableAI">启用 AI 生成</label>
+            <label for="enableAI">启用 AI 功能</label>
             <input type="checkbox" id="enableAI">
           </div>
           <div class="setting-row">
@@ -328,7 +332,6 @@
   <div class="toast" id="toast"></div>
 
   <script src="../scripts/generators.js"></script>
-
   <script src="../scripts/japan-generators.js"></script>
   <script src="popup.js"></script>
 </body>

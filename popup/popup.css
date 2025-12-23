@@ -347,6 +347,7 @@ body.light-theme .btn-primary {
   flex: 1;
   min-width: 120px;
 }
+
 /* Settings Button */
 .settings-btn {
   width: 28px;
@@ -645,6 +646,7 @@ body.light-theme .btn-small {
 .japan-fields .field-group label {
   width: 70px;
 }
+
 .input-full {
   width: 100%;
   padding: 6px 10px;
@@ -794,4 +796,41 @@ body.light-theme .btn-small {
 .btn-danger:hover {
   background: rgba(255, 77, 77, 0.4) !important;
   box-shadow: 0 4px 12px rgba(255, 77, 77, 0.3);
+}
+
+/* AI Toggle Switch */
+.ai-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.ai-toggle:hover {
+  background: var(--bg-hover);
+}
+
+.ai-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.ai-toggle-label {
+  font-size: 14px;
+  opacity: 0.5;
+  transition: all 0.2s ease;
+}
+
+.ai-toggle input[type="checkbox"]:checked+.ai-toggle-label {
+  opacity: 1;
+}
+
+.ai-toggle:has(input:checked) {
+  background: rgba(0, 217, 255, 0.2);
+  border-color: var(--accent-primary);
 }
