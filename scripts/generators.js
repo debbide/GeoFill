@@ -176,10 +176,14 @@ async function fetchAddressFromOSM(lat, lon) {
         streetAddress = addr.suburb;
       }
 
+      // 对于城市国家（新加坡、香港等），state 可能为空，使用 suburb 等代替
+      const stateValue = addr.state || addr.province || addr.region ||
+        addr.suburb || addr.neighbourhood || addr.county || '';
+
       return {
         address: streetAddress || data.display_name?.split(',')[0] || '',
         city: addr.city || addr.town || addr.village || addr.municipality || addr.county || '',
-        state: addr.state || addr.province || addr.region || '',
+        state: stateValue,
         zipCode: addr.postcode || '',
         country: addr.country || '',
         source: 'openstreetmap'
