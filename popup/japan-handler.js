@@ -40,7 +40,7 @@ function initJapanElements() {
  */
 function generateJapanData(gender) {
     if (!window.japanGenerators) {
-        console.log('[GeoFill] japanGenerators 未加载');
+        log.info(' japanGenerators 未加载');
         return;
     }
 
@@ -106,7 +106,7 @@ async function copyJapanField(text, btn) {
             btn.textContent = originalText;
         }, 1000);
     } catch (err) {
-        console.error('复制失败:', err);
+        log.error('复制失败:', err);
     }
 }
 
@@ -163,7 +163,7 @@ function initJapanFieldsHandler() {
         });
     }
 
-    console.log('[GeoFill] 日本字段处理器已初始化');
+    log.info(' 日本字段处理器已初始化');
 }
 
 // 页面加载完成后初始化

@@ -1215,38 +1215,36 @@ function regenerateField(fieldName, currentData, ipData) {
 // 导出函数供 popup.js 使用
 if (typeof window !== 'undefined') {
   // 扩展密码生成函数（支持自定义设置）
-  function generatePasswordWithSettings(settings) {
-    settings = settings || {};
-    var length = settings.passwordLength || 12;
-    var useUppercase = settings.pwdUppercase !== false;
-    var useLowercase = settings.pwdLowercase !== false;
-    var useNumbers = settings.pwdNumbers !== false;
-    var useSymbols = settings.pwdSymbols !== false;
-    var chars = '';
-    var password = '';
+  function generatePasswordWithSettings(settings = {}) {
+    const length = settings.passwordLength || 12;
+    const useUppercase = settings.pwdUppercase !== false;
+    const useLowercase = settings.pwdLowercase !== false;
+    const useNumbers = settings.pwdNumbers !== false;
+    const useSymbols = settings.pwdSymbols !== false;
+    let chars = '';
+    let password = '';
     if (useUppercase) { chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; password += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random() * 26)]; }
     if (useLowercase) { chars += 'abcdefghijklmnopqrstuvwxyz'; password += 'abcdefghijklmnopqrstuvwxyz'[Math.floor(Math.random() * 26)]; }
     if (useNumbers) { chars += '0123456789'; password += '0123456789'[Math.floor(Math.random() * 10)]; }
     if (useSymbols) { chars += '!@#$%^&*'; password += '!@#$%^&*'[Math.floor(Math.random() * 8)]; }
     if (!chars) { chars = 'abcdefghijklmnopqrstuvwxyz'; password = 'a'; }
-    for (var i = password.length; i < length; i++) { password += chars[Math.floor(Math.random() * chars.length)]; }
-    return password.split('').sort(function () { return Math.random() - 0.5; }).join('');
+    for (let i = password.length; i < length; i++) { password += chars[Math.floor(Math.random() * chars.length)]; }
+    return password.split('').sort(() => Math.random() - 0.5).join('');
   }
 
   // 扩展信息生成函数（支持自定义设置）
-  function generateAllInfoWithSettings(ipData, settings) {
-    settings = settings || {};
-    var country = ipData.country || 'United States';
-    var ipCity = ipData.city || '';
-    var ipRegion = ipData.region || '';
-    var gender = generateGender();
+  function generateAllInfoWithSettings(ipData, settings = {}) {
+    const country = ipData.country || 'United States';
+    const ipCity = ipData.city || '';
+    const ipRegion = ipData.region || '';
+    const gender = generateGender();
 
     // 日本专用处理：使用汉字姓名和日本地址
     if (country === 'Japan' && window.japanGenerators) {
-      var japanName = window.japanGenerators.generateJapanName(gender);
-      var japanAddr = window.japanGenerators.generateJapanAddress();
-      var japanPhone = generatePhone('Japan'); // 使用统一的生成函数（带质量检测）
-      var username = generateUsername(japanName.firstNameRomaji, japanName.lastNameRomaji);
+      const japanName = window.japanGenerators.generateJapanName(gender);
+      const japanAddr = window.japanGenerators.generateJapanAddress();
+      const japanPhone = generatePhone('Japan'); // 使用统一的生成函数（带质量检测）
+      const username = generateUsername(japanName.firstNameRomaji, japanName.lastNameRomaji);
       return {
         firstName: japanName.firstNameKanji,
         lastName: japanName.lastNameKanji,
@@ -1269,9 +1267,9 @@ if (typeof window !== 'undefined') {
       };
     }
 
-    var firstName = generateFirstName(country);
-    var lastName = generateLastName(country);
-    var username = generateUsername(firstName, lastName);
+    const firstName = generateFirstName(country);
+    const lastName = generateLastName(country);
+    const username = generateUsername(firstName, lastName);
     selectLocationByCity(country, ipCity, ipRegion);
     return {
       firstName: firstName, lastName: lastName, gender: gender,
