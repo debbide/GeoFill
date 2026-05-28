@@ -637,6 +637,34 @@ test('fillForm only fills two password fields when optional token also has passw
     assert.equal(result.results.password, 'filled 2 field(s)');
 });
 
+test('fillForm does not fill a second password-like field unless it is explicitly confirmation', () => {
+    const password = makeInput({ id: 'new_password', name: 'new_password', type: 'password', labels: ['Password'] });
+    const securityPassword = makeInput({ id: 'security_password', name: 'security_password', type: 'password', labels: ['Security Password'] });
+
+    const sandbox = buildFillSandbox([password, securityPassword]);
+    const result = sandbox.fillForm({
+        password: 'Aa1!example'
+    });
+
+    assert.equal(password._v, 'Aa1!example');
+    assert.equal(securityPassword._v, undefined);
+    assert.equal(result.results.password, 'filled 1 field(s)');
+});
+
+test('fillForm does not use ambiguous address verification code as address fallback', async () => {
+    const verificationCode = makeInput({ id: 'address_verification_code', name: 'address_verification_code', labels: ['Address Verification Code'] });
+
+    const sandbox = buildFillSandbox([verificationCode]);
+    const result = sandbox.fillForm({
+        address: '350 5th Ave'
+    });
+
+    await new Promise((resolve) => setTimeout(resolve, 1600));
+
+    assert.equal(verificationCode._v, undefined);
+    assert.equal(result.results.address, undefined);
+});
+
 test('fillForm fills split name fields before full name fallback', () => {
     const first = makeInput({ id: 'given', name: 'given_name', autocomplete: 'given-name' });
     const last = makeInput({ id: 'family', name: 'family_name', autocomplete: 'family-name' });
@@ -695,6 +723,30 @@ test('fillForm keeps email and username fields separate', () => {
     assert.equal(email._v, 'jane@example.com');
     assert.equal(username._v, 'janemiller90');
     assert.equal(result.results.identityParts, 'filled 2 field(s)');
+});
+
+test('fillForm does not fill account email as username', () => {
+    const accountEmail = makeInput({ id: 'account-email', name: 'account_email', type: 'email', labels: ['Account Email'] });
+
+    const sandbox = buildFillSandbox([accountEmail]);
+    const result = sandbox.fillForm({
+        username: 'janemiller90'
+    });
+
+    assert.equal(accountEmail._v, undefined);
+    assert.equal(result.results.identityParts, undefined);
+});
+
+test('fillForm does not fill contact email as phone', () => {
+    const contactEmail = makeInput({ id: 'contact-email', name: 'contact_email', type: 'email', labels: ['Contact Email'] });
+
+    const sandbox = buildFillSandbox([contactEmail]);
+    const result = sandbox.fillForm({
+        phone: '+1 (212) 555-1212'
+    });
+
+    assert.equal(contactEmail._v, undefined);
+    assert.equal(result.results.countryPhoneParts, undefined);
 });
 
 test('fillForm matches labels for special ids', () => {
@@ -826,6 +878,26 @@ test('fillForm derives numeric phone country code from local phone format', () =
     });
 
     assert.equal(phoneCode._v, '81');
+    assert.equal(phone._v, '08048297315');
+    assert.equal(result.results.countryPhoneParts, 'filled 2 field(s)');
+});
+
+test('fillForm treats country_code with country options as country, not phone code', () => {
+    const country = makeSelect({ id: 'countryCode', name: 'country_code' }, [
+        { text: 'Choose', value: '' },
+        { text: 'United States', value: 'US' },
+        { text: 'Japan', value: 'JP' }
+    ]);
+    const phone = makeInput({ id: 'mobile', name: 'mobile', type: 'tel', autocomplete: 'tel-national' });
+
+    const sandbox = buildFillSandbox([country, phone]);
+    const result = sandbox.fillForm({
+        country: 'Japan',
+        phone: '080-4829-7315'
+    });
+
+    assert.equal(country.selectedIndex, 2);
+    assert.equal(country.value, 'JP');
     assert.equal(phone._v, '08048297315');
     assert.equal(result.results.countryPhoneParts, 'filled 2 field(s)');
 });

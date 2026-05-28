@@ -118,15 +118,13 @@ function findFieldByLabel(fieldName) {
     const inputs = Array.from(document.querySelectorAll('input:not([type="hidden"]):not([type="submit"]):not([type="button"]), select, textarea'));
 
     for (const input of inputs) {
-        if (!isFillableElement(input)) continue;
-
-        // 如果该输入框已经被其他规则匹配过，可能需要跳过（这里简化处理，优先匹配）
+        if (!isFillableElement(input) || !isCandidateSafeForField(input, fieldName)) continue;
 
         const text = getLabelText(input);
         if (!text) continue;
 
         for (const keyword of keywords) {
-            // 简单的包含匹配
+            // 简单的包含匹配；命中后仍需通过 intent 复核，避免宽标签误填。
             if (text.includes(keyword.toLowerCase().replace(/\s+/g, ''))) {
                 return input;
             }
@@ -135,16 +133,32 @@ function findFieldByLabel(fieldName) {
     return null;
 }
 
+function getCompatibleIntentsForField(fieldName) {
+    const compatible = {
+        address: ['addressLine1', 'addressLine2'],
+        birthday: ['birthday', 'birthYear', 'birthMonth', 'birthDay'],
+        phone: ['phone', 'phoneArea', 'phonePrefix', 'phoneLine', 'phoneCountryCode']
+    };
+    return compatible[fieldName] || [fieldName];
+}
+
+function isCandidateSafeForField(element, fieldName) {
+    if (!element || isTokenOrOptionalCodeField(element)) return false;
+    const intent = classifyFieldIntent(element);
+    if (!intent) return true;
+    return getCompatibleIntentsForField(fieldName).includes(intent);
+}
+
 /**
  * 查找表单字段（单个）
  */
 function findField(fieldName) {
-    // 1. 优先尝试 CSS 选择器
+    // 1. 优先尝试 CSS 选择器，但需要 intent 复核，避免宽泛选择器误命中。
     const selectors = FIELD_SELECTORS[fieldName] || [];
     for (const selector of selectors) {
         try {
             const element = document.querySelector(selector);
-            if (element && isFillableElement(element)) {
+            if (element && isFillableElement(element) && isCandidateSafeForField(element, fieldName)) {
                 return element;
             }
         } catch (e) {
@@ -846,7 +860,7 @@ function findFieldSmart(fieldName, usedElements = new Set()) {
     if (fromIntent) return fromIntent;
 
     const fromSelectors = findField(fieldName);
-    if (fromSelectors && !usedElements.has(fromSelectors) && !classifyFieldIntent(fromSelectors)) {
+    if (fromSelectors && !usedElements.has(fromSelectors)) {
         return fromSelectors;
     }
     return null;
@@ -1457,9 +1471,7 @@ function findPasswordFields() {
 
     const result = [primary];
     const explicitConfirm = eligible.find((element) => element !== primary && getPasswordFieldRole(element) === 'confirm');
-    const fallbackConfirm = eligible.find((element) => element !== primary);
-    const confirm = explicitConfirm || fallbackConfirm;
-    if (confirm) result.push(confirm);
+    if (explicitConfirm) result.push(explicitConfirm);
 
     return result;
 }
@@ -1923,19 +1935,12 @@ function mergeFillPassResult(target, source) {
 function scheduleDelayedAddressFallback(data, results, usedElements = new Set()) {
     if (!data.address || results.addressParts || isSuccessfulFillStatus(results.address)) return;
 
-    // 最后兜底填写 address 字段，避免被邮编自动填充覆盖。
+    // 最后兜底只允许填写明确识别为地址行的字段。宁可漏填，也不要把地址写入验证码、token、备注等宽匹配字段。
     setTimeout(() => {
-        const addressEl = findField('address');
-        if (addressEl && !usedElements.has(addressEl)) {
-            // 确保不是邮箱字段
-            const elName = (addressEl.name || '').toLowerCase();
-            const elType = (addressEl.type || '').toLowerCase();
-            if (elType === 'email' || elName.includes('mail')) {
-                console.log('[GeoFill] 跳过 address 填写，目标是邮箱字段');
-            } else {
-                simulateInput(addressEl, data.address);
-                console.log('[GeoFill] 延迟填写 address:', data.address);
-            }
+        const addressEl = findFieldByIntent('addressLine1', usedElements);
+        if (addressEl && classifyFieldIntent(addressEl) === 'addressLine1' && !isTokenOrOptionalCodeField(addressEl)) {
+            simulateInput(addressEl, data.address);
+            console.log('[GeoFill] 延迟填写 address:', data.address);
         }
     }, 1500);
 }
