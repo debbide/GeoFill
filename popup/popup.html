@@ -303,7 +303,15 @@
         <!-- 地址 API 设置 -->
         <div class="settings-section">
           <h3>🗺️ 地址 API（可选）</h3>
-          <p class="setting-hint" style="font-size: 12px; color: #888; margin-bottom: 10px;">配置后可生成真实有效的地址，免费 3000次/天</p>
+          <p class="setting-hint" style="font-size: 12px; color: #888; margin-bottom: 10px;">自托管服务不限量、无需第三方 Key；或配 Geoapify Key（免费 3000次/天）</p>
+          <div class="setting-row">
+            <label for="selfHostedAddrUrl" style="width: auto;">自托管地址服务</label>
+            <input type="text" id="selfHostedAddrUrl" placeholder="http://192.168.1.x:8787" style="flex: 1; margin-left: 10px;">
+          </div>
+          <div class="setting-row">
+            <label for="selfHostedAddrToken" style="width: auto;">服务 Token</label>
+            <input type="password" id="selfHostedAddrToken" placeholder="在服务 admin 后台 API Tokens 里创建" style="flex: 1; margin-left: 10px;">
+          </div>
           <div class="setting-row">
             <label for="geoapifyKey" style="width: auto;">Geoapify API Key</label>
             <input type="text" id="geoapifyKey" placeholder="your-api-key" style="flex: 1; margin-left: 10px;">

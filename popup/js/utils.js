@@ -26,6 +26,7 @@ function showToast(message) {
 }
 
 function getAddressSourceText(source) {
+    if (source === 'selfhosted') return '自托管';
     if (source === 'geoapify') return 'Geoapify';
     if (source === 'openstreetmap') return 'OSM';
     if (source === 'local_verified') return '本地真实池';
@@ -154,6 +155,9 @@ async function ensureAddressApiPermission(options = {}) {
     const targets = ['https://nominatim.openstreetmap.org/reverse'];
     if (userSettings.geoapifyKey) {
         targets.unshift('https://api.geoapify.com/v1/geocode/reverse');
+    }
+    if (selfHostedAddrUrl) {
+        targets.unshift(selfHostedAddrUrl);
     }
 
     for (const target of targets) {

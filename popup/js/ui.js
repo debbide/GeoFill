@@ -4,6 +4,8 @@
 
 function sourceLabel(source) {
     switch (source) {
+        case 'selfhosted':
+            return '自托管';
         case 'local_verified':
             return '本地真实池';
         case 'geoapify':

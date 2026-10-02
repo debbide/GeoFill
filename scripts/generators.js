@@ -13,6 +13,113 @@ function setGeoapifyApiKey(key) {
   console.log('[GeoFill] Geoapify API Key 已' + (geoapifyApiKey ? '设置' : '清除'));
 }
 
+// 自托管地址服务（daimon3332/address）：用户在设置中配置服务地址 + API Token
+let selfHostedAddressBaseUrl = null;
+let selfHostedAddressToken = null;
+
+/**
+ * 设置自托管地址服务配置（地址或 Token 为空即视为未配置）
+ */
+function setSelfHostedAddressConfig(baseUrl, token) {
+  const normalized = baseUrl && baseUrl.trim() ? baseUrl.trim().replace(/\/+$/, '') : null;
+  selfHostedAddressBaseUrl = normalized;
+  selfHostedAddressToken = token && token.trim() ? token.trim() : null;
+  console.log('[GeoFill] 自托管地址服务已' + (selfHostedAddressBaseUrl ? '设置' : '清除'));
+}
+
+/**
+ * GeoFill 国家名 -> 地址服务的 ISO 国家代码
+ */
+const SELFHOSTED_COUNTRY_CODES = {
+  'United States': 'US',
+  'United Kingdom': 'GB',
+  'Canada': 'CA',
+  'Mexico': 'MX',
+  'Germany': 'DE',
+  'France': 'FR',
+  'Italy': 'IT',
+  'Spain': 'ES',
+  'Netherlands': 'NL',
+  'Russia': 'RU',
+  'China': 'CN',
+  'Hong Kong': 'HK',
+  'Taiwan': 'TW',
+  'Japan': 'JP',
+  'South Korea': 'KR',
+  'Singapore': 'SG',
+  'India': 'IN',
+  'Australia': 'AU',
+  'Brazil': 'BR'
+};
+
+/**
+ * 调用自托管地址服务生成真实地址（GET /api/v1/generate）
+ * 服务返回官方注册库的真实地址；无覆盖/失败返回 null 交给下一个地址源
+ */
+async function fetchAddressFromSelfHosted(country, cityName) {
+  if (!selfHostedAddressBaseUrl) return null;
+  if (typeof fetch !== 'function') return null;
+
+  const normalizedCountry = normalizeCountry(country || 'United States');
+  const countryCode = SELFHOSTED_COUNTRY_CODES[normalizedCountry];
+  if (!countryCode) return null;
+
+  const params = new URLSearchParams({ country: countryCode });
+  const city = String(cityName || '').trim();
+  if (city) params.set('city', city);
+
+  const headers = {};
+  if (selfHostedAddressToken) {
+    headers['Authorization'] = 'Bearer ' + selfHostedAddressToken;
+  }
+
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timeoutId = controller ? setTimeout(() => controller.abort(), 8000) : null;
+
+  try {
+    const response = await fetch(
+      selfHostedAddressBaseUrl + '/api/v1/generate?' + params.toString(),
+      Object.assign({ headers }, controller ? { signal: controller.signal } : {})
+    );
+    if (!response.ok) {
+      // 404 NO_POOL_COVERAGE：该区域暂无同步数据，正常降级
+      console.log('[GeoFill] 自托管地址请求失败:', response.status);
+      return null;
+    }
+
+    const data = await response.json();
+    const addr = data && data.data && data.data.result && data.data.result.address;
+    if (!addr) return null;
+
+    // 优先英文组件（与本地地址池的英文惯例一致），缺失时回退原生组件
+    const variants = addr.componentVariants || {};
+    const comp = variants.en || variants.native || addr.components || {};
+
+    const houseNumber = String(comp.houseNumber || '').trim();
+    const street = String(comp.street || '').trim();
+    let streetLine = [houseNumber, street].filter(Boolean).join(' ');
+    if (!streetLine) {
+      streetLine = String(addr.formattedAddress || '').trim();
+    }
+    if (!streetLine) return null;
+
+    return {
+      address: streetLine,
+      city: String(comp.locality || comp.postalLocality || city || ''),
+      state: String(comp.admin1Code || comp.admin1 || ''),
+      zipCode: String(comp.postcode || ''),
+      country: normalizedCountry,
+      source: 'selfhosted',
+      confidence: addr.matchLevel === 'street' ? 'medium' : 'high'
+    };
+  } catch (e) {
+    console.log('[GeoFill] 自托管地址调用失败:', e && e.message ? e.message : e);
+    return null;
+  } finally {
+    if (timeoutId) clearTimeout(timeoutId);
+  }
+}
+
 /**
  * 城市坐标数据（用于 Geoapify API 调用）
  */
@@ -2050,6 +2157,8 @@ if (typeof window !== 'undefined') {
     getAllEmailDomains: getAllEmailDomains,
     // 地址 API 相关
     setGeoapifyApiKey: setGeoapifyApiKey,
+    setSelfHostedAddressConfig: setSelfHostedAddressConfig,
+    fetchAddressFromSelfHosted: fetchAddressFromSelfHosted,
     fetchRealAddressFromApi: fetchRealAddressFromApi,
     fetchAddressFromOSM: fetchAddressFromOSM,
     fetchRealAddressSmart: fetchRealAddressSmart,
@@ -2078,6 +2187,28 @@ if (typeof window !== 'undefined') {
      */
     generateAddressAsync: async function (country, cityName, options = {}) {
       const normalizedCountry = normalizeCountry(country || 'United States');
+      const requestedCity = String(cityName || '').trim();
+
+      // 0) 自托管地址服务（用户在设置里配了服务地址才走）：官方注册库的真实地址，无限量
+      if (options.allowApi !== false) {
+        try {
+          let selfHosted = await fetchAddressFromSelfHosted(normalizedCountry, requestedCity);
+          if (!selfHosted && requestedCity) {
+            // 城市精确筛选无覆盖时退为全国随机，城市字段随返回结果更新
+            selfHosted = await fetchAddressFromSelfHosted(normalizedCountry, '');
+          }
+          if (selfHosted && selfHosted.address) {
+            if (options.requireCityMatch === true && requestedCity && !isSameAddressCity(selfHosted.city, requestedCity)) {
+              console.log('[GeoFill] 自托管地址城市不匹配，降级:', selfHosted.city, requestedCity);
+            } else {
+              console.log('[GeoFill] 使用自托管地址服务:', selfHosted.address);
+              return selfHosted;
+            }
+          }
+        } catch (e) {
+          console.log('[GeoFill] 自托管地址服务失败，降级:', e && e.message ? e.message : e);
+        }
+      }
 
       // 1) 本地真实池优先：稳定、快、可离线
       const localVerified = pickLocalVerifiedAddress(normalizedCountry, cityName, {
@@ -2087,7 +2218,6 @@ if (typeof window !== 'undefined') {
         return localVerified;
       }
 
-      const requestedCity = String(cityName || '').trim();
       const locationContext = options.locationContext || {};
 
       // 2) API 补充（有坐标才调用）

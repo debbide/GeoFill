@@ -424,6 +424,16 @@ function bindSettingsEvents() {
         elements.geoapifyKey.addEventListener('blur', saveGeoapifyKey);
     }
 
+    // 自托管地址服务配置
+    if (elements.selfHostedAddrUrl) {
+        elements.selfHostedAddrUrl.addEventListener('change', saveSelfHostedAddressConfig);
+        elements.selfHostedAddrUrl.addEventListener('blur', saveSelfHostedAddressConfig);
+    }
+    if (elements.selfHostedAddrToken) {
+        elements.selfHostedAddrToken.addEventListener('change', saveSelfHostedAddressConfig);
+        elements.selfHostedAddrToken.addEventListener('blur', saveSelfHostedAddressConfig);
+    }
+
     // 历史记录
     bindHistoryEvents();
 }

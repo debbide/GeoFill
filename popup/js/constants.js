@@ -23,6 +23,8 @@ const AUTO_CLEAR_KEY = 'geoFillAutoClear';
 const HISTORY_KEY = 'geoFillHistory';
 const GEOAPIFY_KEY = 'geoFillGeoapifyKey';
 const ADDRESS_API_ENABLED_KEY = 'geoFillUseAddressApi';
+const SELFHOSTED_ADDR_URL_KEY = 'geoFillSelfHostedAddrUrl';
+const SELFHOSTED_ADDR_TOKEN_KEY = 'geoFillSelfHostedAddrToken';
 
 // 缓存版本
 const CACHE_VERSION = 'v3';
@@ -61,6 +63,10 @@ let currentData = {};
 let ipData = {};
 let lockedFields = new Set();
 let userSettings = { ...DEFAULT_SETTINGS };
+
+// 自托管地址服务配置（独立存储，实时保存）
+let selfHostedAddrUrl = '';
+let selfHostedAddrToken = '';
 
 // DOM 元素引用（在 DOMContentLoaded 后由 popup.js 填充）
 const elements = {
@@ -104,6 +110,8 @@ const elements = {
     historyList: null,
     clearHistory: null,
     geoapifyKey: null,
+    selfHostedAddrUrl: null,
+    selfHostedAddrToken: null,
     testAI: null,
     addressQualityBadge: null,
     fillReport: null,

@@ -39,6 +39,7 @@ function loadUtilsSandbox(overrides = {}) {
         userSettings: {
             geoapifyKey: overrides.geoapifyKey || ''
         },
+        selfHostedAddrUrl: overrides.selfHostedAddrUrl || '',
         currentData: {
             address: '350 5th Ave',
             city: 'New York',
@@ -227,4 +228,46 @@ test('shouldUseAddressApi requests Geoapify permission only when explicitly aske
     assert.equal(await loaded.sandbox.shouldUseAddressApi({ allowApi: true, requestPermission: true }), true);
     assert.equal(permissionTargets.some((origin) => origin.includes('api.geoapify.com')), true);
     assert.equal(permissionTargets.some((origin) => origin.includes('nominatim.openstreetmap.org')), true);
+});
+
+test('shouldUseAddressApi requests self-hosted origin when configured', async () => {
+    const permissionTargets = [];
+    const loaded = loadUtilsSandbox({
+        addressApiEnabled: true,
+        selfHostedAddrUrl: 'http://192.168.1.10:8787',
+        grantAddressApiPermission: true
+    });
+
+    loaded.sandbox.chrome.permissions.contains = async ({ origins }) => {
+        permissionTargets.push(origins[0]);
+        return false;
+    };
+    loaded.sandbox.chrome.permissions.request = async ({ origins }) => {
+        permissionTargets.push(origins[0]);
+        return true;
+    };
+
+    assert.equal(await loaded.sandbox.shouldUseAddressApi({ allowApi: true, requestPermission: true }), true);
+    assert.equal(permissionTargets.some((origin) => origin.includes('192.168.1.10:8787')), true);
+    assert.equal(permissionTargets.some((origin) => origin.includes('nominatim.openstreetmap.org')), true);
+});
+
+test('shouldUseAddressApi skips self-hosted origin when not configured', async () => {
+    const permissionTargets = [];
+    const loaded = loadUtilsSandbox({
+        addressApiEnabled: true,
+        grantAddressApiPermission: true
+    });
+
+    loaded.sandbox.chrome.permissions.contains = async ({ origins }) => {
+        permissionTargets.push(origins[0]);
+        return false;
+    };
+    loaded.sandbox.chrome.permissions.request = async ({ origins }) => {
+        permissionTargets.push(origins[0]);
+        return true;
+    };
+
+    assert.equal(await loaded.sandbox.shouldUseAddressApi({ allowApi: true, requestPermission: true }), true);
+    assert.equal(permissionTargets.some((origin) => origin.includes('192.168')), false);
 });

@@ -160,6 +160,8 @@ async function loadSettings() {
         }
         // 加载 Geoapify API Key (独立存储)
         await loadGeoapifyKey();
+        // 加载自托管地址服务配置 (独立存储)
+        await loadSelfHostedAddressConfig();
     } catch (e) {
         log.info('加载设置失败:', e);
     }
@@ -221,5 +223,48 @@ async function saveGeoapifyKey() {
         log.info('保存 Geoapify API Key 失败:', e);
     }
 }
+/**
+ * 加载自托管地址服务配置 (独立存储)
+ */
+async function loadSelfHostedAddressConfig() {
+    try {
+        const result = await chrome.storage.local.get([SELFHOSTED_ADDR_URL_KEY, SELFHOSTED_ADDR_TOKEN_KEY]);
+        selfHostedAddrUrl = result[SELFHOSTED_ADDR_URL_KEY] || '';
+        selfHostedAddrToken = result[SELFHOSTED_ADDR_TOKEN_KEY] || '';
+        if (elements.selfHostedAddrUrl) {
+            elements.selfHostedAddrUrl.value = selfHostedAddrUrl;
+        }
+        if (elements.selfHostedAddrToken) {
+            elements.selfHostedAddrToken.value = selfHostedAddrToken;
+        }
+        // 同步到 generators
+        if (window.generators && window.generators.setSelfHostedAddressConfig) {
+            window.generators.setSelfHostedAddressConfig(selfHostedAddrUrl, selfHostedAddrToken);
+        }
+        log.info('自托管地址服务配置已加载');
+    } catch (e) {
+        log.info('加载自托管地址服务配置失败:', e);
+    }
+}
 
-
+/**
+ * 保存自托管地址服务配置 (独立存储，实时保存)
+ */
+async function saveSelfHostedAddressConfig() {
+    selfHostedAddrUrl = elements.selfHostedAddrUrl?.value?.trim() || '';
+    selfHostedAddrToken = elements.selfHostedAddrToken?.value?.trim() || '';
+    try {
+        await chrome.storage.local.set({
+            [SELFHOSTED_ADDR_URL_KEY]: selfHostedAddrUrl,
+            [SELFHOSTED_ADDR_TOKEN_KEY]: selfHostedAddrToken
+        });
+        // 同步到 generators
+        if (window.generators && window.generators.setSelfHostedAddressConfig) {
+            window.generators.setSelfHostedAddressConfig(selfHostedAddrUrl, selfHostedAddrToken);
+        }
+        showToast(selfHostedAddrUrl ? '自托管地址服务已保存' : '自托管地址服务已清除');
+        log.info('自托管地址服务配置已保存');
+    } catch (e) {
+        log.info('保存自托管地址服务配置失败:', e);
+    }
+}
