@@ -1,0 +1,22 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --version
+      - run: npm test
+      - name: syntax check (popup & content scripts)
+        run: |
+          for f in popup/js/*.js popup/*.js popup/japan-handler.js scripts/*.js scripts/selectors/*.js background.js; do
+            node --check "$f" || exit 1
+          done

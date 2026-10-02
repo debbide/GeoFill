@@ -4,6 +4,24 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 
+const CONTENT_PARTS = [
+    '10-dom.js',
+    '20-intent.js',
+    '30-format.js',
+    '40-controls.js',
+    '50-diagnostics.js',
+    '60-fill.js',
+    '70-scan.js',
+    '80-smart.js',
+    '90-main.js'
+];
+
+function loadContentCode() {
+    return CONTENT_PARTS
+        .map((name) => fs.readFileSync(path.join(__dirname, '..', 'scripts', 'content', name), 'utf8'))
+        .join('\n');
+}
+
 const quietConsole = {
     ...console,
     log: () => {},
@@ -11,7 +29,7 @@ const quietConsole = {
 };
 
 function buildSandbox() {
-    const code = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'content.js'), 'utf8');
+    const code = loadContentCode();
 
     const events = [];
     const fakeElement = {
@@ -80,7 +98,7 @@ function buildSandbox() {
 }
 
 function buildFillSandbox(elements) {
-    const code = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'content.js'), 'utf8');
+    const code = loadContentCode();
     const allElements = elements;
     const getElements = () => typeof allElements === 'function' ? allElements() : allElements;
     const getFormElements = () => getElements().filter((el) => ['INPUT', 'SELECT', 'TEXTAREA'].includes(el.tagName));

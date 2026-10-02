@@ -258,19 +258,103 @@ async function ensureHostPermission(url) {
 }
 
 /**
+ * Content script 文件列表（按顺序注入，90-main.js 必须最后）。
+ * background.js 里有一份同样的列表，改动时记得同步。
+ */
+const CONTENT_SCRIPT_FILES = [
+    'scripts/selectors/common.js',
+    'scripts/country-extensions.js',
+    'scripts/selectors/japan.js',
+    'scripts/content/10-dom.js',
+    'scripts/content/20-intent.js',
+    'scripts/content/30-format.js',
+    'scripts/content/40-controls.js',
+    'scripts/content/50-diagnostics.js',
+    'scripts/content/60-fill.js',
+    'scripts/content/70-scan.js',
+    'scripts/content/80-smart.js',
+    'scripts/content/90-main.js'
+];
+
+// tabId -> 已注入 content script 的 frameId 集合（避免重复注入）
+const injectedFrameIds = new Map();
+
+function markFrameInjected(tabId, frameId) {
+    let set = injectedFrameIds.get(tabId);
+    if (!set) {
+        set = new Set();
+        injectedFrameIds.set(tabId, set);
+    }
+    set.add(frameId);
+}
+
+function getInjectedFrameIds(tabId) {
+    const set = injectedFrameIds.get(tabId);
+    return set && set.size > 0 ? Array.from(set) : [0];
+}
+
+async function injectIntoFrame(tabId, frameId) {
+    await chrome.scripting.executeScript({
+        target: { tabId: tabId, frameIds: [frameId] },
+        files: CONTENT_SCRIPT_FILES
+    });
+}
+
+/**
+ * 轮询 content script 就绪标记，替代固定时长硬等待。
+ * @returns {Promise<boolean>} 就绪返回 true，超时返回 false
+ */
+async function waitForContentScriptReady(tabId, timeoutMs = 3000) {
+    const deadline = Date.now() + timeoutMs;
+    while (Date.now() < deadline) {
+        try {
+            const results = await chrome.scripting.executeScript({
+                target: { tabId: tabId },
+                func: () => window.__GeoFillContentReady === true
+            });
+            if (results && results[0] && results[0].result === true) {
+                return true;
+            }
+        } catch (e) {
+            // 页面跳转/关闭等情况直接放弃轮询
+            return false;
+        }
+        await new Promise(r => setTimeout(r, 100));
+    }
+    return false;
+}
+
+/**
  * Ensure content script is injected.
+ * 主 frame 必注；子 frame 尽力注入（iframe 内表单支持），跨域或特殊页面失败则跳过。
  */
 async function ensureContentScriptInjected(tabId) {
     try {
-        await chrome.scripting.executeScript({
-            target: { tabId: tabId },
-            files: [
-                'scripts/selectors/common.js',
-                'scripts/selectors/japan.js',
-                'scripts/content.js'
-            ]
-        });
-        await new Promise(r => setTimeout(r, 200));
+        await injectIntoFrame(tabId, 0);
+        markFrameInjected(tabId, 0);
+
+        try {
+            const frames = await chrome.webNavigation.getAllFrames({ tabId });
+            for (const frame of frames || []) {
+                const fid = frame.frameId;
+                if (fid === 0) continue;
+                const known = injectedFrameIds.get(tabId);
+                if (known && known.has(fid)) continue;
+                try {
+                    await injectIntoFrame(tabId, fid);
+                    markFrameInjected(tabId, fid);
+                } catch (e) {
+                    // 跨域 frame / chrome:// 等，跳过
+                }
+            }
+        } catch (e) {
+            // webNavigation 不可用时仅注入主 frame
+        }
+
+        const ready = await waitForContentScriptReady(tabId);
+        if (!ready) {
+            throw new Error('内容脚本注入后未就绪');
+        }
     } catch (e) {
         log.error('[GeoFill] Script injection failed:', e);
         throw new Error('无法注入脚本，请刷新页面后重试');
@@ -278,14 +362,35 @@ async function ensureContentScriptInjected(tabId) {
 }
 
 /**
- * Send message to content script with auto-injection fallback.
+ * 向已注入的各 frame 广播消息并收集结果（主 frame 结果在首位）。
  */
-async function sendMessageToTab(tabId, message) {
+async function broadcastToFrames(tabId, message, primaryResult) {
+    const results = [primaryResult];
+    for (const fid of getInjectedFrameIds(tabId)) {
+        if (fid === 0) continue;
+        try {
+            results.push(await chrome.tabs.sendMessage(tabId, message, { frameId: fid }));
+        } catch (e) {
+            // frame 已卸载等情况跳过
+        }
+    }
+    return results;
+}
+
+/**
+ * Send message to content script with auto-injection fallback.
+ * @param {object} options.broadcast 为 true 时向所有已注入 frame 广播，返回结果数组
+ */
+async function sendMessageToTab(tabId, message, options = {}) {
+    const { broadcast = false } = options;
+    const sendPrimary = () => chrome.tabs.sendMessage(tabId, message, { frameId: 0 });
     try {
-        return await chrome.tabs.sendMessage(tabId, message);
+        const primary = await sendPrimary();
+        return broadcast ? await broadcastToFrames(tabId, message, primary) : primary;
     } catch (e) {
         await ensureContentScriptInjected(tabId);
-        return await chrome.tabs.sendMessage(tabId, message);
+        const primary = await sendPrimary();
+        return broadcast ? await broadcastToFrames(tabId, message, primary) : primary;
     }
 }
 

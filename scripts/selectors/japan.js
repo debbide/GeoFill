@@ -118,3 +118,11 @@ window.GeoFillSelectors.japanLabels = {
     buildingJp: ['建物名', 'マンション', 'ビル', '住所2'],
     phoneJp: ['電話番号', '携帯電話']
 };
+
+// 注册到国家扩展表：content script 合并各国选择器时不再硬编码 japan
+if (typeof GeoFillCountryExtensions !== 'undefined') {
+    GeoFillCountryExtensions.register('Japan', {
+        selectors: window.GeoFillSelectors.japan,
+        selectorLabels: window.GeoFillSelectors.japanLabels
+    });
+}

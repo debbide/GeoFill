@@ -166,3 +166,42 @@ if (typeof window !== 'undefined') {
         JAPAN_ADDRESSES
     };
 }
+
+// 注册到国家扩展表：调用方通过 GeoFillCountryExtensions.get('Japan') 获取，
+// 不再需要硬编码 if (country === 'Japan') 分支
+if (typeof GeoFillCountryExtensions !== 'undefined') {
+    GeoFillCountryExtensions.register('Japan', {
+        generateProfile: (gender, settings, helpers) => {
+            const japanName = generateJapanName(gender);
+            const japanAddr = generateJapanAddress();
+            const japanPhone = helpers.generatePhone('Japan'); // 统一生成函数（带质量检测）
+            const username = helpers.generateUsername(japanName.firstNameRomaji, japanName.lastNameRomaji);
+            return {
+                firstName: japanName.firstNameKanji,
+                lastName: japanName.lastNameKanji,
+                firstNameKana: japanName.firstNameKana,
+                lastNameKana: japanName.lastNameKana,
+                fullName: japanName.lastNameKanji + ' ' + japanName.firstNameKanji,
+                fullNameKana: japanName.lastNameKana + ' ' + japanName.firstNameKana,
+                gender: gender,
+                birthday: helpers.generateBirthday(settings.minAge || 18, settings.maxAge || 55),
+                username: username,
+                email: helpers.generateEmail(username),
+                password: helpers.generatePasswordWithSettings(settings),
+                phone: japanPhone,
+                address: japanAddr.chome,
+                city: japanAddr.prefecture + japanAddr.city,
+                state: japanAddr.building,
+                zipCode: japanAddr.zipCodeFormatted,
+                country: 'Japan',
+                id_usertype: '100' // XServer 个人注册
+            };
+        },
+        aiPromptExtra: [
+            'IMPORTANT for Japan:',
+            '- ZipCode: "NNN-NNNN" (e.g. 100-0001)',
+            '- Phone: Generate a RANDOM mobile number "090-XXXX-XXXX" (or 080/070). DO NOT use "1234" or "0000".',
+            '- Name: Kanji for First/Last name, and Katakana for reading if applicable (but return standard keys).'
+        ].join('\n')
+    });
+}

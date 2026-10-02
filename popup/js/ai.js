@@ -4,6 +4,26 @@
 
 const AI_PROFILE_ALLOWED_FIELDS = new Set(FIELD_NAMES);
 const AI_GENDER_ALLOWED = new Set(['male', 'female']);
+// AI 接口请求超时（毫秒），避免自定义端点 hang 住时界面卡死
+const AI_REQUEST_TIMEOUT_MS = 30000;
+
+/**
+ * 带超时的 fetch：超时后主动 abort，并抛出可读错误。
+ */
+async function fetchWithTimeout(url, options = {}, timeoutMs = AI_REQUEST_TIMEOUT_MS) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+        return await fetch(url, { ...options, signal: controller.signal });
+    } catch (e) {
+        if (e && e.name === 'AbortError') {
+            throw new Error(`请求超时（${Math.round(timeoutMs / 1000)} 秒无响应）`);
+        }
+        throw e;
+    } finally {
+        clearTimeout(timer);
+    }
+}
 
 function safeString(value, maxLen = 120) {
     if (value === null || value === undefined) return '';
@@ -182,11 +202,10 @@ async function generateWithAI() {
             prompt += `\n\nPersona Description: ${userSettings.aiPersona}\n\nEnsure the generated profile matches this persona perfectly.`;
         }
 
-        if (country === 'Japan') {
-            prompt += `\n\nIMPORTANT for Japan:
-            - ZipCode: "NNN-NNNN" (e.g. 100-0001)
-            - Phone: Generate a RANDOM mobile number "090-XXXX-XXXX" (or 080/070). DO NOT use "1234" or "0000".
-            - Name: Kanji for First/Last name, and Katakana for reading if applicable (but return standard keys).`;
+        const countryExt = typeof GeoFillCountryExtensions !== 'undefined'
+            ? GeoFillCountryExtensions.get(country) : null;
+        if (countryExt && countryExt.aiPromptExtra) {
+            prompt += `\n\n${countryExt.aiPromptExtra}`;
         }
 
         prompt += ' Return ONLY a valid JSON object with keys: firstName, lastName, gender (male/female), birthday (YYYY-MM-DD), username, email, password, phone, address, city, state, zipCode.';
@@ -197,7 +216,7 @@ async function generateWithAI() {
             throw new Error('未授予 AI 接口站点权限，无法请求。');
         }
 
-        const response = await fetch(apiUrl, {
+        const response = await fetchWithTimeout(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -299,7 +318,7 @@ async function testAIConnection() {
             throw new Error('未授予 AI 接口站点权限，无法请求。');
         }
 
-        const response = await fetch(apiUrl, {
+        const response = await fetchWithTimeout(apiUrl, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

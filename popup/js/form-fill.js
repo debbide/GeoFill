@@ -330,13 +330,13 @@ function normalizeFillReportItems(result) {
     const items = [];
     const seen = new Set();
 
-    function addItem(type, title, detail, keyParts = []) {
+    function addItem(type, title, detail, keyParts = [], target = null) {
         const cleanTitle = cleanReportText(title, '\u586b\u5199\u95ee\u9898');
         const cleanDetail = cleanReportText(detail);
         const key = [type, cleanTitle, cleanDetail, ...keyParts].join('|').toLowerCase();
         if (seen.has(key)) return;
         seen.add(key);
-        items.push({ type, title: cleanTitle, detail: cleanDetail });
+        items.push({ type, title: cleanTitle, detail: cleanDetail, target });
     }
 
     const fieldIssues = Array.isArray(diagnostics.fieldIssues) ? diagnostics.fieldIssues : [];
@@ -350,7 +350,8 @@ function normalizeFillReportItems(result) {
         if (requestedValueHint) detailParts.push(requestedValueHint);
         if (selectOptionsHint) detailParts.push(selectOptionsHint);
         if (candidateHint) detailParts.push(candidateHint);
-        addItem('field', fieldLabel, detailParts.join(' | '), [issue?.reason || '']);
+        const locateTarget = issue?.target || (Array.isArray(issue?.candidates) ? issue.candidates[0] : null) || null;
+        addItem('field', fieldLabel, detailParts.join(' | '), [issue?.reason || ''], locateTarget);
     });
 
     const reportedRequired = new Set(fieldIssues
@@ -361,7 +362,7 @@ function normalizeFillReportItems(result) {
         const label = cleanReportText(field?.label || field?.name || field?.id, '\u5fc5\u586b\u5b57\u6bb5');
         const key = cleanReportText(field?.intent || field?.name || field?.id || label).toLowerCase();
         if (reportedRequired.has(key)) return;
-        addItem('field', label, FILL_ISSUE_REASON_LABELS.required_field_empty, ['required']);
+        addItem('field', label, FILL_ISSUE_REASON_LABELS.required_field_empty, ['required'], field);
     });
 
     const reportedUnfilled = new Set(fieldIssues
@@ -371,7 +372,8 @@ function normalizeFillReportItems(result) {
     (validation.unfilledRequestedFields || []).forEach((issue) => {
         const field = cleanReportText(issue?.field, '\u672a\u5339\u914d\u5b57\u6bb5');
         if (reportedUnfilled.has(field.toLowerCase())) return;
-        addItem('field', field, FILL_ISSUE_REASON_LABELS.field_not_found, ['unfilled']);
+        const unfilledTarget = Array.isArray(issue?.candidates) ? issue.candidates[0] : null;
+        addItem('field', field, FILL_ISSUE_REASON_LABELS.field_not_found, ['unfilled'], unfilledTarget || null);
     });
 
     const pageErrors = Array.isArray(diagnostics.pageErrors) ? diagnostics.pageErrors : [];
@@ -458,6 +460,16 @@ function renderFillReport(result, prefix = '\u586b\u8868\u5b8c\u6210') {
 
             itemEl.appendChild(titleEl);
             itemEl.appendChild(detailEl);
+            if (item.target && (item.target.id || item.target.name)) {
+                const locateBtn = document.createElement('button');
+                locateBtn.className = 'fill-report-locate';
+                locateBtn.textContent = '\uD83D\uDCCD \u5B9A\u4F4D';
+                locateBtn.addEventListener('click', (ev) => {
+                    ev.stopPropagation();
+                    highlightFieldInPage(item.target);
+                });
+                itemEl.appendChild(locateBtn);
+            }
             popupElements.fillReportList.appendChild(itemEl);
         });
     }
@@ -472,6 +484,111 @@ function showFillResult(result, prefix = '\u586b\u8868\u5b8c\u6210') {
     return report;
 }
 
+/**
+ * 在页面上定位高亮字段（向各 frame 广播，命中的 frame 负责滚动+闪烁）。
+ */
+async function highlightFieldInPage(target) {
+    try {
+        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        if (!tab) return;
+        const results = await sendMessageToTab(tab.id, { action: 'highlightField', target }, { broadcast: true });
+        const list = Array.isArray(results) ? results : [results];
+        if (!list.some((r) => r && r.ok)) {
+            showToast('\u672a\u5728\u9875\u9762\u4e0a\u627e\u5230\u8be5\u5b57\u6bb5');
+        }
+    } catch (e) {
+        log.error('Highlight field failed:', e);
+        showToast('\u5b9a\u4f4d\u5931\u8d25: ' + e.message);
+    }
+}
+
+const STEP_PENDING_MAX_AGE_MS = 10 * 60 * 1000;
+
+/**
+ * popup 打开时检查：当前 tab 是否有多步骤待办（上一步填完后出现了新字段）。
+ * 有则把填写按钮文案改成"继续填写"，点一次即可补上。
+ */
+async function checkPendingStep() {
+    try {
+        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        if (!tab) return;
+        const stored = await chrome.storage.local.get('geoFillStepPending');
+        const pending = stored && stored.geoFillStepPending;
+        if (pending && Number(pending.tabId) === tab.id &&
+            Date.now() - Number(pending.ts || 0) < STEP_PENDING_MAX_AGE_MS &&
+            elements.fillForm && !elements.fillForm.dataset.stepMode) {
+            elements.fillForm.dataset.stepMode = '1';
+            elements.fillForm.dataset.originalText = elements.fillForm.textContent;
+            elements.fillForm.textContent = `\u27A1\uFE0F \u7EE7\u7EED\u586B\u5199 (${pending.count} \u4E2A\u65B0\u5B57\u6BB5)`;
+            showToast('\u68C0\u6D4B\u5230\u8868\u5355\u65B0\u6B65\u9AA4\uFF0C\u70B9\u300C\u7EE7\u7EED\u586B\u5199\u300D\u8865\u4E0A');
+        }
+    } catch (e) { /* 忽略 */ }
+}
+
+/**
+ * 开始填写时清掉 badge 和待办，并恢复按钮文案。
+ */
+function clearStepPending() {
+    try {
+        const p = (async () => {
+            const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+            if (tab) {
+                await chrome.runtime.sendMessage({ action: 'clearStepBadge', tabId: tab.id });
+            }
+            await chrome.storage.local.remove('geoFillStepPending');
+        })();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+    } catch (e) { /* 忽略 */ }
+    if (elements.fillForm && elements.fillForm.dataset.stepMode) {
+        delete elements.fillForm.dataset.stepMode;
+        if (elements.fillForm.dataset.originalText) {
+            elements.fillForm.textContent = elements.fillForm.dataset.originalText;
+            delete elements.fillForm.dataset.originalText;
+        }
+    }
+}
+
+/**
+ * 合并多 frame 的 scanForm 结果（主 frame + iframe）。
+ */
+function mergeScanResults(results) {
+    const list = Array.isArray(results) ? results : [results];
+    const merged = { fields: [], pageContext: null };
+    for (const r of list) {
+        if (!r) continue;
+        if (Array.isArray(r.fields)) merged.fields.push(...r.fields);
+        if (!merged.pageContext && r.pageContext) merged.pageContext = r.pageContext;
+    }
+    return merged;
+}
+
+/**
+ * 合并多 frame 的 fill 结果：filledCount 累加，各类问题列表拼接。
+ */
+function mergeFillResults(results) {
+    const list = Array.isArray(results) ? results : [results];
+    const merged = {
+        filledCount: 0,
+        validation: { missingRequiredFields: [], unfilledRequestedFields: [] },
+        diagnostics: { pageErrors: [], fieldIssues: [] }
+    };
+    for (const r of list) {
+        if (!r || typeof r !== 'object') continue;
+        merged.filledCount += Number(r.filledCount || 0);
+        for (const k of ['missingRequiredFields', 'unfilledRequestedFields']) {
+            const arr = r.validation && r.validation[k];
+            if (Array.isArray(arr)) merged.validation[k].push(...arr);
+        }
+        for (const k of ['pageErrors', 'fieldIssues']) {
+            const arr = r.diagnostics && r.diagnostics[k];
+            if (Array.isArray(arr)) merged.diagnostics[k].push(...arr);
+        }
+        // 透传首个结果的状态等标量字段
+        if (merged.status === undefined && r.status !== undefined) merged.status = r.status;
+    }
+    return merged;
+}
+
 function closePopupWhenClean(report) {
     if (report?.hasIssues) return;
     if (typeof window !== 'undefined' && typeof window.close === 'function') {
@@ -480,6 +597,7 @@ function closePopupWhenClean(report) {
 }
 
 async function fillFormInPage() {
+    clearStepPending();
     updateCurrentDataFromInputs();
     const btn = elements.fillForm;
     const originalText = btn.textContent;
@@ -492,7 +610,7 @@ async function fillFormInPage() {
             btn.textContent = '\u5904\u7406\u4e2d...';
             btn.disabled = true;
 
-            const scanResult = await sendMessageToTab(tab.id, { action: 'scanForm' });
+            const scanResult = mergeScanResults(await sendMessageToTab(tab.id, { action: 'scanForm' }, { broadcast: true }));
             if (!scanResult || !scanResult.fields || scanResult.fields.length === 0) {
                 throw new Error('\u672a\u627e\u5230\u53ef\u89c1\u8868\u5355\u5b57\u6bb5');
             }
@@ -540,13 +658,13 @@ async function fillFormInPage() {
             sanitizeFormMapping(mapping, scanResult);
 
             btn.textContent = '\u586b\u5199\u4e2d...';
-            const result = await sendMessageToTab(tab.id, { action: 'fillFormSmart', data: mapping });
+            const result = mergeFillResults(await sendMessageToTab(tab.id, { action: 'fillFormSmart', data: mapping }, { broadcast: true }));
 
             const report = showFillResult(result, 'AI \u667a\u80fd\u586b\u8868\u5b8c\u6210');
             saveToHistory();
             closePopupWhenClean(report);
         } else {
-            const result = await sendMessageToTab(tab.id, { action: 'fillForm', data: currentData });
+            const result = mergeFillResults(await sendMessageToTab(tab.id, { action: 'fillForm', data: currentData }, { broadcast: true }));
             saveToHistory();
             const report = showFillResult(result);
             closePopupWhenClean(report);
@@ -591,13 +709,14 @@ Output format example:
 }
 
 async function fillFormNormalInPage() {
+    clearStepPending();
     updateCurrentDataFromInputs();
     const btn = elements.fillForm;
     const originalText = btn.textContent;
 
     try {
         const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-        const result = await sendMessageToTab(tab.id, { action: 'fillForm', data: currentData });
+        const result = mergeFillResults(await sendMessageToTab(tab.id, { action: 'fillForm', data: currentData }, { broadcast: true }));
         saveToHistory();
         const report = showFillResult(result, '\u666e\u901a\u586b\u8868\u5b8c\u6210');
         closePopupWhenClean(report);

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * 信息生成器 - 根据IP地理位置生成随机注册信息
  */
 
@@ -1750,9 +1750,22 @@ function generateZipCode(country) {
     // 美国: 5位数字，使用城市对应的前缀
     return zipPrefix + randomDigits(5 - zipPrefix.length);
   } else if (country === 'Canada') {
-    // 加拿大: 字母数字格式 A1A 1A1
+    // 加拿大: A1A 1A1 格式（字母不含 D/F/I/O/Q/U）
     const letters = 'ABCEGHJKLMNPRSTVXY';
-    return zipPrefix + randomChoice(letters.split('')) + randomDigits(1) + ' ' + randomDigits(1) + randomChoice(letters.split('')) + randomDigits(1);
+    const pickLetter = () => randomChoice(letters.split(''));
+    const prefix = String(zipPrefix || '').trim().toUpperCase();
+    // 已是完整邮编：规范化后直接沿用
+    const fullMatch = prefix.match(/^([ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVXY])\s?(\d[ABCEGHJKLMNPRSTVXY]\d)$/);
+    if (fullMatch) {
+      return `${fullMatch[1]} ${fullMatch[2]}`;
+    }
+    // CITY_STATE_MAP 给的是前两位（如 M5），补齐剩余 L D L D
+    const head = prefix.replace(/[^A-Z0-9]/g, '').slice(0, 2);
+    if (/^[A-Z]\d$/.test(head)) {
+      return `${head}${pickLetter()} ${randomDigits(1)}${pickLetter()}${randomDigits(1)}`;
+    }
+    // 无可用前缀：完整随机生成
+    return `${pickLetter()}${randomDigits(1)}${pickLetter()} ${randomDigits(1)}${pickLetter()}${randomDigits(1)}`;
   } else if (country === 'United Kingdom') {
     // 英国: 外码 + 内码（示例: SW1A 1AA）
     const inwardLetters = 'ABDEFGHJLNPQRSTUWXYZ';
@@ -1797,6 +1810,11 @@ function generateZipCode(country) {
   } else if (country === 'Mexico') {
     // 墨西哥: 5位数字
     return zipPrefix + randomDigits(5 - zipPrefix.length);
+  } else if (country === 'Netherlands') {
+    // 荷兰: 1234 AB 格式
+    const nlLetters = 'ABCDEFGHJKLMNPRSTUVWXYZ';
+    const pickNl = () => randomChoice(nlLetters.split(''));
+    return `${randomDigits(4)} ${pickNl()}${pickNl()}`;
   }
   return randomDigits(5);
 }
@@ -1973,31 +1991,15 @@ if (typeof window !== 'undefined') {
     const gender = generateGender();
 
     // 日本专用处理：使用汉字姓名和日本地址
-    if (country === 'Japan' && window.japanGenerators) {
-      const japanName = window.japanGenerators.generateJapanName(gender);
-      const japanAddr = window.japanGenerators.generateJapanAddress();
-      const japanPhone = generatePhone('Japan'); // 使用统一的生成函数（带质量检测）
-      const username = generateUsername(japanName.firstNameRomaji, japanName.lastNameRomaji);
-      return {
-        firstName: japanName.firstNameKanji,
-        lastName: japanName.lastNameKanji,
-        firstNameKana: japanName.firstNameKana,
-        lastNameKana: japanName.lastNameKana,
-        fullName: japanName.lastNameKanji + ' ' + japanName.firstNameKanji,
-        fullNameKana: japanName.lastNameKana + ' ' + japanName.firstNameKana,
-        gender: gender,
-        birthday: generateBirthday(settings.minAge || 18, settings.maxAge || 55),
-        username: username,
-        email: generateEmail(username),
-        password: generatePasswordWithSettings(settings),
-        phone: japanPhone,
-        address: japanAddr.chome,
-        city: japanAddr.prefecture + japanAddr.city,
-        state: japanAddr.building,
-        zipCode: japanAddr.zipCode,
-        country: country,
-        id_usertype: '100' // XServer 个人注册
-      };
+    // 国家扩展优先：注册了 generateProfile 的国家走扩展逻辑；
+    // 新增国家只需注册扩展，无需改动这里
+    const countryExt = typeof GeoFillCountryExtensions !== 'undefined'
+      ? GeoFillCountryExtensions.get(country) : null;
+    if (countryExt && typeof countryExt.generateProfile === 'function') {
+      const extProfile = countryExt.generateProfile(gender, settings, {
+        generatePhone, generateBirthday, generateUsername, generateEmail, generatePasswordWithSettings
+      });
+      if (extProfile) return extProfile;
     }
 
     const namePair = generateNamePair(country, gender);

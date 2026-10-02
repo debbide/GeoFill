@@ -141,6 +141,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     log.info('Initialization done');
+
+    // 多步骤表单：若上一步填完后出现了新字段，提示继续填写
+    try {
+        if (typeof checkPendingStep === 'function') {
+            checkPendingStep();
+        }
+    } catch (e) { /* 忽略 */ }
 });
 
 function updateCurrentDataFromInputs() {

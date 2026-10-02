@@ -114,28 +114,67 @@ GeoFill 是一个浏览器扩展工具，可根据地理位置生成符合本地
 
 
 ```
-├── manifest.json        # 插件清单
+├── manifest.json / manifest.firefox.json  # 插件清单（Chrome / Firefox）
+├── background.js           # 后台：快捷键、右键菜单、步骤 badge
 ├── popup/
-│   ├── popup.html       # 弹出面板
-│   ├── popup.css        # 样式
-│   ├── popup.js         # 主入口
-│   └── js/              # 功能模块
-│       ├── constants.js # 常量和全局状态
-│       ├── utils.js     # 工具函数
-│       ├── storage.js   # 存储管理
-│       ├── ui.js        # 界面渲染
-│       ├── api.js       # API 通信
-│       ├── mail.js      # 邮箱后缀生成
-│       ├── history.js   # 历史记录
-│       ├── archive.js   # 存档管理
-│       ├── form-fill.js # 表单填充
-│       ├── events.js    # 事件处理
-│       └── ai.js        # AI 功能
+│   ├── popup.html          # 弹出面板
+│   ├── popup.css           # 样式
+│   ├── popup.js            # 主入口
+│   └── js/                 # 功能模块
+│       ├── constants.js    # 常量和全局状态
+│       ├── utils.js        # 工具函数（含 content script 注入与多 frame 广播）
+│       ├── storage.js      # 存储管理
+│       ├── ui.js           # 界面渲染
+│       ├── api.js          # API 通信
+│       ├── mail.js         # 邮箱后缀生成
+│       ├── history.js      # 历史记录
+│       ├── archive.js      # 存档管理
+│       ├── form-fill.js    # 表单填充（含填充报告与字段定位）
+│       ├── events.js       # 事件处理
+│       └── ai.js           # AI 功能（请求带超时）
 ├── scripts/
-│   ├── generators.js    # 信息生成器
-│   └── content.js       # 表单填写
-└── icons/               # 插件图标
+│   ├── country-extensions.js  # 国家字段扩展注册表
+│   ├── generators.js          # 信息生成器
+│   ├── japan-generators.js    # Japan 扩展（注册表示例）
+│   ├── address-pool.js        # 本地验证地址池加载
+│   ├── audit-address-pool.js  # 地址池审计（npm run audit:address-pool）
+│   ├── audit-rules.js         # 电话/邮编规则审计（npm run audit:rules）
+│   ├── build-address-pool.js  # 地址池构建
+│   ├── selectors/
+│   │   ├── common.js          # 通用选择器
+│   │   └── japan.js           # Japan 选择器扩展
+│   └── content/               # content script（按文件名顺序注入，90-main.js 最后）
+│       ├── 10-dom.js          # DOM 基础：选择器、label、Shadow DOM 穿透
+│       ├── 20-intent.js       # 意图分类与字段查找
+│       ├── 30-format.js       # 值格式化与输入模拟
+│       ├── 40-controls.js     # select/radio/密码控件
+│       ├── 50-diagnostics.js  # 诊断、校验、字段高亮
+│       ├── 60-fill.js         # fillForm 主流程、多步骤观察者
+│       ├── 70-scan.js         # scanForm 与页面上下文分析
+│       ├── 80-smart.js        # AI 智能填表
+│       └── 90-main.js         # 消息监听与就绪标记
+├── data/address-pool/      # 各国验证地址数据
+├── test/                   # node --test 测试
+├── docs/
+└── icons/                  # 插件图标
 ```
+
+## 🔄 更新日志
+
+### v1.9.0 (2026-10-02)
+- 🔨 content.js 拆分为 `scripts/content/` 9 个有序模块（意图/填充/诊断/扫描各归其位）
+- ✨ Shadow DOM 穿透：Web Components 内的字段可识别、可填写
+- ✨ iframe 内表单支持：自动注入子 frame 并广播填写
+- ✨ 未匹配字段一键定位：填充报告里点"📍 定位"，页面滚动+红色闪烁标出字段
+- ✨ 多步骤表单跟随：fill 后 90 秒内出现新步骤字段时，扩展图标 badge 提示，一键继续填
+- 🔨 日本特例改造为国家扩展注册表（`GeoFillCountryExtensions`）：新增国家只需注册扩展，不用改调用方；删除已无人引用的 `popup/japan-handler.js`
+- 🐛 修复加拿大邮编刷新生成畸形码（少一个字母，如 `M5V8 9X8`）
+- ✨ 新增荷兰邮编分支（`1234 AB` 格式）
+- 🐛 日本 profile 邮编改用 `NNN-NNNN` 带横杠格式
+- ✨ AI 请求加 30 秒超时（AbortController），自定义端点 hang 住不再卡死界面
+- 🔧 注入后 200ms 硬等待改为就绪标记轮询
+- ✨ 新增 GitHub Actions CI：每次 push 自动跑测试 + 语法检查
+- ✨ 新增电话/邮编规则审计（`npm run audit:rules`），19 国全量校验
 
 ## 🔄 更新日志
 

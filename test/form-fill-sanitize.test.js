@@ -241,3 +241,43 @@ test('buildFillReport marks clean result as closeable', () => {
     assert.equal(report.summary, '填表完成，已填 8 个字段，未发现明显问题');
     assert.equal(report.items.length, 0);
 });
+
+test('mergeScanResults 合并多 frame 的字段列表', () => {
+    const s = loadFormFillSandbox();
+    const merged = s.mergeScanResults([
+        { fields: [{ id: 'a' }], pageContext: { title: 'T' } },
+        { fields: [{ id: 'b' }, { id: 'c' }] },
+        null
+    ]);
+    assert.equal(merged.fields.length, 3);
+    assert.equal(merged.pageContext.title, 'T');
+});
+
+test('mergeFillResults 累加 filledCount 并拼接问题列表', () => {
+    const s = loadFormFillSandbox();
+    const merged = s.mergeFillResults([
+        {
+            filledCount: 5,
+            validation: { missingRequiredFields: ['email'], unfilledRequestedFields: [] },
+            diagnostics: { pageErrors: [], fieldIssues: [{ reason: 'x' }] }
+        },
+        {
+            filledCount: 3,
+            validation: { missingRequiredFields: [], unfilledRequestedFields: ['phone'] },
+            diagnostics: { pageErrors: ['err'], fieldIssues: [] }
+        }
+    ]);
+    assert.equal(merged.filledCount, 8);
+    // vm 沙盒内创建的数组与外部 realm 原型不同，先展开再比较
+    assert.deepEqual([...merged.validation.missingRequiredFields], ['email']);
+    assert.deepEqual([...merged.validation.unfilledRequestedFields], ['phone']);
+    assert.deepEqual([...merged.diagnostics.pageErrors], ['err']);
+    assert.equal(merged.diagnostics.fieldIssues.length, 1);
+});
+
+test('mergeFillResults 兼容单结果（非广播）输入', () => {
+    const s = loadFormFillSandbox();
+    const single = { filledCount: 4, validation: {}, diagnostics: {} };
+    const merged = s.mergeFillResults(single);
+    assert.equal(merged.filledCount, 4);
+});

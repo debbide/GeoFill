@@ -1056,3 +1056,28 @@ button.loading::after {
 .pulse {
   animation: pulse 1s ease-in-out infinite;
 }
+
+.fill-report-locate {
+  margin-top: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
+  color: inherit;
+  cursor: pointer;
+}
+
+.fill-report-locate:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+body.light-theme .fill-report-locate {
+  border-color: rgba(0, 0, 0, 0.14);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .fill-report-locate:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
