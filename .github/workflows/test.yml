@@ -17,6 +17,6 @@ jobs:
       - run: npm test
       - name: syntax check (popup & content scripts)
         run: |
-          for f in popup/js/*.js popup/*.js popup/japan-handler.js scripts/*.js scripts/selectors/*.js background.js; do
+          for f in popup/js/*.js popup/*.js scripts/*.js scripts/selectors/*.js scripts/content/*.js background.js; do
             node --check "$f" || exit 1
           done
