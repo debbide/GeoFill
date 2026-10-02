@@ -34,12 +34,6 @@ async function handleRegenerateAll() {
         // 尝试获取真实地址
         await tryFetchRealAddress(lockedValues);
 
-        // 处理临时邮箱
-        const domainType = elements.emailDomainType?.value;
-        if (domainType === 'temp' && !lockedFields.has('email')) {
-            await regenerateEmail();
-        }
-
         // 恢复锁定字段的值
         lockedFields.forEach(field => {
             if (lockedValues[field] !== undefined) {
@@ -250,11 +244,6 @@ function bindEvents() {
     // IP 刷新
     if (elements.ipRefresh) {
         elements.ipRefresh.addEventListener('click', handleIPRefresh);
-    }
-
-    // 收件箱刷新
-    if (elements.refreshInbox) {
-        elements.refreshInbox.addEventListener('click', refreshInbox);
     }
 
     // 重新生成全部

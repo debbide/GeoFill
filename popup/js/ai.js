@@ -243,9 +243,11 @@ async function generateWithAI() {
 
         if (!lockedFields.has('email')) {
             const domainType = elements.emailDomainType?.value;
-            if (domainType && domainType !== 'custom' && domainType !== 'temp') {
+            if (domainType && domainType !== 'custom') {
                 const username = currentData.username || 'user';
                 currentData.email = `${username}@${domainType}`;
+            } else if (window.generators?.generateEmail) {
+                currentData.email = window.generators.generateEmail(currentData.username || 'user');
             }
         }
 

@@ -45,9 +45,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     elements.archiveName = document.getElementById('archiveName');
     elements.saveArchive = document.getElementById('saveArchive');
     elements.archiveList = document.getElementById('archiveList');
-    elements.inboxGroup = document.getElementById('inboxGroup');
-    elements.refreshInbox = document.getElementById('refreshInbox');
-    elements.inboxList = document.getElementById('inboxList');
     elements.openHistory = document.getElementById('openHistory');
     elements.closeHistory = document.getElementById('closeHistory');
     elements.historyModal = document.getElementById('historyModal');
@@ -90,17 +87,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         ipData = cachedData.ipData || {};
 
         if (cachedData.emailDomain && elements.emailDomainType) {
-            elements.emailDomainType.value = cachedData.emailDomain;
-            if (cachedData.emailDomain === 'custom' && cachedData.customDomain && elements.customDomain) {
+            // Migrate removed Mail.tm temp domain to a normal default.
+            const emailDomain = cachedData.emailDomain === 'temp' ? 'gmail.com' : cachedData.emailDomain;
+            const hasOption = Array.from(elements.emailDomainType.options)
+                .some((option) => option.value === emailDomain);
+            elements.emailDomainType.value = hasOption ? emailDomain : 'gmail.com';
+
+            if (elements.emailDomainType.value === 'custom' && cachedData.customDomain && elements.customDomain) {
                 elements.customDomain.value = cachedData.customDomain;
                 elements.customDomain.style.display = 'block';
-            }
-
-            if (cachedData.emailDomain === 'temp' && window.mailTM && currentData.email && currentData.password) {
-                if (elements.inboxGroup) elements.inboxGroup.style.display = 'block';
-                window.mailTM.login(currentData.email, currentData.password)
-                    .then(() => refreshInbox())
-                    .catch(e => log.info('Silent login failed:', e));
             }
         }
 

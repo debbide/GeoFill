@@ -58,5 +58,125 @@
     "city": "Vancouver",
     "state": "British Columbia",
     "zipCode": "V7Y 1K8"
+  },
+  {
+    "address": "150 King St W",
+    "city": "Toronto",
+    "state": "Ontario",
+    "zipCode": "M5H 1J9"
+  },
+  {
+    "address": "1001 Boulevard de Maisonneuve O",
+    "city": "Montreal",
+    "state": "Quebec",
+    "zipCode": "H3A 3C8"
+  },
+  {
+    "address": "421 7 Ave SW",
+    "city": "Calgary",
+    "state": "Alberta",
+    "zipCode": "T2P 4K9"
+  },
+  {
+    "address": "1800 McGill College Ave",
+    "city": "Montreal",
+    "state": "Quebec",
+    "zipCode": "H3A 3J6"
+  },
+  {
+    "address": "100 Queen St",
+    "city": "Ottawa",
+    "state": "Ontario",
+    "zipCode": "K1P 1A5"
+  },
+  {
+    "address": "200 Granville St",
+    "city": "Vancouver",
+    "state": "British Columbia",
+    "zipCode": "V6C 1S4"
+  },
+  {
+    "address": "10180 101 St NW",
+    "city": "Edmonton",
+    "state": "Alberta",
+    "zipCode": "T5J 3S4"
+  },
+  {
+    "address": "201 Portage Ave",
+    "city": "Winnipeg",
+    "state": "Manitoba",
+    "zipCode": "R3B 3K6"
+  },
+  {
+    "address": "1959 Upper Water St",
+    "city": "Halifax",
+    "state": "Nova Scotia",
+    "zipCode": "B3J 3N2"
+  },
+  {
+    "address": "1919 Saskatchewan Dr",
+    "city": "Regina",
+    "state": "Saskatchewan",
+    "zipCode": "S4P 4H2"
+  },
+  {
+    "address": "410 22 St E",
+    "city": "Saskatoon",
+    "state": "Saskatchewan",
+    "zipCode": "S7K 5T6"
+  },
+  {
+    "address": "95 Foundry St",
+    "city": "Moncton",
+    "state": "New Brunswick",
+    "zipCode": "E1C 5H7"
+  },
+  {
+    "address": "100 Water St",
+    "city": "St. Johns",
+    "state": "Newfoundland and Labrador",
+    "zipCode": "A1C 1A1"
+  },
+  {
+    "address": "45 OConnor St",
+    "city": "Ottawa",
+    "state": "Ontario",
+    "zipCode": "K1P 1A4"
+  },
+  {
+    "address": "130 King St W",
+    "city": "Toronto",
+    "state": "Ontario",
+    "zipCode": "M5X 1A9"
+  },
+  {
+    "address": "777 Dunsmuir St",
+    "city": "Vancouver",
+    "state": "British Columbia",
+    "zipCode": "V7Y 1K4"
+  },
+  {
+    "address": "1250 Rene-Levesque Blvd W",
+    "city": "Montreal",
+    "state": "Quebec",
+    "zipCode": "H3B 4W8"
+  },
+  {
+    "address": "350 7 Ave SW",
+    "city": "Calgary",
+    "state": "Alberta",
+    "zipCode": "T2P 3N9"
+  },
+  {
+    "address": "1 Lombard Pl",
+    "city": "Winnipeg",
+    "state": "Manitoba",
+    "zipCode": "R3B 0X3"
+  },
+  {
+    "address": "1801 Hollis St",
+    "city": "Halifax",
+    "state": "Nova Scotia",
+    "zipCode": "B3J 3N4"
   }
 ]

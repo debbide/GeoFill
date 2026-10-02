@@ -1,5 +1,12 @@
 # 更新日志
 
+## [Unreleased]
+
+### 移除
+- 移除 Mail.tm 临时邮箱与收件箱功能（客户端缺失且长期不可用）
+- 移除 `api.mail.tm` 相关 host 权限
+- 旧缓存中的 `temp` 邮箱后缀自动迁移为 `gmail.com`
+
 ## [1.8.0] - 2025-12-30
 
 ### 重构
@@ -9,7 +16,7 @@
   - `storage.js` - 存储管理
   - `ui.js` - 界面渲染（合并 theme.js）
   - `api.js` - API 通信
-  - `mail.js` - 临时邮箱
+  - `mail.js` - 邮箱后缀生成
   - `history.js` - 历史记录
   - `archive.js` - 存档管理
   - `form-fill.js` - 表单填充

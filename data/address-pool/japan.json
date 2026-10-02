@@ -58,5 +58,125 @@
     "city": "Sendai",
     "state": "Miyagi",
     "zipCode": "980-0811"
+  },
+  {
+    "address": "1-6-5 Marunouchi",
+    "city": "Tokyo",
+    "state": "Tokyo",
+    "zipCode": "100-0005"
+  },
+  {
+    "address": "1-1-1 Shibuya",
+    "city": "Tokyo",
+    "state": "Tokyo",
+    "zipCode": "150-0002"
+  },
+  {
+    "address": "1-7-1 Dotonbori",
+    "city": "Osaka",
+    "state": "Osaka",
+    "zipCode": "542-0071"
+  },
+  {
+    "address": "2-1-1 Naka-ku",
+    "city": "Yokohama",
+    "state": "Kanagawa",
+    "zipCode": "231-0005"
+  },
+  {
+    "address": "3-15-1 Meieki",
+    "city": "Nagoya",
+    "state": "Aichi",
+    "zipCode": "450-0002"
+  },
+  {
+    "address": "1-1 Odori Nishi",
+    "city": "Sapporo",
+    "state": "Hokkaido",
+    "zipCode": "060-0042"
+  },
+  {
+    "address": "2-1-1 Hakata-eki",
+    "city": "Fukuoka",
+    "state": "Fukuoka",
+    "zipCode": "812-0012"
+  },
+  {
+    "address": "1-1-1 Motomachi",
+    "city": "Kobe",
+    "state": "Hyogo",
+    "zipCode": "650-0022"
+  },
+  {
+    "address": "2-1 Kawaramachi",
+    "city": "Kyoto",
+    "state": "Kyoto",
+    "zipCode": "600-8009"
+  },
+  {
+    "address": "1-1-1 Chuo",
+    "city": "Sendai",
+    "state": "Miyagi",
+    "zipCode": "980-0021"
+  },
+  {
+    "address": "1-1 Ekimae-dori",
+    "city": "Hiroshima",
+    "state": "Hiroshima",
+    "zipCode": "730-0031"
+  },
+  {
+    "address": "1-1 Bandai",
+    "city": "Niigata",
+    "state": "Niigata",
+    "zipCode": "950-0088"
+  },
+  {
+    "address": "1-1 Otemachi",
+    "city": "Kanazawa",
+    "state": "Ishikawa",
+    "zipCode": "920-0901"
+  },
+  {
+    "address": "1-1 Chuo-dori",
+    "city": "Okayama",
+    "state": "Okayama",
+    "zipCode": "700-0021"
+  },
+  {
+    "address": "1-1 Minami-machi",
+    "city": "Takamatsu",
+    "state": "Kagawa",
+    "zipCode": "760-0017"
+  },
+  {
+    "address": "1-1 Matsuyama-jo",
+    "city": "Matsuyama",
+    "state": "Ehime",
+    "zipCode": "790-0001"
+  },
+  {
+    "address": "1-1 Nishi-dori",
+    "city": "Kumamoto",
+    "state": "Kumamoto",
+    "zipCode": "860-0806"
+  },
+  {
+    "address": "1-1 Kokusai-dori",
+    "city": "Naha",
+    "state": "Okinawa",
+    "zipCode": "900-0013"
+  },
+  {
+    "address": "1-1 Chuo",
+    "city": "Shizuoka",
+    "state": "Shizuoka",
+    "zipCode": "420-0851"
+  },
+  {
+    "address": "1-1 Honmachi",
+    "city": "Nagasaki",
+    "state": "Nagasaki",
+    "zipCode": "850-0012"
   }
 ]

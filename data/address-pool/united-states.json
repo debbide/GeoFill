@@ -58,5 +58,125 @@
     "city": "San Francisco",
     "state": "California",
     "zipCode": "94103"
+  },
+  {
+    "address": "1 Beacon St",
+    "city": "Boston",
+    "state": "Massachusetts",
+    "zipCode": "02108"
+  },
+  {
+    "address": "1600 Pennsylvania Ave NW",
+    "city": "Washington",
+    "state": "District of Columbia",
+    "zipCode": "20500"
+  },
+  {
+    "address": "1201 Market St",
+    "city": "Philadelphia",
+    "state": "Pennsylvania",
+    "zipCode": "19107"
+  },
+  {
+    "address": "1001 Woodward Ave",
+    "city": "Detroit",
+    "state": "Michigan",
+    "zipCode": "48226"
+  },
+  {
+    "address": "200 E Randolph St",
+    "city": "Chicago",
+    "state": "Illinois",
+    "zipCode": "60601"
+  },
+  {
+    "address": "1 Peachtree Center Ave NE",
+    "city": "Atlanta",
+    "state": "Georgia",
+    "zipCode": "30303"
+  },
+  {
+    "address": "500 E Colorado Blvd",
+    "city": "Pasadena",
+    "state": "California",
+    "zipCode": "91101"
+  },
+  {
+    "address": "1401 Lawrence St",
+    "city": "Denver",
+    "state": "Colorado",
+    "zipCode": "80204"
+  },
+  {
+    "address": "201 E Washington St",
+    "city": "Phoenix",
+    "state": "Arizona",
+    "zipCode": "85004"
+  },
+  {
+    "address": "800 Nicollet Mall",
+    "city": "Minneapolis",
+    "state": "Minnesota",
+    "zipCode": "55402"
+  },
+  {
+    "address": "400 S Tryon St",
+    "city": "Charlotte",
+    "state": "North Carolina",
+    "zipCode": "28202"
+  },
+  {
+    "address": "600 Commerce St",
+    "city": "Dallas",
+    "state": "Texas",
+    "zipCode": "75202"
+  },
+  {
+    "address": "1 Canal St",
+    "city": "New Orleans",
+    "state": "Louisiana",
+    "zipCode": "70130"
+  },
+  {
+    "address": "1000 SW Broadway",
+    "city": "Portland",
+    "state": "Oregon",
+    "zipCode": "97205"
+  },
+  {
+    "address": "50 Public Square",
+    "city": "Cleveland",
+    "state": "Ohio",
+    "zipCode": "44113"
+  },
+  {
+    "address": "111 Monument Cir",
+    "city": "Indianapolis",
+    "state": "Indiana",
+    "zipCode": "46204"
+  },
+  {
+    "address": "400 W Capitol Ave",
+    "city": "Little Rock",
+    "state": "Arkansas",
+    "zipCode": "72201"
+  },
+  {
+    "address": "200 S Biscayne Blvd",
+    "city": "Miami",
+    "state": "Florida",
+    "zipCode": "33131"
+  },
+  {
+    "address": "1 E Washington St",
+    "city": "Phoenix",
+    "state": "Arizona",
+    "zipCode": "85004"
+  },
+  {
+    "address": "333 S Hope St",
+    "city": "Los Angeles",
+    "state": "California",
+    "zipCode": "90071"
   }
 ]

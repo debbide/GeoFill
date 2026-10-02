@@ -58,5 +58,125 @@
     "city": "Wuhan",
     "state": "Hubei",
     "zipCode": "430014"
+  },
+  {
+    "address": "1 Jianguomen Outer Street",
+    "city": "Beijing",
+    "state": "Beijing",
+    "zipCode": "100004"
+  },
+  {
+    "address": "100 Century Avenue",
+    "city": "Shanghai",
+    "state": "Shanghai",
+    "zipCode": "200120"
+  },
+  {
+    "address": "68 Zhongshan 5th Road",
+    "city": "Guangzhou",
+    "state": "Guangdong",
+    "zipCode": "510055"
+  },
+  {
+    "address": "5001 Binhai Avenue",
+    "city": "Shenzhen",
+    "state": "Guangdong",
+    "zipCode": "518054"
+  },
+  {
+    "address": "1 Wulin Square",
+    "city": "Hangzhou",
+    "state": "Zhejiang",
+    "zipCode": "310006"
+  },
+  {
+    "address": "1 Tianfu Avenue",
+    "city": "Chengdu",
+    "state": "Sichuan",
+    "zipCode": "610041"
+  },
+  {
+    "address": "1 Xinjiekou",
+    "city": "Nanjing",
+    "state": "Jiangsu",
+    "zipCode": "210005"
+  },
+  {
+    "address": "1 Jiefang Avenue",
+    "city": "Wuhan",
+    "state": "Hubei",
+    "zipCode": "430022"
+  },
+  {
+    "address": "168 Xiahao Street",
+    "city": "Chongqing",
+    "state": "Chongqing",
+    "zipCode": "400060"
+  },
+  {
+    "address": "1 Quancheng Road",
+    "city": "Jinan",
+    "state": "Shandong",
+    "zipCode": "250000"
+  },
+  {
+    "address": "1 Zhongshan Road",
+    "city": "Qingdao",
+    "state": "Shandong",
+    "zipCode": "266001"
+  },
+  {
+    "address": "1 May 1st Square",
+    "city": "Dalian",
+    "state": "Liaoning",
+    "zipCode": "116001"
+  },
+  {
+    "address": "1 Zhongshan Square",
+    "city": "Xian",
+    "state": "Shaanxi",
+    "zipCode": "710002"
+  },
+  {
+    "address": "1 Wuyi Road",
+    "city": "Changsha",
+    "state": "Hunan",
+    "zipCode": "410005"
+  },
+  {
+    "address": "1 Zhongshan Road",
+    "city": "Xiamen",
+    "state": "Fujian",
+    "zipCode": "361001"
+  },
+  {
+    "address": "1 East Street",
+    "city": "Fuzhou",
+    "state": "Fujian",
+    "zipCode": "350001"
+  },
+  {
+    "address": "1 Hongqi Street",
+    "city": "Harbin",
+    "state": "Heilongjiang",
+    "zipCode": "150001"
+  },
+  {
+    "address": "1 Renmin Street",
+    "city": "Changchun",
+    "state": "Jilin",
+    "zipCode": "130051"
+  },
+  {
+    "address": "1 Zhongshan Road",
+    "city": "Suzhou",
+    "state": "Jiangsu",
+    "zipCode": "215005"
+  },
+  {
+    "address": "1 Yangtze Road",
+    "city": "Wuxi",
+    "state": "Jiangsu",
+    "zipCode": "214001"
   }
 ]

@@ -58,5 +58,125 @@
     "city": "Gold Coast",
     "state": "Queensland",
     "zipCode": "4217"
+  },
+  {
+    "address": "1 Martin Place",
+    "city": "Sydney",
+    "state": "New South Wales",
+    "zipCode": "2000"
+  },
+  {
+    "address": "120 Collins St",
+    "city": "Melbourne",
+    "state": "Victoria",
+    "zipCode": "3000"
+  },
+  {
+    "address": "100 Eagle St",
+    "city": "Brisbane",
+    "state": "Queensland",
+    "zipCode": "4000"
+  },
+  {
+    "address": "77 St Georges Terrace",
+    "city": "Perth",
+    "state": "Western Australia",
+    "zipCode": "6000"
+  },
+  {
+    "address": "91 King William St",
+    "city": "Adelaide",
+    "state": "South Australia",
+    "zipCode": "5000"
+  },
+  {
+    "address": "1 Constitution Ave",
+    "city": "Canberra",
+    "state": "Australian Capital Territory",
+    "zipCode": "2600"
+  },
+  {
+    "address": "25 Murray St",
+    "city": "Hobart",
+    "state": "Tasmania",
+    "zipCode": "7000"
+  },
+  {
+    "address": "48 Mitchell St",
+    "city": "Darwin",
+    "state": "Northern Territory",
+    "zipCode": "0800"
+  },
+  {
+    "address": "2 Surf Parade",
+    "city": "Gold Coast",
+    "state": "Queensland",
+    "zipCode": "4217"
+  },
+  {
+    "address": "1 Bligh St",
+    "city": "Sydney",
+    "state": "New South Wales",
+    "zipCode": "2000"
+  },
+  {
+    "address": "530 Collins St",
+    "city": "Melbourne",
+    "state": "Victoria",
+    "zipCode": "3000"
+  },
+  {
+    "address": "111 Eagle St",
+    "city": "Brisbane",
+    "state": "Queensland",
+    "zipCode": "4000"
+  },
+  {
+    "address": "108 St Georges Terrace",
+    "city": "Perth",
+    "state": "Western Australia",
+    "zipCode": "6000"
+  },
+  {
+    "address": "70 Hindmarsh Square",
+    "city": "Adelaide",
+    "state": "South Australia",
+    "zipCode": "5000"
+  },
+  {
+    "address": "40 Marcus Clarke St",
+    "city": "Canberra",
+    "state": "Australian Capital Territory",
+    "zipCode": "2601"
+  },
+  {
+    "address": "1 Elizabeth St",
+    "city": "Hobart",
+    "state": "Tasmania",
+    "zipCode": "7000"
+  },
+  {
+    "address": "19 The Mall",
+    "city": "Darwin",
+    "state": "Northern Territory",
+    "zipCode": "0800"
+  },
+  {
+    "address": "9 Park Lane",
+    "city": "Gold Coast",
+    "state": "Queensland",
+    "zipCode": "4217"
+  },
+  {
+    "address": "88 Phillip St",
+    "city": "Sydney",
+    "state": "New South Wales",
+    "zipCode": "2000"
+  },
+  {
+    "address": "360 Collins St",
+    "city": "Melbourne",
+    "state": "Victoria",
+    "zipCode": "3000"
   }
 ]

@@ -58,5 +58,125 @@
     "city": "Newcastle",
     "state": "Tyne and Wear",
     "zipCode": "NE1 6EE"
+  },
+  {
+    "address": "1 Canary Wharf",
+    "city": "London",
+    "state": "Greater London",
+    "zipCode": "E14 5AB"
+  },
+  {
+    "address": "33 Queen Street",
+    "city": "Cardiff",
+    "state": "Wales",
+    "zipCode": "CF10 2GQ"
+  },
+  {
+    "address": "12 Castle Street",
+    "city": "Liverpool",
+    "state": "Merseyside",
+    "zipCode": "L2 0NE"
+  },
+  {
+    "address": "5 High Street",
+    "city": "Oxford",
+    "state": "Oxfordshire",
+    "zipCode": "OX1 4AH"
+  },
+  {
+    "address": "22 King Street",
+    "city": "Cambridge",
+    "state": "Cambridgeshire",
+    "zipCode": "CB1 1LN"
+  },
+  {
+    "address": "14 Royal Mile",
+    "city": "Edinburgh",
+    "state": "Scotland",
+    "zipCode": "EH1 1RE"
+  },
+  {
+    "address": "9 Albion Street",
+    "city": "Leeds",
+    "state": "West Yorkshire",
+    "zipCode": "LS1 6AD"
+  },
+  {
+    "address": "3 Corn Street",
+    "city": "Bristol",
+    "state": "South West England",
+    "zipCode": "BS1 1HT"
+  },
+  {
+    "address": "50 Bold Street",
+    "city": "Liverpool",
+    "state": "Merseyside",
+    "zipCode": "L1 4EA"
+  },
+  {
+    "address": "18 Grainger Street",
+    "city": "Newcastle",
+    "state": "Tyne and Wear",
+    "zipCode": "NE1 5JE"
+  },
+  {
+    "address": "7 Queen Street",
+    "city": "Belfast",
+    "state": "Northern Ireland",
+    "zipCode": "BT1 6EA"
+  },
+  {
+    "address": "25 Corporation Street",
+    "city": "Birmingham",
+    "state": "West Midlands",
+    "zipCode": "B2 4RN"
+  },
+  {
+    "address": "11 Market Street",
+    "city": "Manchester",
+    "state": "Greater Manchester",
+    "zipCode": "M1 1WR"
+  },
+  {
+    "address": "4 Bridge Street",
+    "state": "Nottinghamshire",
+    "city": "Nottingham",
+    "zipCode": "NG1 2GA"
+  },
+  {
+    "address": "16 Fargate",
+    "city": "Sheffield",
+    "state": "South Yorkshire",
+    "zipCode": "S1 2HE"
+  },
+  {
+    "address": "2 High Street",
+    "city": "Exeter",
+    "state": "Devon",
+    "zipCode": "EX4 3LH"
+  },
+  {
+    "address": "8 Castle Street",
+    "city": "Southampton",
+    "state": "Hampshire",
+    "zipCode": "SO14 2DS"
+  },
+  {
+    "address": "19 Queen Victoria Road",
+    "city": "Coventry",
+    "state": "West Midlands",
+    "zipCode": "CV1 3RQ"
+  },
+  {
+    "address": "6 Fishergate",
+    "city": "Preston",
+    "state": "Lancashire",
+    "zipCode": "PR1 2NJ"
+  },
+  {
+    "address": "13 High Street",
+    "city": "Reading",
+    "state": "Berkshire",
+    "zipCode": "RG1 2AN"
   }
 ]

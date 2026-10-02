@@ -125,7 +125,7 @@ GeoFill 是一个浏览器扩展工具，可根据地理位置生成符合本地
 │       ├── storage.js   # 存储管理
 │       ├── ui.js        # 界面渲染
 │       ├── api.js       # API 通信
-│       ├── mail.js      # 临时邮箱
+│       ├── mail.js      # 邮箱后缀生成
 │       ├── history.js   # 历史记录
 │       ├── archive.js   # 存档管理
 │       ├── form-fill.js # 表单填充

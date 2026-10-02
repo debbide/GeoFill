@@ -58,5 +58,125 @@
     "city": "Changwon",
     "state": "South Gyeongsang",
     "zipCode": "51435"
+  },
+  {
+    "address": "26 Eulji-ro",
+    "city": "Seoul",
+    "state": "Seoul",
+    "zipCode": "04533"
+  },
+  {
+    "address": "517 Yeongdong-daero",
+    "city": "Seoul",
+    "state": "Seoul",
+    "zipCode": "06164"
+  },
+  {
+    "address": "100 Gwangalli Beach-ro",
+    "city": "Busan",
+    "state": "Busan",
+    "zipCode": "48225"
+  },
+  {
+    "address": "12 Songdo-dong",
+    "city": "Incheon",
+    "state": "Incheon",
+    "zipCode": "21999"
+  },
+  {
+    "address": "11 Dongseong-ro",
+    "city": "Daegu",
+    "state": "Daegu",
+    "zipCode": "41941"
+  },
+  {
+    "address": "1 Expo-ro",
+    "city": "Daejeon",
+    "state": "Daejeon",
+    "zipCode": "34126"
+  },
+  {
+    "address": "200 Chungjang-ro",
+    "city": "Gwangju",
+    "state": "Gwangju",
+    "zipCode": "61475"
+  },
+  {
+    "address": "111 Ingye-ro",
+    "city": "Suwon",
+    "state": "Gyeonggi",
+    "zipCode": "16488"
+  },
+  {
+    "address": "55 Samsan-ro",
+    "city": "Ulsan",
+    "state": "Ulsan",
+    "zipCode": "44705"
+  },
+  {
+    "address": "15 Jungang-daero",
+    "city": "Changwon",
+    "state": "South Gyeongsang",
+    "zipCode": "51154"
+  },
+  {
+    "address": "1 Jungang-ro",
+    "city": "Jeonju",
+    "state": "North Jeolla",
+    "zipCode": "54999"
+  },
+  {
+    "address": "10 Jungang-ro",
+    "city": "Cheongju",
+    "state": "North Chungcheong",
+    "zipCode": "28511"
+  },
+  {
+    "address": "20 Jungang-ro",
+    "city": "Jeju",
+    "state": "Jeju",
+    "zipCode": "63219"
+  },
+  {
+    "address": "30 Jungang-daero",
+    "city": "Goyang",
+    "state": "Gyeonggi",
+    "zipCode": "10464"
+  },
+  {
+    "address": "40 Bucheon-ro",
+    "city": "Bucheon",
+    "state": "Gyeonggi",
+    "zipCode": "14547"
+  },
+  {
+    "address": "50 Jungang-ro",
+    "city": "Ansan",
+    "state": "Gyeonggi",
+    "zipCode": "15355"
+  },
+  {
+    "address": "60 Jungang-ro",
+    "city": "Cheonan",
+    "state": "South Chungcheong",
+    "zipCode": "31128"
+  },
+  {
+    "address": "70 Jungang-ro",
+    "city": "Pohang",
+    "state": "North Gyeongsang",
+    "zipCode": "37688"
+  },
+  {
+    "address": "80 Jungang-ro",
+    "city": "Gimhae",
+    "state": "South Gyeongsang",
+    "zipCode": "50936"
+  },
+  {
+    "address": "90 Jungang-ro",
+    "city": "Yongin",
+    "state": "Gyeonggi",
+    "zipCode": "17015"
   }
 ]

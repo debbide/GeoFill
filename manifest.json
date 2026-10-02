@@ -27,9 +27,7 @@
   ],
   "host_permissions": [
     "https://ipapi.co/*",
-    "https://ipwho.is/*",
-    "https://api.mail.tm/*",
-    "https://*.mail.tm/*"
+    "https://ipwho.is/*"
   ],
   "commands": {
     "fill-form": {
