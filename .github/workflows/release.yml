@@ -5,6 +5,11 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
+    inputs:
+      tag:
+        description: '手动打 release 的 tag（例如 v1.9.0，需与 manifest.json 版本一致；留空则只打 zip 包）'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -22,6 +27,14 @@ jobs:
         run: |
           VERSION=$(cat manifest.json | jq -r '.version')
           echo "version=$VERSION" >> $GITHUB_OUTPUT
+          # 手动触发时校验 tag 与 manifest 版本一致
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.tag }}" ]; then
+            INPUT_VER=$(echo "${{ inputs.tag }}" | sed 's/^v//')
+            if [ "$INPUT_VER" != "$VERSION" ]; then
+              echo "tag (${{ inputs.tag }}) 与 manifest.json 版本 ($VERSION) 不一致，请检查"
+              exit 1
+            fi
+          fi
 
       - name: Create zip package
         run: |
@@ -38,9 +51,11 @@ jobs:
           path: GeoFill-v${{ steps.version.outputs.version }}.zip
 
       - name: Create Release
-        if: startsWith(github.ref, 'refs/tags/')
+        # tag push 或手动填写了 tag 时建 release；手动时由 Releases API 自动建 tag
+        if: startsWith(github.ref, 'refs/tags/') || (github.event_name == 'workflow_dispatch' && inputs.tag != '')
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: ${{ inputs.tag || github.ref_name }}
           files: GeoFill-v${{ steps.version.outputs.version }}.zip
           generate_release_notes: true
         env:
