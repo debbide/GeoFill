@@ -4,6 +4,8 @@
 
 const AI_PROFILE_ALLOWED_FIELDS = new Set(FIELD_NAMES);
 const AI_GENDER_ALLOWED = new Set(['male', 'female']);
+// 不应随 Prompt 发送给第三方 AI 服务的真实 PII 字段
+const AI_PROFILE_PII_FIELDS = new Set(['firstName', 'lastName', 'email', 'phone', 'address', 'city', 'state', 'zipCode', 'username', 'password']);
 // AI 接口请求超时（毫秒），避免自定义端点 hang 住时界面卡死
 const AI_REQUEST_TIMEOUT_MS = 30000;
 
@@ -192,10 +194,19 @@ async function generateWithAI() {
             lockedValues[field] = currentData[field];
         });
 
+        // 数据最小化：避免将真实 PII 字段（姓名、邮箱、电话、地址等）传给第三方 AI 服务，
+        // 这些字段在生成完成后会被 lockedValues 原样恢复，无需提前透露给 AI。
+        const promptSafeLockedValues = {};
+        Object.entries(lockedValues).forEach(([field, value]) => {
+            if (!AI_PROFILE_PII_FIELDS.has(field)) {
+                promptSafeLockedValues[field] = value;
+            }
+        });
+
         let prompt = `Generate a realistic user profile for a person in ${country}.`;
 
-        if (Object.keys(lockedValues).length > 0) {
-            prompt += `\n\nLOCKED ATTRIBUTES (You MUST respect these): ${JSON.stringify(lockedValues)}`;
+        if (Object.keys(promptSafeLockedValues).length > 0) {
+            prompt += `\n\nLOCKED ATTRIBUTES (You MUST respect these): ${JSON.stringify(promptSafeLockedValues)}`;
         }
 
         if (userSettings.aiPersona) {
