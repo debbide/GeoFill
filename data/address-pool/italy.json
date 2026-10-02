@@ -58,5 +58,125 @@
     "city": "Florence",
     "state": "Tuscany",
     "zipCode": "50123"
+  },
+  {
+    "address": "Via del Corso 1046",
+    "city": "Rome",
+    "state": "Lazio",
+    "zipCode": "00186"
+  },
+  {
+    "address": "Via del Corso 169",
+    "city": "Rome",
+    "state": "Lazio",
+    "zipCode": "00186"
+  },
+  {
+    "address": "Via Nazionale 1020",
+    "city": "Rome",
+    "state": "Lazio",
+    "zipCode": "00184"
+  },
+  {
+    "address": "Via Nazionale 300",
+    "city": "Rome",
+    "state": "Lazio",
+    "zipCode": "00184"
+  },
+  {
+    "address": "Via Torino 832",
+    "city": "Milan",
+    "state": "Lombardy",
+    "zipCode": "20123"
+  },
+  {
+    "address": "Via Torino 212",
+    "city": "Milan",
+    "state": "Lombardy",
+    "zipCode": "20123"
+  },
+  {
+    "address": "Corso Buenos Aires 669",
+    "city": "Milan",
+    "state": "Lombardy",
+    "zipCode": "20124"
+  },
+  {
+    "address": "Corso Buenos Aires 812",
+    "city": "Milan",
+    "state": "Lombardy",
+    "zipCode": "20124"
+  },
+  {
+    "address": "Via Toledo 958",
+    "city": "Naples",
+    "state": "Campania",
+    "zipCode": "80134"
+  },
+  {
+    "address": "Via Toledo 607",
+    "city": "Naples",
+    "state": "Campania",
+    "zipCode": "80134"
+  },
+  {
+    "address": "Via Roma 77",
+    "city": "Turin",
+    "state": "Piedmont",
+    "zipCode": "10121"
+  },
+  {
+    "address": "Via Roma 798",
+    "city": "Turin",
+    "state": "Piedmont",
+    "zipCode": "10121"
+  },
+  {
+    "address": "Via Maqueda 900",
+    "city": "Palermo",
+    "state": "Sicily",
+    "zipCode": "90133"
+  },
+  {
+    "address": "Via Maqueda 346",
+    "city": "Palermo",
+    "state": "Sicily",
+    "zipCode": "90133"
+  },
+  {
+    "address": "Via XX Settembre 1273",
+    "city": "Genoa",
+    "state": "Liguria",
+    "zipCode": "16121"
+  },
+  {
+    "address": "Via XX Settembre 1130",
+    "city": "Genoa",
+    "state": "Liguria",
+    "zipCode": "16121"
+  },
+  {
+    "address": "Via Rizzoli 359",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40125"
+  },
+  {
+    "address": "Via Rizzoli 798",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40125"
+  },
+  {
+    "address": "Via de Tornabuoni 805",
+    "city": "Florence",
+    "state": "Tuscany",
+    "zipCode": "50123"
+  },
+  {
+    "address": "Via de Tornabuoni 529",
+    "city": "Florence",
+    "state": "Tuscany",
+    "zipCode": "50123"
   }
 ]

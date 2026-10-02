@@ -58,5 +58,125 @@
     "city": "Nice",
     "state": "Provence-Alpes-Cote d Azur",
     "zipCode": "06000"
+  },
+  {
+    "address": "1396 Avenue des Champs-Elysees",
+    "city": "Paris",
+    "state": "Ile-de-France",
+    "zipCode": "75008"
+  },
+  {
+    "address": "922 Avenue des Champs-Elysees",
+    "city": "Paris",
+    "state": "Ile-de-France",
+    "zipCode": "75008"
+  },
+  {
+    "address": "1476 Boulevard Haussmann",
+    "city": "Paris",
+    "state": "Ile-de-France",
+    "zipCode": "75009"
+  },
+  {
+    "address": "427 Boulevard Haussmann",
+    "city": "Paris",
+    "state": "Ile-de-France",
+    "zipCode": "75009"
+  },
+  {
+    "address": "586 Rue de la Republique",
+    "city": "Lyon",
+    "state": "Auvergne-Rhone-Alpes",
+    "zipCode": "69002"
+  },
+  {
+    "address": "776 Rue de la Republique",
+    "city": "Lyon",
+    "state": "Auvergne-Rhone-Alpes",
+    "zipCode": "69002"
+  },
+  {
+    "address": "1059 Quai du Port",
+    "city": "Marseille",
+    "state": "Provence-Alpes-Cote d Azur",
+    "zipCode": "13002"
+  },
+  {
+    "address": "171 Quai du Port",
+    "city": "Marseille",
+    "state": "Provence-Alpes-Cote d Azur",
+    "zipCode": "13002"
+  },
+  {
+    "address": "1050 Place de la Comedie",
+    "city": "Montpellier",
+    "state": "Occitanie",
+    "zipCode": "34000"
+  },
+  {
+    "address": "1299 Place de la Comedie",
+    "city": "Montpellier",
+    "state": "Occitanie",
+    "zipCode": "34000"
+  },
+  {
+    "address": "235 Rue Sainte-Catherine",
+    "city": "Bordeaux",
+    "state": "Nouvelle-Aquitaine",
+    "zipCode": "33000"
+  },
+  {
+    "address": "33 Rue Sainte-Catherine",
+    "city": "Bordeaux",
+    "state": "Nouvelle-Aquitaine",
+    "zipCode": "33000"
+  },
+  {
+    "address": "439 Place du Capitole",
+    "city": "Toulouse",
+    "state": "Occitanie",
+    "zipCode": "31000"
+  },
+  {
+    "address": "1316 Place du Capitole",
+    "city": "Toulouse",
+    "state": "Occitanie",
+    "zipCode": "31000"
+  },
+  {
+    "address": "225 Rue Faidherbe",
+    "city": "Lille",
+    "state": "Hauts-de-France",
+    "zipCode": "59000"
+  },
+  {
+    "address": "263 Rue Faidherbe",
+    "city": "Lille",
+    "state": "Hauts-de-France",
+    "zipCode": "59000"
+  },
+  {
+    "address": "691 Rue du Dome",
+    "city": "Strasbourg",
+    "state": "Grand Est",
+    "zipCode": "67000"
+  },
+  {
+    "address": "155 Rue du Dome",
+    "city": "Strasbourg",
+    "state": "Grand Est",
+    "zipCode": "67000"
+  },
+  {
+    "address": "1425 Avenue Jean Medecin",
+    "city": "Nice",
+    "state": "Provence-Alpes-Cote d Azur",
+    "zipCode": "06000"
+  },
+  {
+    "address": "106 Avenue Jean Medecin",
+    "city": "Nice",
+    "state": "Provence-Alpes-Cote d Azur",
+    "zipCode": "06000"
   }
 ]

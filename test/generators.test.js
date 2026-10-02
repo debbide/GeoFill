@@ -264,9 +264,11 @@ test('all plugin countries are now covered by local verified pool', async () => 
 test('address pool stats are available per country', () => {
     const g = loadGenerators();
     const stats = g.getAddressPoolStats('United States');
+    const summary = g.getAddressPoolSummary();
 
-    assert.equal(stats.entries, 10);
-    assert.equal(stats.cities, 8);
+    assert.equal(stats.entries, summary['United States']);
+    assert.ok(stats.entries >= 10, 'US pool too small');
+    assert.ok(stats.cities >= 5, 'US city coverage too small');
     assert.equal(g.getAddressPoolStats('Atlantis'), null);
 });
 

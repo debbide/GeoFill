@@ -58,5 +58,125 @@
     "city": "Taichung",
     "state": "Taichung City",
     "zipCode": "408"
+  },
+  {
+    "address": "No. 644, Zhongxiao W Rd",
+    "city": "Taipei",
+    "state": "Taipei City",
+    "zipCode": "100"
+  },
+  {
+    "address": "No. 1431, Zhongxiao W Rd",
+    "city": "Taipei",
+    "state": "Taipei City",
+    "zipCode": "100"
+  },
+  {
+    "address": "No. 1474, Xinyi Rd",
+    "city": "Taipei",
+    "state": "Taipei City",
+    "zipCode": "110"
+  },
+  {
+    "address": "No. 1281, Xinyi Rd",
+    "city": "Taipei",
+    "state": "Taipei City",
+    "zipCode": "110"
+  },
+  {
+    "address": "No. 1280, Sanduo 4th Rd",
+    "city": "Kaohsiung",
+    "state": "Kaohsiung City",
+    "zipCode": "802"
+  },
+  {
+    "address": "No. 452, Sanduo 4th Rd",
+    "city": "Kaohsiung",
+    "state": "Kaohsiung City",
+    "zipCode": "802"
+  },
+  {
+    "address": "No. 1045, Taiwan Blvd",
+    "city": "Taichung",
+    "state": "Taichung City",
+    "zipCode": "400"
+  },
+  {
+    "address": "No. 1027, Taiwan Blvd",
+    "city": "Taichung",
+    "state": "Taichung City",
+    "zipCode": "400"
+  },
+  {
+    "address": "No. 1153, Minsheng Rd",
+    "city": "Tainan",
+    "state": "Tainan City",
+    "zipCode": "700"
+  },
+  {
+    "address": "No. 873, Minsheng Rd",
+    "city": "Tainan",
+    "state": "Tainan City",
+    "zipCode": "700"
+  },
+  {
+    "address": "No. 1254, Fuxing Rd",
+    "city": "Hsinchu",
+    "state": "Hsinchu City",
+    "zipCode": "300"
+  },
+  {
+    "address": "No. 662, Fuxing Rd",
+    "city": "Hsinchu",
+    "state": "Hsinchu City",
+    "zipCode": "300"
+  },
+  {
+    "address": "No. 593, Zhongshan Rd",
+    "city": "Taoyuan",
+    "state": "Taoyuan City",
+    "zipCode": "330"
+  },
+  {
+    "address": "No. 533, Zhongshan Rd",
+    "city": "Taoyuan",
+    "state": "Taoyuan City",
+    "zipCode": "330"
+  },
+  {
+    "address": "No. 935, Wenhua Rd",
+    "city": "Taipei",
+    "state": "Taipei City",
+    "zipCode": "105"
+  },
+  {
+    "address": "No. 558, Wenhua Rd",
+    "city": "Taipei",
+    "state": "Taipei City",
+    "zipCode": "105"
+  },
+  {
+    "address": "No. 1082, Chenggong Rd",
+    "city": "Kaohsiung",
+    "state": "Kaohsiung City",
+    "zipCode": "801"
+  },
+  {
+    "address": "No. 11, Chenggong Rd",
+    "city": "Kaohsiung",
+    "state": "Kaohsiung City",
+    "zipCode": "801"
+  },
+  {
+    "address": "No. 1015, Dadun Rd",
+    "city": "Taichung",
+    "state": "Taichung City",
+    "zipCode": "408"
+  },
+  {
+    "address": "No. 520, Dadun Rd",
+    "city": "Taichung",
+    "state": "Taichung City",
+    "zipCode": "408"
   }
 ]

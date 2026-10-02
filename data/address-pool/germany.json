@@ -58,5 +58,125 @@
     "city": "Leipzig",
     "state": "Saxony",
     "zipCode": "04109"
+  },
+  {
+    "address": "Unter den Linden 294",
+    "city": "Berlin",
+    "state": "Berlin",
+    "zipCode": "10117"
+  },
+  {
+    "address": "Unter den Linden 1277",
+    "city": "Berlin",
+    "state": "Berlin",
+    "zipCode": "10117"
+  },
+  {
+    "address": "Friedrichstrasse 930",
+    "city": "Berlin",
+    "state": "Berlin",
+    "zipCode": "10117"
+  },
+  {
+    "address": "Friedrichstrasse 870",
+    "city": "Berlin",
+    "state": "Berlin",
+    "zipCode": "10117"
+  },
+  {
+    "address": "Mönckebergstrasse 534",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "20095"
+  },
+  {
+    "address": "Mönckebergstrasse 668",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "20095"
+  },
+  {
+    "address": "Kaufingerstrasse 990",
+    "city": "Munich",
+    "state": "Bavaria",
+    "zipCode": "80331"
+  },
+  {
+    "address": "Kaufingerstrasse 1214",
+    "city": "Munich",
+    "state": "Bavaria",
+    "zipCode": "80331"
+  },
+  {
+    "address": "Schildergasse 491",
+    "city": "Cologne",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Schildergasse 1006",
+    "city": "Cologne",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Zeil 1410",
+    "city": "Frankfurt",
+    "state": "Hesse",
+    "zipCode": "60313"
+  },
+  {
+    "address": "Zeil 802",
+    "city": "Frankfurt",
+    "state": "Hesse",
+    "zipCode": "60313"
+  },
+  {
+    "address": "Königstrasse 813",
+    "city": "Stuttgart",
+    "state": "Baden-Württemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Königstrasse 384",
+    "city": "Stuttgart",
+    "state": "Baden-Württemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Königsallee 786",
+    "city": "Düsseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40212"
+  },
+  {
+    "address": "Königsallee 1406",
+    "city": "Düsseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40212"
+  },
+  {
+    "address": "Prager Strasse 400",
+    "city": "Dresden",
+    "state": "Saxony",
+    "zipCode": "01069"
+  },
+  {
+    "address": "Prager Strasse 107",
+    "city": "Dresden",
+    "state": "Saxony",
+    "zipCode": "01069"
+  },
+  {
+    "address": "Petersstrasse 1202",
+    "city": "Leipzig",
+    "state": "Saxony",
+    "zipCode": "04109"
+  },
+  {
+    "address": "Petersstrasse 465",
+    "city": "Leipzig",
+    "state": "Saxony",
+    "zipCode": "04109"
   }
 ]

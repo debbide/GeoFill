@@ -58,5 +58,125 @@
     "city": "Singapore",
     "state": "Central Region",
     "zipCode": "189621"
+  },
+  {
+    "address": "128 Raffles Place",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "048616"
+  },
+  {
+    "address": "161 Raffles Place",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "048616"
+  },
+  {
+    "address": "341 Orchard Turn",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "238801"
+  },
+  {
+    "address": "716 Orchard Turn",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "238801"
+  },
+  {
+    "address": "683 Bayfront Avenue",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "018956"
+  },
+  {
+    "address": "1359 Bayfront Avenue",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "018956"
+  },
+  {
+    "address": "273 Jurong Gateway Road",
+    "city": "Jurong East",
+    "state": "West Region",
+    "zipCode": "608549"
+  },
+  {
+    "address": "647 Jurong Gateway Road",
+    "city": "Jurong East",
+    "state": "West Region",
+    "zipCode": "608549"
+  },
+  {
+    "address": "728 Tampines Avenue 1",
+    "city": "Tampines",
+    "state": "East Region",
+    "zipCode": "529757"
+  },
+  {
+    "address": "1214 Tampines Avenue 1",
+    "city": "Tampines",
+    "state": "East Region",
+    "zipCode": "529757"
+  },
+  {
+    "address": "561 Woodlands Square",
+    "city": "Woodlands",
+    "state": "North Region",
+    "zipCode": "738099"
+  },
+  {
+    "address": "822 Woodlands Square",
+    "city": "Woodlands",
+    "state": "North Region",
+    "zipCode": "738099"
+  },
+  {
+    "address": "997 New Upper Changi Road",
+    "city": "Bedok",
+    "state": "East Region",
+    "zipCode": "467360"
+  },
+  {
+    "address": "1173 New Upper Changi Road",
+    "city": "Bedok",
+    "state": "East Region",
+    "zipCode": "467360"
+  },
+  {
+    "address": "374 Ang Mo Kio Avenue 3",
+    "city": "Ang Mo Kio",
+    "state": "North-East Region",
+    "zipCode": "569933"
+  },
+  {
+    "address": "692 Ang Mo Kio Avenue 3",
+    "city": "Ang Mo Kio",
+    "state": "North-East Region",
+    "zipCode": "569933"
+  },
+  {
+    "address": "268 Victoria Street",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "188021"
+  },
+  {
+    "address": "888 Victoria Street",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "188021"
+  },
+  {
+    "address": "1299 Bencoolen Street",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "189621"
+  },
+  {
+    "address": "450 Bencoolen Street",
+    "city": "Singapore",
+    "state": "Central Region",
+    "zipCode": "189621"
   }
 ]

@@ -58,5 +58,125 @@
     "city": "Murcia",
     "state": "Murcia",
     "zipCode": "30001"
+  },
+  {
+    "address": "Gran Via 1416",
+    "city": "Madrid",
+    "state": "Madrid",
+    "zipCode": "28013"
+  },
+  {
+    "address": "Gran Via 1308",
+    "city": "Madrid",
+    "state": "Madrid",
+    "zipCode": "28013"
+  },
+  {
+    "address": "Calle de Alcala 537",
+    "city": "Madrid",
+    "state": "Madrid",
+    "zipCode": "28014"
+  },
+  {
+    "address": "Calle de Alcala 620",
+    "city": "Madrid",
+    "state": "Madrid",
+    "zipCode": "28014"
+  },
+  {
+    "address": "La Rambla 874",
+    "city": "Barcelona",
+    "state": "Catalonia",
+    "zipCode": "08002"
+  },
+  {
+    "address": "La Rambla 803",
+    "city": "Barcelona",
+    "state": "Catalonia",
+    "zipCode": "08002"
+  },
+  {
+    "address": "Passeig de Gracia 300",
+    "city": "Barcelona",
+    "state": "Catalonia",
+    "zipCode": "08007"
+  },
+  {
+    "address": "Passeig de Gracia 1035",
+    "city": "Barcelona",
+    "state": "Catalonia",
+    "zipCode": "08007"
+  },
+  {
+    "address": "Calle Colon 639",
+    "city": "Valencia",
+    "state": "Valencia",
+    "zipCode": "46004"
+  },
+  {
+    "address": "Calle Colon 1222",
+    "city": "Valencia",
+    "state": "Valencia",
+    "zipCode": "46004"
+  },
+  {
+    "address": "Calle Sierpes 175",
+    "city": "Seville",
+    "state": "Andalusia",
+    "zipCode": "41004"
+  },
+  {
+    "address": "Calle Sierpes 611",
+    "city": "Seville",
+    "state": "Andalusia",
+    "zipCode": "41004"
+  },
+  {
+    "address": "Calle Larios 58",
+    "city": "Malaga",
+    "state": "Andalusia",
+    "zipCode": "29005"
+  },
+  {
+    "address": "Calle Larios 110",
+    "city": "Malaga",
+    "state": "Andalusia",
+    "zipCode": "29005"
+  },
+  {
+    "address": "Calle Mayor 195",
+    "city": "Zaragoza",
+    "state": "Aragon",
+    "zipCode": "50001"
+  },
+  {
+    "address": "Calle Mayor 832",
+    "city": "Zaragoza",
+    "state": "Aragon",
+    "zipCode": "50001"
+  },
+  {
+    "address": "Gran Via Don Diego Lopez de Haro 373",
+    "city": "Bilbao",
+    "state": "Basque Country",
+    "zipCode": "48001"
+  },
+  {
+    "address": "Gran Via Don Diego Lopez de Haro 505",
+    "city": "Bilbao",
+    "state": "Basque Country",
+    "zipCode": "48001"
+  },
+  {
+    "address": "Calle Traperia 653",
+    "city": "Murcia",
+    "state": "Murcia",
+    "zipCode": "30001"
+  },
+  {
+    "address": "Calle Traperia 943",
+    "city": "Murcia",
+    "state": "Murcia",
+    "zipCode": "30001"
   }
 ]

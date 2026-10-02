@@ -58,5 +58,125 @@
     "city": "Pune",
     "state": "Maharashtra",
     "zipCode": "411004"
+  },
+  {
+    "address": "840 MG Road",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zipCode": "400001"
+  },
+  {
+    "address": "917 MG Road",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zipCode": "400001"
+  },
+  {
+    "address": "1453 Linking Road",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zipCode": "400050"
+  },
+  {
+    "address": "379 Linking Road",
+    "city": "Mumbai",
+    "state": "Maharashtra",
+    "zipCode": "400050"
+  },
+  {
+    "address": "1319 Connaught Place",
+    "city": "Delhi",
+    "state": "Delhi",
+    "zipCode": "110001"
+  },
+  {
+    "address": "869 Connaught Place",
+    "city": "Delhi",
+    "state": "Delhi",
+    "zipCode": "110001"
+  },
+  {
+    "address": "969 Janpath",
+    "city": "Delhi",
+    "state": "Delhi",
+    "zipCode": "110011"
+  },
+  {
+    "address": "130 Janpath",
+    "city": "Delhi",
+    "state": "Delhi",
+    "zipCode": "110011"
+  },
+  {
+    "address": "273 Brigade Road",
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "zipCode": "560001"
+  },
+  {
+    "address": "1302 Brigade Road",
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "zipCode": "560001"
+  },
+  {
+    "address": "157 Park Street",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "zipCode": "700016"
+  },
+  {
+    "address": "171 Park Street",
+    "city": "Kolkata",
+    "state": "West Bengal",
+    "zipCode": "700016"
+  },
+  {
+    "address": "277 Anna Salai",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "zipCode": "600002"
+  },
+  {
+    "address": "78 Anna Salai",
+    "city": "Chennai",
+    "state": "Tamil Nadu",
+    "zipCode": "600002"
+  },
+  {
+    "address": "1431 Residency Road",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "zipCode": "500001"
+  },
+  {
+    "address": "1101 Residency Road",
+    "city": "Hyderabad",
+    "state": "Telangana",
+    "zipCode": "500001"
+  },
+  {
+    "address": "1466 Ashram Road",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zipCode": "380009"
+  },
+  {
+    "address": "126 Ashram Road",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "zipCode": "380009"
+  },
+  {
+    "address": "262 FC Road",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "zipCode": "411004"
+  },
+  {
+    "address": "512 FC Road",
+    "city": "Pune",
+    "state": "Maharashtra",
+    "zipCode": "411004"
   }
 ]

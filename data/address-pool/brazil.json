@@ -58,5 +58,125 @@
     "city": "Recife",
     "state": "Pernambuco",
     "zipCode": "51011-000"
+  },
+  {
+    "address": "Avenida Paulista 330",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "01310-200"
+  },
+  {
+    "address": "Avenida Paulista 1388",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "01310-200"
+  },
+  {
+    "address": "Rua Augusta 290",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "01304-001"
+  },
+  {
+    "address": "Rua Augusta 1109",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "01304-001"
+  },
+  {
+    "address": "Avenida Atlantica 759",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "22021-001"
+  },
+  {
+    "address": "Avenida Atlantica 832",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "22021-001"
+  },
+  {
+    "address": "Rua do Catete 1435",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "22220-000"
+  },
+  {
+    "address": "Rua do Catete 724",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "22220-000"
+  },
+  {
+    "address": "Avenida Sete de Setembro 192",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40080-001"
+  },
+  {
+    "address": "Avenida Sete de Setembro 1333",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40080-001"
+  },
+  {
+    "address": "Avenida Beira Mar 1021",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60165-121"
+  },
+  {
+    "address": "Avenida Beira Mar 649",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60165-121"
+  },
+  {
+    "address": "Avenida Afonso Pena 558",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30130-009"
+  },
+  {
+    "address": "Avenida Afonso Pena 977",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30130-009"
+  },
+  {
+    "address": "Rua XV de Novembro 1247",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "80020-310"
+  },
+  {
+    "address": "Rua XV de Novembro 1253",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "80020-310"
+  },
+  {
+    "address": "Avenida Boa Viagem 547",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "51011-000"
+  },
+  {
+    "address": "Avenida Boa Viagem 28",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "51011-000"
+  },
+  {
+    "address": "Avenida Paulista 900",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "01310-200"
+  },
+  {
+    "address": "Rua Augusta 350",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "01304-001"
   }
 ]

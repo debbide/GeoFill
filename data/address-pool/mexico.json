@@ -58,5 +58,125 @@
     "city": "Monterrey",
     "state": "Nuevo Leon",
     "zipCode": "64010"
+  },
+  {
+    "address": "Avenida Paseo de la Reforma 780",
+    "city": "Mexico City",
+    "state": "Mexico City",
+    "zipCode": "06600"
+  },
+  {
+    "address": "Avenida Paseo de la Reforma 532",
+    "city": "Mexico City",
+    "state": "Mexico City",
+    "zipCode": "06600"
+  },
+  {
+    "address": "Calle Madero 879",
+    "city": "Mexico City",
+    "state": "Mexico City",
+    "zipCode": "06000"
+  },
+  {
+    "address": "Calle Madero 989",
+    "city": "Mexico City",
+    "state": "Mexico City",
+    "zipCode": "06000"
+  },
+  {
+    "address": "Avenida Juarez 836",
+    "city": "Guadalajara",
+    "state": "Jalisco",
+    "zipCode": "44100"
+  },
+  {
+    "address": "Avenida Juarez 1029",
+    "city": "Guadalajara",
+    "state": "Jalisco",
+    "zipCode": "44100"
+  },
+  {
+    "address": "Calle Morelos 707",
+    "city": "Guadalajara",
+    "state": "Jalisco",
+    "zipCode": "44160"
+  },
+  {
+    "address": "Calle Morelos 795",
+    "city": "Guadalajara",
+    "state": "Jalisco",
+    "zipCode": "44160"
+  },
+  {
+    "address": "Avenida Constitucion 1356",
+    "city": "Monterrey",
+    "state": "Nuevo Leon",
+    "zipCode": "64000"
+  },
+  {
+    "address": "Avenida Constitucion 41",
+    "city": "Monterrey",
+    "state": "Nuevo Leon",
+    "zipCode": "64000"
+  },
+  {
+    "address": "Calle 5 de Mayo 1088",
+    "city": "Puebla",
+    "state": "Puebla",
+    "zipCode": "72000"
+  },
+  {
+    "address": "Calle 5 de Mayo 1463",
+    "city": "Puebla",
+    "state": "Puebla",
+    "zipCode": "72000"
+  },
+  {
+    "address": "Avenida Revolucion 347",
+    "city": "Tijuana",
+    "state": "Baja California",
+    "zipCode": "22000"
+  },
+  {
+    "address": "Avenida Revolucion 1031",
+    "city": "Tijuana",
+    "state": "Baja California",
+    "zipCode": "22000"
+  },
+  {
+    "address": "Boulevard Kukulkan 1002",
+    "city": "Cancun",
+    "state": "Quintana Roo",
+    "zipCode": "77500"
+  },
+  {
+    "address": "Boulevard Kukulkan 943",
+    "city": "Cancun",
+    "state": "Quintana Roo",
+    "zipCode": "77500"
+  },
+  {
+    "address": "Avenida Universidad 57",
+    "city": "Mexico City",
+    "state": "Mexico City",
+    "zipCode": "04360"
+  },
+  {
+    "address": "Avenida Universidad 556",
+    "city": "Mexico City",
+    "state": "Mexico City",
+    "zipCode": "04360"
+  },
+  {
+    "address": "Avenida Hidalgo 459",
+    "city": "Monterrey",
+    "state": "Nuevo Leon",
+    "zipCode": "64010"
+  },
+  {
+    "address": "Avenida Hidalgo 834",
+    "city": "Monterrey",
+    "state": "Nuevo Leon",
+    "zipCode": "64010"
   }
 ]

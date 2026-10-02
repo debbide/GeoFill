@@ -58,5 +58,125 @@
     "city": "Samara",
     "state": "Samara Oblast",
     "zipCode": "443099"
+  },
+  {
+    "address": "226 Tverskaya Street",
+    "city": "Moscow",
+    "state": "Moscow",
+    "zipCode": "125009"
+  },
+  {
+    "address": "639 Tverskaya Street",
+    "city": "Moscow",
+    "state": "Moscow",
+    "zipCode": "125009"
+  },
+  {
+    "address": "751 Arbat Street",
+    "city": "Moscow",
+    "state": "Moscow",
+    "zipCode": "119019"
+  },
+  {
+    "address": "804 Arbat Street",
+    "city": "Moscow",
+    "state": "Moscow",
+    "zipCode": "119019"
+  },
+  {
+    "address": "573 Nevsky Prospect",
+    "city": "Saint Petersburg",
+    "state": "Saint Petersburg",
+    "zipCode": "191025"
+  },
+  {
+    "address": "1383 Nevsky Prospect",
+    "city": "Saint Petersburg",
+    "state": "Saint Petersburg",
+    "zipCode": "191025"
+  },
+  {
+    "address": "317 Liteyny Avenue",
+    "city": "Saint Petersburg",
+    "state": "Saint Petersburg",
+    "zipCode": "191014"
+  },
+  {
+    "address": "851 Liteyny Avenue",
+    "city": "Saint Petersburg",
+    "state": "Saint Petersburg",
+    "zipCode": "191014"
+  },
+  {
+    "address": "660 Krasny Prospekt",
+    "city": "Novosibirsk",
+    "state": "Novosibirsk Oblast",
+    "zipCode": "630099"
+  },
+  {
+    "address": "429 Krasny Prospekt",
+    "city": "Novosibirsk",
+    "state": "Novosibirsk Oblast",
+    "zipCode": "630099"
+  },
+  {
+    "address": "614 Lenina Avenue",
+    "city": "Yekaterinburg",
+    "state": "Sverdlovsk Oblast",
+    "zipCode": "620014"
+  },
+  {
+    "address": "1303 Lenina Avenue",
+    "city": "Yekaterinburg",
+    "state": "Sverdlovsk Oblast",
+    "zipCode": "620014"
+  },
+  {
+    "address": "841 Bauman Street",
+    "city": "Kazan",
+    "state": "Tatarstan",
+    "zipCode": "420111"
+  },
+  {
+    "address": "1283 Bauman Street",
+    "city": "Kazan",
+    "state": "Tatarstan",
+    "zipCode": "420111"
+  },
+  {
+    "address": "1268 Bolshaya Pokrovskaya",
+    "city": "Nizhny Novgorod",
+    "state": "Nizhny Novgorod Oblast",
+    "zipCode": "603005"
+  },
+  {
+    "address": "750 Bolshaya Pokrovskaya",
+    "city": "Nizhny Novgorod",
+    "state": "Nizhny Novgorod Oblast",
+    "zipCode": "603005"
+  },
+  {
+    "address": "838 Kirovka Street",
+    "city": "Chelyabinsk",
+    "state": "Chelyabinsk Oblast",
+    "zipCode": "454091"
+  },
+  {
+    "address": "776 Kirovka Street",
+    "city": "Chelyabinsk",
+    "state": "Chelyabinsk Oblast",
+    "zipCode": "454091"
+  },
+  {
+    "address": "898 Leningradskaya Street",
+    "city": "Samara",
+    "state": "Samara Oblast",
+    "zipCode": "443099"
+  },
+  {
+    "address": "1364 Leningradskaya Street",
+    "city": "Samara",
+    "state": "Samara Oblast",
+    "zipCode": "443099"
   }
 ]

@@ -58,5 +58,125 @@
     "city": "Haarlem",
     "state": "North Holland",
     "zipCode": "2011LP"
+  },
+  {
+    "address": "Damrak 1159",
+    "city": "Amsterdam",
+    "state": "North Holland",
+    "zipCode": "1012LG"
+  },
+  {
+    "address": "Damrak 444",
+    "city": "Amsterdam",
+    "state": "North Holland",
+    "zipCode": "1012LG"
+  },
+  {
+    "address": "Kalverstraat 1341",
+    "city": "Amsterdam",
+    "state": "North Holland",
+    "zipCode": "1012NX"
+  },
+  {
+    "address": "Kalverstraat 227",
+    "city": "Amsterdam",
+    "state": "North Holland",
+    "zipCode": "1012NX"
+  },
+  {
+    "address": "Coolsingel 1435",
+    "city": "Rotterdam",
+    "state": "South Holland",
+    "zipCode": "3012AG"
+  },
+  {
+    "address": "Coolsingel 289",
+    "city": "Rotterdam",
+    "state": "South Holland",
+    "zipCode": "3012AG"
+  },
+  {
+    "address": "Lijnbaan 839",
+    "city": "Rotterdam",
+    "state": "South Holland",
+    "zipCode": "3012EK"
+  },
+  {
+    "address": "Lijnbaan 1168",
+    "city": "Rotterdam",
+    "state": "South Holland",
+    "zipCode": "3012EK"
+  },
+  {
+    "address": "Vredenburg 1349",
+    "city": "Utrecht",
+    "state": "Utrecht",
+    "zipCode": "3511BD"
+  },
+  {
+    "address": "Vredenburg 237",
+    "city": "Utrecht",
+    "state": "Utrecht",
+    "zipCode": "3511BD"
+  },
+  {
+    "address": "Grote Markt 884",
+    "city": "Groningen",
+    "state": "Groningen",
+    "zipCode": "9712HN"
+  },
+  {
+    "address": "Grote Markt 3",
+    "city": "Groningen",
+    "state": "Groningen",
+    "zipCode": "9712HN"
+  },
+  {
+    "address": "Markt 1260",
+    "city": "Eindhoven",
+    "state": "North Brabant",
+    "zipCode": "5611EC"
+  },
+  {
+    "address": "Markt 873",
+    "city": "Eindhoven",
+    "state": "North Brabant",
+    "zipCode": "5611EC"
+  },
+  {
+    "address": "Spuistraat 306",
+    "city": "The Hague",
+    "state": "South Holland",
+    "zipCode": "2511BW"
+  },
+  {
+    "address": "Spuistraat 1146",
+    "city": "The Hague",
+    "state": "South Holland",
+    "zipCode": "2511BW"
+  },
+  {
+    "address": "Stationsplein 1430",
+    "city": "Arnhem",
+    "state": "Gelderland",
+    "zipCode": "6811KG"
+  },
+  {
+    "address": "Stationsplein 24",
+    "city": "Arnhem",
+    "state": "Gelderland",
+    "zipCode": "6811KG"
+  },
+  {
+    "address": "Mariastraat 932",
+    "city": "Haarlem",
+    "state": "North Holland",
+    "zipCode": "2011LP"
+  },
+  {
+    "address": "Mariastraat 1014",
+    "city": "Haarlem",
+    "state": "North Holland",
+    "zipCode": "2011LP"
   }
 ]

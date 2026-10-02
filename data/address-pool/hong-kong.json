@@ -58,5 +58,125 @@
     "city": "Tsim Sha Tsui",
     "state": "Kowloon",
     "zipCode": ""
+  },
+  {
+    "address": "971 Connaught Place",
+    "city": "Central",
+    "state": "Hong Kong Island",
+    "zipCode": ""
+  },
+  {
+    "address": "714 Connaught Place",
+    "city": "Central",
+    "state": "Hong Kong Island",
+    "zipCode": ""
+  },
+  {
+    "address": "18 Des Voeux Road Central",
+    "city": "Central",
+    "state": "Hong Kong Island",
+    "zipCode": ""
+  },
+  {
+    "address": "1358 Des Voeux Road Central",
+    "city": "Central",
+    "state": "Hong Kong Island",
+    "zipCode": ""
+  },
+  {
+    "address": "522 Salisbury Road",
+    "city": "Tsim Sha Tsui",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "301 Salisbury Road",
+    "city": "Tsim Sha Tsui",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "1459 Canton Road",
+    "city": "Tsim Sha Tsui",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "824 Canton Road",
+    "city": "Tsim Sha Tsui",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "96 Hennessy Road",
+    "city": "Causeway Bay",
+    "state": "Hong Kong Island",
+    "zipCode": ""
+  },
+  {
+    "address": "712 Hennessy Road",
+    "city": "Causeway Bay",
+    "state": "Hong Kong Island",
+    "zipCode": ""
+  },
+  {
+    "address": "1175 Prince Edward Road",
+    "city": "Kowloon",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "1111 Prince Edward Road",
+    "city": "Kowloon",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "405 Queen's Road East",
+    "city": "Central",
+    "state": "Hong Kong Island",
+    "zipCode": ""
+  },
+  {
+    "address": "69 Queen's Road East",
+    "city": "Central",
+    "state": "Hong Kong Island",
+    "zipCode": ""
+  },
+  {
+    "address": "485 Austin Road West",
+    "city": "Tsim Sha Tsui",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "547 Austin Road West",
+    "city": "Tsim Sha Tsui",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "693 Sha Tin Centre Street",
+    "city": "Sha Tin",
+    "state": "New Territories",
+    "zipCode": ""
+  },
+  {
+    "address": "1143 Sha Tin Centre Street",
+    "city": "Sha Tin",
+    "state": "New Territories",
+    "zipCode": ""
+  },
+  {
+    "address": "1309 Canton Road",
+    "city": "Tsim Sha Tsui",
+    "state": "Kowloon",
+    "zipCode": ""
+  },
+  {
+    "address": "601 Canton Road",
+    "city": "Tsim Sha Tsui",
+    "state": "Kowloon",
+    "zipCode": ""
   }
 ]
