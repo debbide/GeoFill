@@ -4,6 +4,23 @@
 
 const AI_PROFILE_ALLOWED_FIELDS = new Set(FIELD_NAMES);
 const AI_GENDER_ALLOWED = new Set(['male', 'female']);
+// 敏感字段不随提示词发往 AI 服务端：用户可能把真实姓名/邮箱/生日锁进档案，
+// 这些值只在本地保存、生成后原样恢复，让 AI 知道内容没有必要。
+const AI_PROMPT_REDACTED_FIELDS = new Set([
+    'firstName', 'lastName', 'birthday', 'username', 'email', 'password',
+    'phone', 'address', 'city', 'state', 'zipCode'
+]);
+
+// 锁定字段进提示词前去掉敏感项；保留 gender/country 这类生成上下文。
+function omitSensitiveLockedFields(lockedValues) {
+    const safe = {};
+    Object.entries(lockedValues || {}).forEach(([field, value]) => {
+        if (!AI_PROMPT_REDACTED_FIELDS.has(field)) {
+            safe[field] = value;
+        }
+    });
+    return safe;
+}
 // AI 接口请求超时（毫秒），避免自定义端点 hang 住时界面卡死
 const AI_REQUEST_TIMEOUT_MS = 30000;
 
@@ -194,8 +211,9 @@ async function generateWithAI() {
 
         let prompt = `Generate a realistic user profile for a person in ${country}.`;
 
-        if (Object.keys(lockedValues).length > 0) {
-            prompt += `\n\nLOCKED ATTRIBUTES (You MUST respect these): ${JSON.stringify(lockedValues)}`;
+        const promptLockedValues = omitSensitiveLockedFields(lockedValues);
+        if (Object.keys(promptLockedValues).length > 0) {
+            prompt += `\n\nLOCKED ATTRIBUTES (You MUST respect these): ${JSON.stringify(promptLockedValues)}`;
         }
 
         if (userSettings.aiPersona) {
