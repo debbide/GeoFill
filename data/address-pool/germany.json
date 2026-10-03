@@ -178,5 +178,1085 @@
     "city": "Leipzig",
     "state": "Saxony",
     "zipCode": "04109"
+  },
+  {
+    "address": "Nincoper Moorweg 5",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21129"
+  },
+  {
+    "address": "Daerstorfer Weg 96",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Sandbek 176",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Kratteichenweg 3",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Baumpieperweg 5",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Distelfalterweg 9",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Dritte Meile 95",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21147"
+  },
+  {
+    "address": "Heidschnuckenring 4",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Weißdornhof 7",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "An de Geest 18",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Insel Neuwerk 14",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "27499"
+  },
+  {
+    "address": "Ohrnsweg 996",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Heidelibellenweg 8",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Maronenhof 2",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Vierzigstücken 95",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21129"
+  },
+  {
+    "address": "Landkärtchenweg 334",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Ketzendorfer Weg 51",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Eschenahornhof 8",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Tiefenstraße 1",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21129"
+  },
+  {
+    "address": "Voßdrift 1",
+    "city": "Hamburg",
+    "state": "Hamburg",
+    "zipCode": "21149"
+  },
+  {
+    "address": "Grüner Weg We 10",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Potsdamer Str. 1c",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Liebigstr. We 8",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Gertrudisstr. 76",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Toyota-Allee 500",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Württembergische Allee 6",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Am Engelshof 18",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Am Kliepesch 18",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Rheinische Allee 2",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Kapellenhofweg 12",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Albert-Kindle-Str. 38a",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Freiburger Str. We 11",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Gerhart-Hauptmann-Str. We 27",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Lübecker Str. We 15",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Hermann-Heinrich-Gossen-Str. 4",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "An der Alten Post 23",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Siegershof 12",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Kronstädter Str. 100",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Berliner Str. We 21",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Dürener Str. 448",
+    "city": "Koln",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "50667"
+  },
+  {
+    "address": "Scheveninger Straße 1",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Arnheimer Straße 8",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Ortkampsweg 16",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Vor den Wischen 35",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "Kirschenweg (Rekum) 124",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "An der Rekumer Mühle 14",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "Witteborg 9b",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "An den Heidstücken 11",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Rekumer Bucht 35",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "Rotterdamer Straße 24",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Am Depot 6",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "Dovemoorstraße 3m",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Groninger Straße 17",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Hohenesch 6",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "Heidkruger Weg 81",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Eylmannstraße 11",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "Hollwedeler Straße 12",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Rekumer Mühlenberg 1",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "Magnolienweg (Lüssum-Bockhorn) 32",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28777"
+  },
+  {
+    "address": "Esstückenweg 7",
+    "city": "Bremen",
+    "state": "Bremen",
+    "zipCode": "28259"
+  },
+  {
+    "address": "Kleybergstraße 15",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Hinter Holtein 30",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Zur Hockeneicke 131",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Rhönweg 7",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Baroper Straße 514",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Menglinghauser Straße 317",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Tospelliweg 7",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Persebecker Straße 47",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Ernteweg 30",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Hedwigstraße 81",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Siedlung Salingen 29",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Sämannweg 13",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Steinsweg 61",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Am Kuhlenweg 59",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Am Winkelsweg 105",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Am Dorfplatz 7",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Am Plack 19",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Dorneystraße 67a",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Westerwaldweg 2",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Auf dem Schnee 61",
+    "city": "Dortmund",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "44135"
+  },
+  {
+    "address": "Fulerumer Str. 221",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Henningweg 51",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Lilienthalstr. 30",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Gockelweg 7a",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Folkersbeck 47",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Raadter Str. 155a",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Dellberg 46",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Kirschbaumsweg 5",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Im Siepken 39",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Am Fichtenbusch 6",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Hatzper Str. 251",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Grüne Matte 5a",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Brökelwende 9",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Auf'm Bögel 2",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Harscheidweg 109",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Milkdelle 8",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Humboldtstr. 308",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Grimbartweg 34",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Springberg 28",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Auf'm Gartenstück 35",
+    "city": "Essen",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "45127"
+  },
+  {
+    "address": "Südendstraße 6",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Berghaustraße 3",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Katzenbacher Hof 3",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Am Schattwald 67",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Pascalstraße 100",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Pennsylvaniastraße 18",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Schopenhauerstraße 2",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Neptunweg 10",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Jupiterweg 3",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Lunaweg 7",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Dürrlewangwald 1",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Buchenländer Straße 47",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Essigweg 9",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Galileistraße 78",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Reinbeckstraße 39",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Wildparkstraße 81",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Schwarzbachstraße 8",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Bärenseestraße 27",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Merkurstraße 16",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Schwarzwildpark 2",
+    "city": "Stuttgart",
+    "state": "Baden-Wurttemberg",
+    "zipCode": "70173"
+  },
+  {
+    "address": "Am Lindentor 126",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Siedlerstr. 29",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Schwalbenweg 46",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Im Bonnefeld 44",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Dionysiusweg 71",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Bockumer Str. 200",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Düsseldorfer Str. 202a",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Barberstr. 10",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Rheinheimer Weg 143",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Dammhausweg 9",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Reimelsweg 29",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Traarer Str. 67",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Am Hasselberg 180a",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Am Drap 5",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Heideweg 61",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Korbmacherstr. 2",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Pastoratsgarten 9",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Harffweg 17",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Mannesmannstr. 200",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Im Eichwäldchen 52a",
+    "city": "Duisburg",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "47051"
+  },
+  {
+    "address": "Niederräder Landstraße 2a",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Blauländchenstraße 54",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Waidmannstraße 51",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Küferstraße 1",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Bodenbacher Weg 25",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Vogelweidstraße 12",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Unter den Eschen 15",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Humperdinckstraße 15",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Hermann-Brill-Straße 33",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Neu-Zeilsheim 4",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Hoechster-Farben-Straße 27",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Oberschweinstiegschneise 80",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Pfortengartenweg 60",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Zehnthofgasse 13",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Bartholomäusgasse 25",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Hofheimer Straße 60",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Unter den Platanen 16",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Krümmling 1",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Ludwig-Rehn-Straße 5",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Zur Friedenseiche 5",
+    "city": "Frankfurt am Main",
+    "state": "Hesse",
+    "zipCode": "60306"
+  },
+  {
+    "address": "Am Pritschauhof 2",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Itterdamm 51",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Hauptstraße 9",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Paulistraße 2",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Meliesallee 44",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Kölner Weg 51",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Schloßparkstraße 1a",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Benrodestraße 160",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Erich-Müller-Straße 2",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Benrather Marktplatz 3",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Benrather Schloßufer 37",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Kaiser-Friedrich-Straße 2a",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Schöne Aussicht 11",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Erlanger Straße 2",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Pigageallee 25",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Augsburger Straße 2",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Wiedfeld 90",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Marbacher Straße 114",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Ansbacher Straße 2",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
+  },
+  {
+    "address": "Steinkribbenstraße 3",
+    "city": "Dusseldorf",
+    "state": "North Rhine-Westphalia",
+    "zipCode": "40210"
   }
 ]

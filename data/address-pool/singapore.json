@@ -178,5 +178,125 @@
     "city": "Singapore",
     "state": "Central Region",
     "zipCode": "189621"
+  },
+  {
+    "address": "1 TUAS SOUTH STREET 8",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637107"
+  },
+  {
+    "address": "16 TUAS SOUTH BOULEVARD",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637063"
+  },
+  {
+    "address": "9 TUAS SOUTH STREET 6",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "636912"
+  },
+  {
+    "address": "71A TUAS NEXUS DRIVE",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "636748"
+  },
+  {
+    "address": "6 TUAS SOUTH STREET 6",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "636965"
+  },
+  {
+    "address": "61A TUAS NEXUS DRIVE",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "638700"
+  },
+  {
+    "address": "2 TUAS SOUTH STREET 8",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637001"
+  },
+  {
+    "address": "10 TUAS SOUTH STREET 7",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637114"
+  },
+  {
+    "address": "9 TUAS SOUTH STREET 8",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "636931"
+  },
+  {
+    "address": "6 TUAS SOUTH STREET 7",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "636892"
+  },
+  {
+    "address": "7 TUAS SOUTH STREET 6",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637119"
+  },
+  {
+    "address": "14 TUAS SOUTH STREET 7",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637115"
+  },
+  {
+    "address": "12 TUAS SOUTH STREET 6",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "636911"
+  },
+  {
+    "address": "6 TUAS SOUTH DRIVE",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637046"
+  },
+  {
+    "address": "10A TUAS SOUTH AVENUE 12",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637132"
+  },
+  {
+    "address": "15 TUAS SOUTH STREET 8",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637109"
+  },
+  {
+    "address": "6 TUAS SOUTH STREET 8",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637003"
+  },
+  {
+    "address": "11 TUAS SOUTH STREET 6",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "636914"
+  },
+  {
+    "address": "5 TUAS SOUTH STREET 6",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "637117"
+  },
+  {
+    "address": "10 TUAS SOUTH STREET 6",
+    "city": "Singapore",
+    "state": "Singapore",
+    "zipCode": "636961"
   }
 ]

@@ -178,5 +178,1205 @@
     "city": "Sao Paulo",
     "state": "Sao Paulo",
     "zipCode": "01304-001"
+  },
+  {
+    "address": "RUA DIVA MOMESSO RIZZO 2017",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "08260-295"
+  },
+  {
+    "address": "RUA PADRE DONIZETTI 1259",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04858-175"
+  },
+  {
+    "address": "RUA IRINEU BERNARDO BUSTOS 120",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-550"
+  },
+  {
+    "address": "ESTRADA DA LIGACAO 20",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-460"
+  },
+  {
+    "address": "ESTRADA DO GRAMADO 350",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-000"
+  },
+  {
+    "address": "RUA BENEDITO SCHUNCK 201",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-050"
+  },
+  {
+    "address": "RUA 7 2",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04894-000"
+  },
+  {
+    "address": "ESTRADA PAIOL VELHO 686",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04894-000"
+  },
+  {
+    "address": "RUA SEM DENOMINACAO 250",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-550"
+  },
+  {
+    "address": "ESTRADA PONTE ALTA 5000",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-000"
+  },
+  {
+    "address": "RUA DIAS GOMES 76",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "08260-295"
+  },
+  {
+    "address": "ESTRADA PEDRO TICO 2000",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-460"
+  },
+  {
+    "address": "RUA ISAIAS BRANCO DE OLIVEIRA 4324",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04894-000"
+  },
+  {
+    "address": "RUA BELA VISTA 50",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-000"
+  },
+  {
+    "address": "ESTRADA PEDRO TICO 2000",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-000"
+  },
+  {
+    "address": "RUA CINCO 664",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-550"
+  },
+  {
+    "address": "ESTRADA DO MAMBU 657",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04858-175"
+  },
+  {
+    "address": "RUA SANTA ROSA 1955",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04891-270"
+  },
+  {
+    "address": "RUA TRES 100",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-000"
+  },
+  {
+    "address": "RUA DO CANAL 1",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "zipCode": "04893-550"
+  },
+  {
+    "address": "RUA BECO DAS OLIVEIRAS 2",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-000"
+  },
+  {
+    "address": "RUA AFONSO CARLOS TOMAZONI 1",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-052"
+  },
+  {
+    "address": "TRAVESSA NATAL 37",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-600"
+  },
+  {
+    "address": "RUA OLIVEIRA ALVES 184",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-610"
+  },
+  {
+    "address": "ESTRADA SANTO ANTONIO 80",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-040"
+  },
+  {
+    "address": "RUA SAO JERONIMO 58",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "20396-165"
+  },
+  {
+    "address": "RUA AREALVA 15",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-052"
+  },
+  {
+    "address": "BECO DO CAMARGO 4",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-090"
+  },
+  {
+    "address": "RUA JOSE FERNANDES 853",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-450"
+  },
+  {
+    "address": "RUA AFONSO CARLOS TOMAZONI 2",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-053"
+  },
+  {
+    "address": "PRAIA DE SEPETIBA 750",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23545-010"
+  },
+  {
+    "address": "RUA SANTA BARBARA 42",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-225"
+  },
+  {
+    "address": "RUA CLEBER 113",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23530-190"
+  },
+  {
+    "address": "RUA LANNES 14",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-052"
+  },
+  {
+    "address": "TRAVESSA SAO SEBASTIAO 8",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-812"
+  },
+  {
+    "address": "RUA BRANCA DE NEVE 4",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-122"
+  },
+  {
+    "address": "RUA VALQUIRIA 5",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-710"
+  },
+  {
+    "address": "RUA AIRES QUARESMA 33",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-110"
+  },
+  {
+    "address": "RUA HERENY DA COSTA 66",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-063"
+  },
+  {
+    "address": "RUA PROFESSOR GAMA FILHO 29",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "zipCode": "23535-010"
+  },
+  {
+    "address": "RUA CARLOS GOMES 868",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40060-325"
+  },
+  {
+    "address": "TRAVESSA GENERAL ANTONIO SAMPAIO 5",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41830-395"
+  },
+  {
+    "address": "RUA DEMOCRATA 9",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40060-100"
+  },
+  {
+    "address": "AVENIDA LAFAYETE COUTINHO 47",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40015-160"
+  },
+  {
+    "address": "RUA RIO GRANDE DO SUL 344",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41830-140"
+  },
+  {
+    "address": "RUA SERGIPE 643",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41830-040"
+  },
+  {
+    "address": "RUA FAGUNDES VARELA 2",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40060-115"
+  },
+  {
+    "address": "RUA ALMEIDA GARRET 78",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41815-320"
+  },
+  {
+    "address": "RUA MACHADO NETO 102",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41830-510"
+  },
+  {
+    "address": "RUA PADRE MANOEL BARBOSA 134",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41815-050"
+  },
+  {
+    "address": "RUA SILVIO VALENTE 65",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41815-370"
+  },
+  {
+    "address": "ALAMEDA BENEVENTO 340",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41830-355"
+  },
+  {
+    "address": "AVENIDA MANOEL DIAS DA SILVA 637",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41830-001"
+  },
+  {
+    "address": "RUA POLITEAMA DE BAIXO 2",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40020-635"
+  },
+  {
+    "address": "RUA TUIUTI 87",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40060-020"
+  },
+  {
+    "address": "RUA GENERAL ANTONIO SAMPAIO 17",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "41810-630"
+  },
+  {
+    "address": "RUA BANCO DOS INGLESES 61",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40020-835"
+  },
+  {
+    "address": "RUA CLOVIS SPINOLA 101",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40020-600"
+  },
+  {
+    "address": "RUA POLITEAMA DE CIMA 45",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40020-610"
+  },
+  {
+    "address": "PRACA MIRANTE DOS AFLITOS 14",
+    "city": "Salvador",
+    "state": "Bahia",
+    "zipCode": "40020-855"
+  },
+  {
+    "address": "RODOVIA DF 001 108",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72770-100"
+  },
+  {
+    "address": "EDF RUA GREGORIO BEZERRA 673",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72492-010"
+  },
+  {
+    "address": "RODOVIA DF 220 915",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72720-000"
+  },
+  {
+    "address": "RUA ELIEL 361",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72725-201"
+  },
+  {
+    "address": "EDF RUA MACIEL 787",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72492-140"
+  },
+  {
+    "address": "RODOVIA DF 445 244",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72701-994"
+  },
+  {
+    "address": "CHACARA BOA VISTA 2",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72725-205"
+  },
+  {
+    "address": "EDF RUA OLIVEIRA 208",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72492-235"
+  },
+  {
+    "address": "EDF RUA ROSA LOPES 882",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72492-210"
+  },
+  {
+    "address": "EDF NUCLEO RURAL LAGO OESTE RUA 9 17",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "73100-011"
+  },
+  {
+    "address": "RODOVIA DF 220 5",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72770-300"
+  },
+  {
+    "address": "ESTRADA DF 220 M0RADA DOS PASSAROS I 876",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72770-990"
+  },
+  {
+    "address": "RODOVIA DF 220 2",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72701-994"
+  },
+  {
+    "address": "CHACARA BOA VISTA 189",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72668-000"
+  },
+  {
+    "address": "RUA MORADA DOS PASSAROS 93",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72770-100"
+  },
+  {
+    "address": "EDF RUA SAO SEBASTIAO 331",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72492-110"
+  },
+  {
+    "address": "RODOVIA BR O60 27",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72725-205"
+  },
+  {
+    "address": "CHACARA GLEBA 1 RESERVA B ALEXANDRE GUSMAO 1",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72725-203"
+  },
+  {
+    "address": "EDF RUA HILARIO RIBEIRO 292",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72492-120"
+  },
+  {
+    "address": "CHACARA SEM DENOMINACAO (ou RODOVIA BR O60) 973",
+    "city": "Brasilia",
+    "state": "Federal District",
+    "zipCode": "72428-572"
+  },
+  {
+    "address": "RUA SANTA RITA 819",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-445"
+  },
+  {
+    "address": "TRAVESSA 6 29",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-382"
+  },
+  {
+    "address": "TRAVESSA ANDREAS SOARES 344",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-340"
+  },
+  {
+    "address": "RUA SANTA RITA 613",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60183-440"
+  },
+  {
+    "address": "RUA ERIVEU RAMOS 2812",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-394"
+  },
+  {
+    "address": "RUA DA FELICIDADE 949",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-470"
+  },
+  {
+    "address": "RUA WESLEY SARAIVA ROCHA 661",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-422"
+  },
+  {
+    "address": "TRAVESSA 4 18",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-382"
+  },
+  {
+    "address": "RUA 25 1306",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-384"
+  },
+  {
+    "address": "TRAVESSA 5 25",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-382"
+  },
+  {
+    "address": "TRAVESSA 2 29",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-382"
+  },
+  {
+    "address": "RUA SAO SEBASTIAO 27",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-450"
+  },
+  {
+    "address": "RUA ESTRADA DO JATOBA 3501",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-435"
+  },
+  {
+    "address": "RUA URUCUTUBA 1991",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60540-134"
+  },
+  {
+    "address": "RUA FIRMINO RIVEIRA 2431",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-365"
+  },
+  {
+    "address": "RUA ANA PAULA BASTOS PIRES 2503",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-300"
+  },
+  {
+    "address": "TRAVESSA 1 38",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-382"
+  },
+  {
+    "address": "RUA ALTO DO PIMENTA 1974",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-387"
+  },
+  {
+    "address": "RUA FLOR DE LIS 112",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60544-485"
+  },
+  {
+    "address": "TRAVESSA PROFESSOR MANOEL DE CASTROS 7",
+    "city": "Fortaleza",
+    "state": "Ceara",
+    "zipCode": "60732-395"
+  },
+  {
+    "address": "RUA SEBASTIAO RIBEIRO DE ARAUJO 110",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-267"
+  },
+  {
+    "address": "RUA EUSTAQUIO LUIZ DOS SANTOS 75",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-200"
+  },
+  {
+    "address": "RUA HAMILTON 388",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-790"
+  },
+  {
+    "address": "RUA DAS LARANJEIRAS 123",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-670"
+  },
+  {
+    "address": "RUA FRANCISCO SALES BARBOSA 36",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-690"
+  },
+  {
+    "address": "RUA SEBASTIAO DOS SANTOS 254",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-270"
+  },
+  {
+    "address": "RUA POINCIANA 1400",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-260"
+  },
+  {
+    "address": "RUA GENERAL JOSE MARIA 25",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-680"
+  },
+  {
+    "address": "RUA DONA JUDITH DE MORAIS E BARROS 983",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-800"
+  },
+  {
+    "address": "RUA DOUTOR GERALDO STARLING SOARES 509",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-000"
+  },
+  {
+    "address": "RUA FERROVIARIA 29",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-410"
+  },
+  {
+    "address": "RUA DAS PETUNIAS 1216",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-020"
+  },
+  {
+    "address": "RUA RUI BARBOSA OU CARMEM SILVA GUIMARAES 323",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-295"
+  },
+  {
+    "address": "RUA ANA DE FREITAS 20",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-720"
+  },
+  {
+    "address": "RUA TRES 1466",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-200"
+  },
+  {
+    "address": "RUA JOSE ANGELO 105",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-146"
+  },
+  {
+    "address": "TRAVESSA FERREIRA NETO 31",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30690-144"
+  },
+  {
+    "address": "RUA CLOVIS DE SOUZA MUNHOZ 53",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-280"
+  },
+  {
+    "address": "RUA DO CARMO 298",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-420"
+  },
+  {
+    "address": "RUA DOMINGOS DE SOUZA BASTOS 12",
+    "city": "Belo Horizonte",
+    "state": "Minas Gerais",
+    "zipCode": "30692-660"
+  },
+  {
+    "address": "COMUNIDADE LINDO AMANHECER 143",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-000"
+  },
+  {
+    "address": "COMUNIDADE NOVA JERUSALEM 324",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69090-000"
+  },
+  {
+    "address": "RIO URUBU 149",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69021-341"
+  },
+  {
+    "address": "RIO NEGRO 250",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-899"
+  },
+  {
+    "address": "RIO APUAU (ou RIO NEGRO) 96",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-000"
+  },
+  {
+    "address": "RAMAL ZF5 15",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69095-622"
+  },
+  {
+    "address": "BEIRADA ALDEIA INDIGENA COMUNIDADE BARRERINHA FORA DO SETOR 751",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69021-355"
+  },
+  {
+    "address": "RIO APUAU 782",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-000"
+  },
+  {
+    "address": "LAGO TUCUNARE 4",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-000"
+  },
+  {
+    "address": "RIO CUIEIRAS 958",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69095-622"
+  },
+  {
+    "address": "COMUNIDADE SAO SEBASTIAO 43",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69021-350"
+  },
+  {
+    "address": "RIO URUBU 120",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-899"
+  },
+  {
+    "address": "RUA LAURENTINO 507",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69021-350"
+  },
+  {
+    "address": "RIO CUIEIRAS 25",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69090-000"
+  },
+  {
+    "address": "RAMAL ZF 5 7",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-899"
+  },
+  {
+    "address": "RIO NEGRO 254",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-089"
+  },
+  {
+    "address": "RIO NEGRO 1",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-000"
+  },
+  {
+    "address": "VICINAL ZF10 4",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-899"
+  },
+  {
+    "address": "COMUNIDADE SANTA IZABEL 352",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69090-000"
+  },
+  {
+    "address": "COMUNIDADE NOVA JERUSALEM 213",
+    "city": "Manaus",
+    "state": "Amazonas",
+    "zipCode": "69099-000"
+  },
+  {
+    "address": "RUA RC 3 974",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-730"
+  },
+  {
+    "address": "RUA RC 4 11",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-725"
+  },
+  {
+    "address": "RUA RC 36 596",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-795"
+  },
+  {
+    "address": "RUA RC 16 325",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-665"
+  },
+  {
+    "address": "ESTRADA CEMITERIO MUNICIPAL 31",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74485-801"
+  },
+  {
+    "address": "AVENIDA REAL CONQUISTA (ou RUA RC 14) 217",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-675"
+  },
+  {
+    "address": "RUA RC 15 816",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-670"
+  },
+  {
+    "address": "RUA RC 25 746",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-745"
+  },
+  {
+    "address": "RUA RC 6 478",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-715"
+  },
+  {
+    "address": "RUA RC 2 236",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-735"
+  },
+  {
+    "address": "RUA RC 51 50",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-865"
+  },
+  {
+    "address": "RUA RC 50 935",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-855"
+  },
+  {
+    "address": "RUA RC 54 999",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-880"
+  },
+  {
+    "address": "RUA RC 49 84",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-840"
+  },
+  {
+    "address": "RUA RC 9 A 666",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-703"
+  },
+  {
+    "address": "RUA RC 27 314",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-755"
+  },
+  {
+    "address": "RUA RC 55 234",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-885"
+  },
+  {
+    "address": "RUA RC 8 533",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-705"
+  },
+  {
+    "address": "RUA RC 19 732",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-650"
+  },
+  {
+    "address": "RUA RC 11 991",
+    "city": "Goiania",
+    "state": "Goias",
+    "zipCode": "74356-690"
+  },
+  {
+    "address": "RUA AFONSO BRESSAN 679",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82400-423"
+  },
+  {
+    "address": "RUA SANTA BARBARA 768",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81495-010"
+  },
+  {
+    "address": "RUA CONTORNO NORTE 747",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82400-000"
+  },
+  {
+    "address": "AVENIDA MANOEL RIBAS 9489",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82400-400"
+  },
+  {
+    "address": "RUA PEDRO STUPINSK 975",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81495-010"
+  },
+  {
+    "address": "RUA ORLANDO PERUCI 1000",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82400-300"
+  },
+  {
+    "address": "ESTRADA DELEGADO BRUNO DE ALMEIDA 8516",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81450-000"
+  },
+  {
+    "address": "RUA OSVALDO FELIPPETTO 357",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82400-421"
+  },
+  {
+    "address": "RUA JOAO DARIF 130",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82410-070"
+  },
+  {
+    "address": "RUA GERD CLAASSEN 581",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82410-010"
+  },
+  {
+    "address": "RUA ABOUD KHALIL 118",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82410-350"
+  },
+  {
+    "address": "TRAVESSA SEM DENOMINACAO 2 285",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81495-010"
+  },
+  {
+    "address": "RUA PADRE JOSE MARTINI 353",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82410-300"
+  },
+  {
+    "address": "RUA PRIMEIRO DE SETEMBRO 896",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81495-010"
+  },
+  {
+    "address": "RUA SEM DENOMINACAO 5 239",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81495-010"
+  },
+  {
+    "address": "RUA DAS LAGRIMAS 1120",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81495-010"
+  },
+  {
+    "address": "RUA GERD CLAASSEN 677",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82400-220"
+  },
+  {
+    "address": "RUA ELVIS PRESLEY 211",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "82410-580"
+  },
+  {
+    "address": "RUA ANTONIO ALVEZ 45",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81495-000"
+  },
+  {
+    "address": "RUA PRINCIPAL 675",
+    "city": "Curitiba",
+    "state": "Parana",
+    "zipCode": "81495-010"
+  },
+  {
+    "address": "RUA QUELUZITA 81",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-363"
+  },
+  {
+    "address": "RUA NORMANDIA 127",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-170"
+  },
+  {
+    "address": "RUA CORIPOS 456",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-342"
+  },
+  {
+    "address": "RUA CAMPINACU 352",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-131"
+  },
+  {
+    "address": "RUA NORMANDIA 298",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-240"
+  },
+  {
+    "address": "RUA ALTO DO PIQUIRI 17",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-030"
+  },
+  {
+    "address": "RUA ALTO DA BELA VISTA 227",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-180"
+  },
+  {
+    "address": "RUA CHAPECO 39",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-366"
+  },
+  {
+    "address": "TRAVESSA EDVALDO DE OLIVEIRA 99",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-161"
+  },
+  {
+    "address": "RUA EDNA DE OLIVEIRA 134",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-160"
+  },
+  {
+    "address": "RUA MARIA TERESA 336",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-280"
+  },
+  {
+    "address": "BECO SEM DENOMINACAO 29",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-170"
+  },
+  {
+    "address": "TRAVESSA CORIPOS 48",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-130"
+  },
+  {
+    "address": "RUA MANOEL TEIXEIRA 36",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-310"
+  },
+  {
+    "address": "RUA PLANURA 448",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-340"
+  },
+  {
+    "address": "RUA PARNAIBA 12",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-290"
+  },
+  {
+    "address": "RUA CANDEAL 19",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-220"
+  },
+  {
+    "address": "RUA HORTELA 41",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-362"
+  },
+  {
+    "address": "RUA FREI GONZAGA 42",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-300"
+  },
+  {
+    "address": "RUA ARIZONA 39",
+    "city": "Recife",
+    "state": "Pernambuco",
+    "zipCode": "50791-351"
   }
 ]

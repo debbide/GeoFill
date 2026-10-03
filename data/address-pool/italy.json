@@ -178,5 +178,1205 @@
     "city": "Florence",
     "state": "Tuscany",
     "zipCode": "50123"
+  },
+  {
+    "address": "VIA FRANCESCO GRENET 84",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA COSTANZO CASANA 2",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIALE DEL SOMMERGIBILE 52",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "PIAZZA ENRICO BARONI 41",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA DELLA MARTINICA 205",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA DELL'IDROSCALO 162",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA DELLE EBRIDI 16",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA DEI TRAGHETTI 202",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA DELLA TORTUGA 59",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA TAGASTE 101",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA ARMANDO CRISCIANI 90",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIALE ALFREDO ZAMBRINI 70",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA DEGLI ATLANTICI 40",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA TANCREDI CHIARALUCE 281",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "PIAZZA ENER BETTICA 55",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIALE DELLE REPUBBLICHE MARINARE 118",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA ALCIDE PEDRETTI 78",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "PIAZZA MARCO VIPSANIO AGRIPPA 13",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA DELL'IDROVOLANTE 51",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA ISOLE DEL CAPO VERDE 186",
+    "city": "Roma",
+    "state": "Lazio",
+    "zipCode": "00118"
+  },
+  {
+    "address": "VIA CELONA 52",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA MARIANNA CARUSO COFFA 38",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA ASSORO 39",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA JOHANN SEBASTIAN BACH 26",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA CHIESA DI SANTA CROCE 29",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "LARGO PALAZZO ADRIANO 9",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA CL 26 5",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "MULATTIERA DI SANTA CROCE 41",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA PANTALICA 5",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA POLLINA 4",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA BELLOLAMPO 8401",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "SCALA CARINI 67",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "PIAZZALE CASTRONOVO 4",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "LARGO ZANCLE 8",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA CASTELLANA 205",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA MOZIA 14",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA CAPACI 10",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA PIETRO SGADARI DI LO MONACO 25",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA GIOVANNI BARBERA 19",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA POGGIO DEL PINETO 9",
+    "city": "Palermo",
+    "state": "Sicilia",
+    "zipCode": "90100"
+  },
+  {
+    "address": "VIA LUIGI GAINOTTI 103",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA VESIMA 40",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA CAMPENAVE 2",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VICO DELLA CASERMA 3",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA NERVALLO 15",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "PASSEGGIATA ROBERTO BRUZZONE 50",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA NUOVA DI CREVARI 70",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA GIACOMO CANEPA 146",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA PIAZZAGRANDE 2",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VICO PELLEGRO MARUFFO 1",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA SUPERIORE DELL'OLBA 45",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VICO TIRO 4",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA INFERIORE DELL'OLBA 7",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "SCALINATA A VIA CERUSA 1",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA PISSAPAOLA 48",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VICO DESERTO 2",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA AI CANTIERI 1",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "SALITA NICOLO' BIAGI 9",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "SCALINATA GIUSEPPE REVERE 2",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VICO CASTELLEA 4",
+    "city": "Genova",
+    "state": "Liguria",
+    "zipCode": "16100"
+  },
+  {
+    "address": "VIA FRANCO ALFANO 10",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA PASQUALE LEONARDI CATTOLICA 381",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "PIAZZETTA SOLOFRANO 9",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA PROVINCIALE SAN GENNARO 7",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA FILIPPO ILLUMINATO 5",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA ALESSANDRO D'ALESSANDRO 120",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA EDUARDO SCARFOGLIO 11",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "DISCESA GAIOLA 73",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VICO DEI MEDICI 2",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA PASQUALE FORMISANO 3",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA GIOCHI DEL MEDITERRANEO 23",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIALE DELLA LIBERAZIONE 101",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VICO CASE RICCARDI 40",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA GENNARO CAPUOZZO 60",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA DIOMEDE CARAFA 73",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "STRADA VICINALE MONTESPINA 13",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA COMUNALE CINTIA 4",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA ARTURO LABRIOLA 13",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA ANTONIO BECCADELLI 33",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA COROGLIO 124",
+    "city": "Napoli",
+    "state": "Campania",
+    "zipCode": "80100"
+  },
+  {
+    "address": "VIA UGO MOSCHI 20",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA ALESSANDRO LANFRANCHI 11",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA LUIGI BIADI 2",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "PIAZZA NICCOLO' ACCIAIOLI 16",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DEL PONTE DI CERTOSA 1",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIALE DEI TANINI 24",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DEL CHIASSONE 2",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "PIAZZA DI VAL D'EMA 1",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DEI BUONDELMONTI 80",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA MONNA DATA 5",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DELLA LUIGIANA 18",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DELLA GRILLAIA 2",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "STRADONE DELL'OSPEDALE 4",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIUZZO DEL RONCOLINO 6",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DEL FERRONE 15",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA VOLTERRANA 101",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DI SAN GIUSTO 12",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DI TORREGALLI 15",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA SENESE 363",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA SER LAPO GAVACCIANI 6",
+    "city": "Firenze",
+    "state": "Toscana",
+    "zipCode": "50100"
+  },
+  {
+    "address": "VIA DEI FIORI 12",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA PALMIRO TOGLIATTI 2",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA DELLE LAME 29",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA DELLE AIE 13",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA ROMA 201",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA SANTORRE DI SANTAROSA 61",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA PALMERO 11",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA CHISONE 18",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "CASCINA RONZA 8",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "PIAZZA MAGENTA 7",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA SAN LORENZO 31",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA VENTICINQUE APRILE 5",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA VIGONE 9",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA SESTRIERE 87",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA GIACOMO MATTEOTTI 3",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA CASTAGNOLE 5",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "LOCALITA' CASCINETTA RONZA 33",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA CERUTTI 17",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA STUPINIGI 26",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA ALDO MORO 15",
+    "city": "Torino",
+    "state": "Piemonte",
+    "zipCode": "10100"
+  },
+  {
+    "address": "VIA ORIAGO 64",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA MANARA VALGIMIGLI 11",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA MARIA MONTESSORI 47",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA DELL'EDERA 1",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA MARIA BOSCHETTI ALBERTI 1",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA GHETTO 65",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA IVANCICH 9",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA MONSIGNOR RICCARDO BOTTACIN 13",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA BOSSO 1",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA DEI PROFETI 22",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA POSIDONIA 8",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA BORGO SAN GIACOMO 50",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA TIROLO 12",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA MIRANESE 502",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA GIUSEPPE CABURLOTTO 4",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA DEL PARROCO 4",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA NETTUNIA 2",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA SATURNIA 12",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA RISORGIMENTO 1",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA VILLABONA 6",
+    "city": "Venezia",
+    "state": "Veneto",
+    "zipCode": "30100"
+  },
+  {
+    "address": "VIA BELICE 31",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA PALERMO 761",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA GIUSEPPE PITRE' 9",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA LETTERIO LIZIO BRUNO 1",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "CONTRADA BUMMACARO 2",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA LIONARDO VIGO 1",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA DEGLI OLMI 8",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "PIAZZA MERCATO MONTE PO 1",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "CONTRADA TORREMUZZA 12",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA CIANE 4",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "CONTRADA CASTELLANA 25",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "STRADA CARDINALE 3",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA VIZZINI 19",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "CONTRADA SORDO 3",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA MAZARO' 40",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA MEZZO CAMPO 456",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "LARGO SERAFINO AMABILE GUASTELLA 3",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "CONTRADA CARDINALE 3",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA SALVATORE RACCUGLIA 171",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA DON ORESTE BENZI 7",
+    "city": "Catania",
+    "state": "Sicilia",
+    "zipCode": "95100"
+  },
+  {
+    "address": "VIA CELLETTA 23",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VICOLO MANGAGNINA 21",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA DEI MUGNAI 13",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA VIOLONE 151",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA PETROSA 565",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA RAVEGNANA 895",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VICOLO IL BASTIONE 7",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA DEI FALEGNAMI 2",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA ALTURIE 30",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "STRADA DEI MACERI 7",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA FIORA 22",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA GIUSEPPE ALIETTI 14",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA CANALE MOLINO 20",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA ROMANELLO INFERIORE 6",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA DEGLI ANGELI 209",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA CHIESA DI DURAZZANO 3",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "CARRAIA MARTINELLA 3",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA TRENTULA 25",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA SIRIO PIRINI 8",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "STRADA COMUNALE NUOVA 63",
+    "city": "Ravenna",
+    "state": "Emilia-Romagna",
+    "zipCode": "48100"
+  },
+  {
+    "address": "VIA PIETRO PELOTTI 6",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA NUOVA BAZZANESE 8",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA RAFFAELLO SANZIO 8",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA NICCOLO' COPERNICO 2",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA ENRICO FERMI 3",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA ROSSANO MARCHIONI 5",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA AMBROGIO E PIETRO LORENZETTI 17",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA DEL BECCACCINO 25",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA NULLO BALDINI 9",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA MARCO EMILIO LEPIDO 242",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA PIETRO NENNI 13",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA ARTURO COLOMBI 3",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA DI SESTO 8",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA GIOVANNI DOMENICO CASSINI 3",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA RINALDO RIGOLA 19",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA DELLA BARCA 36",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA ALBERT EINSTEIN 6",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA TORRIANE 14",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA PIO PANFILI 19",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
+  },
+  {
+    "address": "VIA CADUTI DI CASTELDEBOLE 83",
+    "city": "Bologna",
+    "state": "Emilia-Romagna",
+    "zipCode": "40100"
   }
 ]
