@@ -47,10 +47,12 @@ const DEFAULT_SETTINGS = {
     openaiModel: 'gpt-3.5-turbo',
     aiPersona: '',
     passwordLength: 12,
+    passwordMode: 'custom',
     pwdUppercase: true,
     pwdLowercase: true,
     pwdNumbers: true,
     pwdSymbols: true,
+    pwdNoAmbiguous: false,
     minAge: 18,
     maxAge: 55,
     autoClearData: false

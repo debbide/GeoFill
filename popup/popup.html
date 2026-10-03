@@ -233,8 +233,19 @@
         <div class="settings-section">
           <h3>🔐 密码生成</h3>
           <div class="setting-row">
-            <label for="passwordLength">长度</label>
-            <input type="number" id="passwordLength" min="8" max="32" value="12">
+            <label>模式</label>
+            <div class="segmented" id="passwordModeGroup">
+              <button type="button" data-pwd-mode="simple">简单</button>
+              <button type="button" data-pwd-mode="standard">标准</button>
+              <button type="button" data-pwd-mode="strong">高强度</button>
+              <button type="button" data-pwd-mode="custom">自定义</button>
+            </div>
+            <input type="hidden" id="passwordMode" value="custom">
+          </div>
+          <div class="setting-row">
+            <label for="passwordLengthRange">长度</label>
+            <input type="range" id="passwordLengthRange" min="8" max="32" value="12" style="flex: 1;">
+            <input type="number" id="passwordLength" min="8" max="32" value="12" style="width: 64px;">
           </div>
           <div class="setting-row">
             <label>复杂度</label>
@@ -243,6 +254,15 @@
               <label><input type="checkbox" id="pwdLowercase" checked> 小写</label>
               <label><input type="checkbox" id="pwdNumbers" checked> 数字</label>
               <label><input type="checkbox" id="pwdSymbols" checked> 符号</label>
+              <label><input type="checkbox" id="pwdNoAmbiguous"> 排除易混淆（0O1l）</label>
+            </div>
+          </div>
+          <div class="setting-row">
+            <label>预览</label>
+            <div class="pwd-preview">
+              <code id="passwordPreview"></code>
+              <span id="passwordEntropy"></span>
+              <button type="button" id="passwordPreviewRefresh" class="btn-small">换一个</button>
             </div>
           </div>
         </div>

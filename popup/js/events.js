@@ -409,7 +409,7 @@ function bindSettingsEvents() {
     const settingInputs = [
         'enableAI', 'openaiBaseUrl', 'openaiKey', 'openaiModel', 'aiPersona',
         'passwordLength', 'pwdUppercase', 'pwdLowercase', 'pwdNumbers', 'pwdSymbols',
-        'minAge', 'maxAge', 'autoClearData'
+        'pwdNoAmbiguous', 'minAge', 'maxAge', 'autoClearData'
     ];
     settingInputs.forEach(id => {
         const el = document.getElementById(id);
@@ -417,6 +417,63 @@ function bindSettingsEvents() {
             el.addEventListener('change', saveSettings);
         }
     });
+
+    // 密码模式：预设一键套用，手改复杂度/长度自动跳「自定义」
+    const PWD_PRESETS_UI = {
+        simple: { length: 10, uppercase: false, lowercase: true, numbers: true, symbols: false },
+        standard: { length: 12, uppercase: true, lowercase: true, numbers: true, symbols: false },
+        strong: { length: 16, uppercase: true, lowercase: true, numbers: true, symbols: true }
+    };
+    const setPasswordMode = (mode) => {
+        if (elements.passwordMode) elements.passwordMode.value = mode;
+        syncPasswordModeButtons();
+    };
+    document.querySelectorAll('#passwordModeGroup [data-pwd-mode]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const mode = btn.dataset.pwdMode;
+            setPasswordMode(mode);
+            const preset = PWD_PRESETS_UI[mode];
+            if (preset) {
+                if (elements.passwordLength) elements.passwordLength.value = preset.length;
+                if (elements.passwordLengthRange) elements.passwordLengthRange.value = preset.length;
+                if (elements.pwdUppercase) elements.pwdUppercase.checked = preset.uppercase;
+                if (elements.pwdLowercase) elements.pwdLowercase.checked = preset.lowercase;
+                if (elements.pwdNumbers) elements.pwdNumbers.checked = preset.numbers;
+                if (elements.pwdSymbols) elements.pwdSymbols.checked = preset.symbols;
+            }
+            refreshPasswordPreview();
+            saveSettings();
+        });
+    });
+    const flipToCustom = () => {
+        if (elements.passwordMode && elements.passwordMode.value !== 'custom') {
+            setPasswordMode('custom');
+        }
+        refreshPasswordPreview();
+    };
+    ['pwdUppercase', 'pwdLowercase', 'pwdNumbers', 'pwdSymbols'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('change', flipToCustom);
+    });
+    if (elements.pwdNoAmbiguous) {
+        elements.pwdNoAmbiguous.addEventListener('change', refreshPasswordPreview);
+    }
+    if (elements.passwordLengthRange && elements.passwordLength) {
+        elements.passwordLengthRange.addEventListener('input', () => {
+            elements.passwordLength.value = elements.passwordLengthRange.value;
+        });
+        elements.passwordLengthRange.addEventListener('change', () => {
+            flipToCustom();
+            saveSettings();
+        });
+        elements.passwordLength.addEventListener('input', () => {
+            elements.passwordLengthRange.value = elements.passwordLength.value;
+        });
+        elements.passwordLength.addEventListener('change', flipToCustom);
+    }
+    if (elements.passwordPreviewRefresh) {
+        elements.passwordPreviewRefresh.addEventListener('click', refreshPasswordPreview);
+    }
 
     // Geoapify API Key
     if (elements.geoapifyKey) {

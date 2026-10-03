@@ -2674,20 +2674,47 @@ function regenerateField(fieldName, currentData, ipData) {
 // 导出函数供 popup.js 使用
 if (typeof window !== 'undefined') {
   // 扩展密码生成函数（支持自定义设置）
+  // 密码预设模式；custom 时完全采用用户勾选的复杂度与长度
+  const PASSWORD_PRESETS = {
+    simple: { passwordLength: 10, pwdUppercase: false, pwdLowercase: true, pwdNumbers: true, pwdSymbols: false },
+    standard: { passwordLength: 12, pwdUppercase: true, pwdLowercase: true, pwdNumbers: true, pwdSymbols: false },
+    strong: { passwordLength: 16, pwdUppercase: true, pwdLowercase: true, pwdNumbers: true, pwdSymbols: true }
+  };
+
+  function resolvePasswordConfig(settings = {}) {
+    const preset = PASSWORD_PRESETS[settings.passwordMode];
+    const base = preset || settings;
+    return {
+      length: base.passwordLength || 12,
+      uppercase: base.pwdUppercase !== false,
+      lowercase: base.pwdLowercase !== false,
+      numbers: base.pwdNumbers !== false,
+      symbols: base.pwdSymbols !== false,
+      noAmbiguous: settings.pwdNoAmbiguous === true
+    };
+  }
+
   function generatePasswordWithSettings(settings = {}) {
-    const length = settings.passwordLength || 12;
-    const useUppercase = settings.pwdUppercase !== false;
-    const useLowercase = settings.pwdLowercase !== false;
-    const useNumbers = settings.pwdNumbers !== false;
-    const useSymbols = settings.pwdSymbols !== false;
+    const cfg = resolvePasswordConfig(settings);
+    const charSets = {
+      uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      lowercase: 'abcdefghijklmnopqrstuvwxyz',
+      numbers: '0123456789',
+      symbols: '!@#$%^&*'
+    };
+    if (cfg.noAmbiguous) {
+      charSets.uppercase = charSets.uppercase.replace(/[OI]/g, '');
+      charSets.lowercase = charSets.lowercase.replace(/l/g, '');
+      charSets.numbers = charSets.numbers.replace(/[01]/g, '');
+    }
     let chars = '';
     let password = '';
-    if (useUppercase) { chars += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; password += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'[Math.floor(Math.random() * 26)]; }
-    if (useLowercase) { chars += 'abcdefghijklmnopqrstuvwxyz'; password += 'abcdefghijklmnopqrstuvwxyz'[Math.floor(Math.random() * 26)]; }
-    if (useNumbers) { chars += '0123456789'; password += '0123456789'[Math.floor(Math.random() * 10)]; }
-    if (useSymbols) { chars += '!@#$%^&*'; password += '!@#$%^&*'[Math.floor(Math.random() * 8)]; }
-    if (!chars) { chars = 'abcdefghijklmnopqrstuvwxyz'; password = 'a'; }
-    for (let i = password.length; i < length; i++) { password += chars[Math.floor(Math.random() * chars.length)]; }
+    if (cfg.uppercase) { chars += charSets.uppercase; password += charSets.uppercase[Math.floor(Math.random() * charSets.uppercase.length)]; }
+    if (cfg.lowercase) { chars += charSets.lowercase; password += charSets.lowercase[Math.floor(Math.random() * charSets.lowercase.length)]; }
+    if (cfg.numbers) { chars += charSets.numbers; password += charSets.numbers[Math.floor(Math.random() * charSets.numbers.length)]; }
+    if (cfg.symbols) { chars += charSets.symbols; password += charSets.symbols[Math.floor(Math.random() * charSets.symbols.length)]; }
+    if (!chars) { chars = charSets.lowercase; password = 'a'; }
+    for (let i = password.length; i < cfg.length; i++) { password += chars[Math.floor(Math.random() * chars.length)]; }
     return password.split('').sort(() => Math.random() - 0.5).join('');
   }
 
@@ -2746,6 +2773,7 @@ if (typeof window !== 'undefined') {
     generateEmail: generateEmail,
     generatePassword: generatePassword,
     generatePasswordWithSettings: generatePasswordWithSettings,
+    resolvePasswordConfig: resolvePasswordConfig,
     generatePhone: generatePhone,
     generateAddress: generateAddress,
     generateZipCode: generateZipCode,

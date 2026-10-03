@@ -1081,3 +1081,21 @@ body.light-theme .fill-report-locate {
 body.light-theme .fill-report-locate:hover {
   background: rgba(0, 0, 0, 0.1);
 }
+
+/* 密码模式分段钮与预览 */
+.segmented { display: flex; gap: 4px; flex-wrap: wrap; }
+.segmented button {
+  flex: 1; padding: 4px 8px; font-size: 12px; cursor: pointer;
+  border: 1px solid var(--border-color, #ccc); background: transparent;
+  border-radius: 6px; color: inherit; white-space: nowrap;
+}
+.segmented button.active {
+  background: var(--primary-color, #4a90d9); color: #fff; border-color: transparent;
+}
+.pwd-preview { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.pwd-preview code {
+  font-family: ui-monospace, monospace; font-size: 13px;
+  background: rgba(127, 127, 127, 0.12); padding: 3px 8px; border-radius: 6px;
+  word-break: break-all;
+}
+.pwd-preview span { font-size: 12px; opacity: 0.75; }

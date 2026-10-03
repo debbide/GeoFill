@@ -124,6 +124,11 @@ function updateSettingsUI() {
     if (elements.pwdLowercase) elements.pwdLowercase.checked = userSettings.pwdLowercase;
     if (elements.pwdNumbers) elements.pwdNumbers.checked = userSettings.pwdNumbers;
     if (elements.pwdSymbols) elements.pwdSymbols.checked = userSettings.pwdSymbols;
+    if (elements.pwdNoAmbiguous) elements.pwdNoAmbiguous.checked = userSettings.pwdNoAmbiguous === true;
+    if (elements.passwordMode) elements.passwordMode.value = userSettings.passwordMode || 'custom';
+    if (elements.passwordLengthRange) elements.passwordLengthRange.value = userSettings.passwordLength;
+    syncPasswordModeButtons();
+    refreshPasswordPreview();
     if (elements.minAge) elements.minAge.value = userSettings.minAge;
     if (elements.maxAge) elements.maxAge.value = userSettings.maxAge;
     if (elements.autoClearData) elements.autoClearData.checked = userSettings.autoClearData;
@@ -306,5 +311,46 @@ async function initTheme() {
         applyTheme(theme);
     } catch (e) {
         log.info('初始化主题失败:', e);
+    }
+}
+
+/**
+ * 高亮当前密码模式按钮
+ */
+function syncPasswordModeButtons() {
+    const mode = elements.passwordMode?.value || 'custom';
+    document.querySelectorAll('#passwordModeGroup [data-pwd-mode]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.pwdMode === mode);
+    });
+}
+
+/**
+ * 刷新密码预览（示例密码 + 熵估算）
+ */
+function refreshPasswordPreview() {
+    if (!elements.passwordPreview) return;
+    const gen = window.generators;
+    if (!gen || typeof gen.generatePasswordWithSettings !== 'function') return;
+    const settings = {
+        passwordMode: elements.passwordMode?.value || 'custom',
+        passwordLength: parseInt(elements.passwordLength?.value, 10) || 12,
+        pwdUppercase: elements.pwdUppercase?.checked ?? true,
+        pwdLowercase: elements.pwdLowercase?.checked ?? true,
+        pwdNumbers: elements.pwdNumbers?.checked ?? true,
+        pwdSymbols: elements.pwdSymbols?.checked ?? true,
+        pwdNoAmbiguous: elements.pwdNoAmbiguous?.checked ?? false
+    };
+    elements.passwordPreview.textContent = gen.generatePasswordWithSettings(settings);
+    if (elements.passwordEntropy && typeof gen.resolvePasswordConfig === 'function') {
+        const cfg = gen.resolvePasswordConfig(settings);
+        const sets = { uppercase: 26, lowercase: 26, numbers: 10, symbols: 8 };
+        if (cfg.noAmbiguous) { sets.uppercase -= 2; sets.lowercase -= 1; sets.numbers -= 2; }
+        let pool = 0;
+        if (cfg.uppercase) pool += sets.uppercase;
+        if (cfg.lowercase) pool += sets.lowercase;
+        if (cfg.numbers) pool += sets.numbers;
+        if (cfg.symbols) pool += sets.symbols;
+        const bits = pool > 0 ? Math.round(cfg.length * Math.log2(pool)) : 0;
+        elements.passwordEntropy.textContent = `约 ${bits} 位熵`;
     }
 }
