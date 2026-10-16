@@ -9,7 +9,6 @@ on:
       tag:
         description: 'release 的 tag（例如 v1.9.0），版本号以此为准，会自动写回 manifest.json'
         required: true
-        default: ''
 
 permissions:
   contents: write
