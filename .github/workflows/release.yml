@@ -69,4 +69,4 @@ jobs:
           files: GeoFill-v${{ steps.version.outputs.version }}.zip
           generate_release_notes: true
         env:
-GITHUB_TOKEN: <redacted>
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
