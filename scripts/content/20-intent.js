@@ -427,6 +427,13 @@ function classifyFieldIntent(element) {
     const autocomplete = compactIntentText(element.autocomplete || '');
     const signature = getElementSignature(element);
     const intentWords = getElementIntentWords(element);
+
+    // 查询/搜索框（如地址 postcode 搜索）是查询入口，不是待填数据字段，直接跳过。
+    // 典型特征：id/class/name 含 "search"，或位于 .autocomplete 容器内。
+    if (tag === 'input' && (hasAnyIntent(signature, ['search']) || element.closest?.('.autocomplete'))) {
+        return '';
+    }
+
     const hasBirthContext = hasBirthdayIntent(signature, intentWords);
     const isEmail = hasEmailIntent(signature, intentWords, type, autocomplete);
     const isUsername = hasUsernameIntent(signature, intentWords, autocomplete, isEmail);
